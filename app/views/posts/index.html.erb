@@ -1,0 +1,34 @@
+<div class="header_admin">
+  <h1>【管理者用】新規投稿一覧</h1>
+  <p>既投稿の一覧です。投稿を削除する場合は「詳細へ」をクリックの上、詳細画面より削除ください。</p>
+</div>
+<% if @posts.any? %>
+<% @posts.each do |post| %>
+<div class="claim_sub col-xs-12 col-md-8 offset-md-2">
+  <div class="claim_table">
+    <table class="table table-bordered">
+      <tr class="table-secondary">
+        <th class="users_th text-center">タイトル</th>
+        <th class="users_th text-center">投稿日時</th>
+        <th class="users_th text-center">詳細へ</th>
+      </tr>
+      <tr>
+        <th class="users_th text-center"><%= post.title%></th>
+        <th class="users_th text-center"><%= post.created_at.to_s(:datetime_jp) %></th>
+        <th class="users_th text-center"><%= link_to "詳細・削除へ", post_path(post.id) %></th>
+      </tr>
+    </table>
+  </div>
+</div>
+<% end %>
+<% else %>
+  <p class="data_nill">投稿はありません。</p>
+<% end %>
+  
+  <div class="pagination  justify-content-center">
+    <%= paginate @posts %>
+  </div>
+    <div class="main_btn">
+      <%= link_to '戻る',root_path,class: "return_btn" %>
+      <%= link_to '新規投稿',new_post_path,class: "next_btn" %>
+   </div>

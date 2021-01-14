@@ -1,0 +1,7 @@
+{
+  "name": "insurance",
+  "private": true,
+  "dependencies": {
+    "animate.css": "^4.1.1"
+  }
+}

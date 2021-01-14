@@ -1,0 +1,28 @@
+<div class="header">
+  <h1>登録内容の変更</h1>
+  <p>ご登録済みの契約について登録内容の修正をします。<br>お手持ちの保険証書をもとに以下をご入力ください。</p>
+</div>
+
+<div class="main col-xs-12 col-md-8 offset-md-2">
+  <div class="form">
+    <%= form_with(model: @contract, local: true, url: {action: :edit_confirm}) do |f| %>
+    <%= render 'layouts/error_messages', model: f.object %>
+      
+      <div class="form-group">
+        <%= f.label :contract_name, '-契約名-' %>
+        <%= f.text_field :contract_name, class: 'form-control',placeholder: "契約名" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :policy_number, '-保険証書番号-' %>
+        <%= f.number_field :policy_number, class: 'form-control',placeholder: "保険証書番号" %>
+      </div>
+    
+    <div class="main_btn">
+      <%= link_to '戻る',contracts_path(current_user.id),class: "return_btn" %>
+      <%= f.submit '次へ', class: 'next_btn' %>
+      <% end %>
+    </div>
+    
+ </div>
+</div>

@@ -1,0 +1,38 @@
+<div class="header">
+  <h1>内容確認</h1>
+  <p>以下のご契約者情報にて新規登録を行います。<br>入力内容をご確認ください。</p>
+</div>
+<div class="main col-xs-12 col-md-8 offset-md-2">
+  <div class="form">
+    <%= form_with(model: @user, local: true) do |f| %>
+
+      <div class="form-group">
+        <%= f.label :contractor_name, '-契約者氏名-' %>
+        <%= f.text_field :contractor_name,class: 'form-control',:readonly => true %>
+        <%= f.hidden_field :contractor_name %>
+      </div>
+    
+      <div class="form-group">
+        <%= f.label :email, '-メール-' %>
+        <%= f.email_field :email, class: 'form-control',:readonly => true %>
+      </div>
+      
+      <div class="form-group">
+        <%= f.label :address, '-住所-' %>
+        <%= f.text_field :address, class: 'form-control',:readonly => true %>
+      </div>
+    
+      <div class="form-group">
+        <%= f.label :password, '-パスワード-' %>
+        <%= f.text_field :password, class: 'form-control',:readonly => true %>
+      </div>
+      
+  </div>
+  <div class="main_btn">
+        <%= f.submit "戻る", name: :back, class: "return_btn" %>
+        <%= f.submit '新規登録',class: 'next_btn' %>
+   </div>
+   <% end %>
+   
+</div>
+

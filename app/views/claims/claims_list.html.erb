@@ -1,0 +1,33 @@
+<div class="header_admin">
+  <h1>【管理者用】給付金請求一覧</h1>
+  <p>契約者からの請求データ一覧です。順次、支払審査を行ってください。</p>
+</div>
+<% @claims.each do |claim| %>
+  <div class="claim_sub col-xs-12 col-md-8 offset-md-2">
+    <div class="claim_table">
+      <table class="table table-bordered">
+        <tr class="table-primary">
+          <th class="users_th text-center">請求No.</th>
+          <th class="users_th text-center">請求日</th>
+          <th class="users_th text-center">患者名</th>
+          <th class="users_th text-center">入院日</th>
+          <th class="users_th text-center">詳細へ</th>
+        </tr>
+        <tr>
+          <th class="users_th text-center"><%= claim.id %></th>
+          <th class="users_th text-center"><%= claim.created_at.to_s(:datetime_jp) %></th>
+        　<th class="users_th text-center"><%= claim.patient %></th>
+        　<th class="users_th text-center"><%= claim.hospital_stay %></th>
+        　<th class="users_th text-center"><%= link_to "詳細へ","/claims_list/#{claim.id}" %></th>
+        </tr>
+      </table>
+    </div>
+  </div>
+ <% end %>
+<div class="pagination  justify-content-center">
+  <%= paginate @claims %>
+</div>
+<div class="main_btn">
+   <%= link_to "戻る", "/",class: "return_btn"  %>
+   <%= link_to "CSV出力",claims_list_path(format: :csv),class: "next_btn"  %>
+</div>

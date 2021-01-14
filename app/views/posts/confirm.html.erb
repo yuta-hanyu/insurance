@@ -1,0 +1,30 @@
+<div class="header_admin">
+  <h1>【管理者用】新規投稿内容確認・画像のアップロード</h1>
+  <p>以下の内容で新規投稿を行います。<br>画像をアップロードしてください。</p>
+</div>
+<div class="main col-xs-12 col-md-8 offset-md-2">
+  <div class="form">
+      <%= form_with(model: @post, local: true) do |f| %>
+      <%= render 'layouts/error_messages', model: f.object %>
+      
+      <div class="form-group">
+        <%= f.label :title, '-タイトル-' %>
+        <%= f.text_field :title, class: 'form-control',placeholder: "タイトル",:readonly => true %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :content, '-投稿内容-' %>
+        <%= f.text_area :content, class: 'form-control',placeholder: "投稿内容",:readonly => true %>
+      </div>
+      
+      <div class="form-group">
+        <%= f.label :image, '画像' %>
+        <%= f.file_field :image, class: 'form-control' %>
+      </div>
+      <div class="main_btn">
+        <%= f.submit "戻る", name: :back, class: "return_btn" %>
+        <%= f.submit '新規投稿',class: 'next_btn' %>
+        <% end %>
+      </div>
+  </div>
+</div>

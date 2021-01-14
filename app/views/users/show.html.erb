@@ -1,0 +1,104 @@
+<div class="header">
+  <h1>契約者情報</h1>
+</div>
+
+  <div class="claim_sub col-xs-12 col-md-8 offset-md-2" >
+    <div class="claim_card">
+      <div class="card">
+        <div class="card-header">
+          <p>ご契約者情報</p>
+        </div>
+        <div class="card-body">
+          <ul>
+           <li>契約者名：<%= @user.contractor_name %></li>
+           <li>メールアドレス：<%= @user.email %></li>
+           <li>ご住所：<%= @user.address %></li>
+          </ul>
+        </div>  
+      </div>
+    </div>
+  </div>
+  <div class="main_btn">
+    <%= link_to '変更',edit_user_path ,class: "change_btn" %>
+    <%= link_to '退会',"/users/delete/confirm/current_user.id",class: "delete_btn" %>      
+  </div>
+
+  <div class="header">
+    <h1>ご登録済みの契約</h1>
+  </div>
+<div>
+    <% if @contracts.any? %>
+      <% @contracts.each do |contract| %>
+      <div class="claim_sub col-xs-12 col-md-8 offset-md-2" >
+        <div class="claim_card">
+          <div class="card">
+            <div class="card-header">
+              <p>契約名：<%= contract.contract_name %></p>
+            </div>
+            <div class="card-body">
+              <p>保険証書番号：<%= contract.policy_number %></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <% end %> 
+    <% else %>
+      <p class="data_nill">ご加入契約の登録はございません。</p>
+    <% end %>
+      <div class="pagination  justify-content-center">
+        <%= paginate @contracts %>
+      </div>
+    <div class="main_btn"> 
+      <%= link_to "変更・削除", contracts_path(current_user.id),class: "change_btn" %>
+</div>
+    </div>
+
+  <div class="header">
+    <h1>ご請求履歴</h1>
+  </div>
+  
+  <% if @claims.any? %>
+  <% @claims.each do |claim| %>
+  <div class="claim_sub col-xs-12 col-md-8 offset-md-2">
+    <div class="claim_table">
+      <div class="aaa">
+          <table class="table table-bordered">
+            <tr class="table-primary">
+              <th class="users_th text-center">項目</th>
+              <th class="users_th text-center">請求内容</th>
+            </tr>
+            <tr>
+              <th class="users_th text-center">請求No.</th>
+              <th class="users_th text-center"><%= claim.id %></th>
+            </tr>
+            <tr>
+              <th class="users_th text-center">傷病名</th>
+              <th class="users_th text-center"><%= claim.illness %></th>
+            </tr>
+            <tr>
+              <th class="users_th text-center">入院日</th>
+              <th class="users_th text-center"><%= claim.hospital_stay %></th>
+            </tr>
+          </table>
+          </div>
+    </div>
+  </div>
+  <div class="main_btn">
+    <%= link_to"詳細へ",claim_path(claim),class: "show_btn" %></span>
+  </div>
+  <% end %>
+  <% else %>
+    <p class="data_nill">ご請求はございません。</p>
+  <% end %>
+  <div class="pagination  justify-content-center">
+    <%= paginate @claims %>
+  </div>
+  <div class="main_btn">
+    <%= link_to "請求へ", new_claim_path,class: "next_btn" %>
+  </div>
+  <div class="main_btn">
+    <%= link_to '戻る',root_path ,class: "return_btn" %>
+  </div>
+
+
+

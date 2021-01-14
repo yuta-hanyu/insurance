@@ -1,0 +1,41 @@
+// Place all the styles related to the contracts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.contract_main {
+    padding:10px;
+}
+.contract_nill {
+    color:red;
+    padding-top:20px;
+    text-align:center
+}
+.card-header { 
+    border:solid 2px black;
+    text-align:center;
+    vertical-align: middle;
+    font-size:25px;
+    font-weight:bold;
+    background-color:#ffffcc;
+}
+.card-header p {
+    margin-bottom:0;
+}
+.card-body {
+    border:solid 2px black;
+}
+.card-body p {
+    margin-bottom:5px;
+}
+.contract_btn {
+    text-align:center;
+}
+.contract_btn {
+    .btn {
+    marign-top:0; 
+    width:140px;
+    }
+}
+.contract_sub {
+    margin:20px 0;
+  
+}

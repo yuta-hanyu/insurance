@@ -1,0 +1,49 @@
+<div class="header">
+  <h1>商品の詳細</h1>
+</div>
+<div class="col-xs-12 col-md-8 offset-md-2">
+    <div class="like_title"><%= @post.title %></div>
+        <table class="table table-bordered table-sm table-success ">
+          <tr>
+            <div class="row">
+              <th  class="text-center align-middle"><%= @post.content %></th>
+              <td class="text-center align-middle"><%= image_tag @post.image.to_s, :size =>'300x300' %></td>
+            </div>
+          </tr>
+        </table>
+    </div>
+</div>
+<div class="fas_text">
+  <i class="fas fa-phone"></i>
+  資料請求、ご相談（無料）はxxx-xxx-xxxまで！
+</div>
+<div class="main_btn">
+  <div class="row">
+    
+  <% if current_user.present? %>
+    <div class="col-xs-12 offset-md-3 col-md-3">
+      <%= link_to '戻る',root_path,class: "return_btn" %>
+    </div>
+    
+    <div class="col-xs-12 col-md-3">
+      <% if current_user.present? %>
+           <% if current_user.likeing?(@post) %>
+            <%= form_with(model: current_user.likes.find_by(post_id: @post.id), local: true, method: :delete) do |f| %>
+              <%= hidden_field_tag :post_id ,@post.id %>
+              <%= f.submit 'お気に入りを解除',class: "unlike_btn"%>
+           <% end %>
+          <% else %>
+            <%= form_with(model: current_user.likes.build, local: true) do |f| %>
+              <%= hidden_field_tag :post_id, @post.id %>
+              <%= f.submit 'お気に入り登録',class: "like_btn" %>
+            <% end %>
+            <% end %>
+          <% end %>
+      <% else %>
+        <div class="top_show_btn">
+         <%= link_to '戻る',root_path,class: "return_btn" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

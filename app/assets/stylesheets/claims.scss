@@ -1,0 +1,23 @@
+// Place all the styles related to the claims controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.claim_card {
+    padding:10px;
+}
+.complete {
+  margin:20px 80px;
+}
+@media (max-width:670px) {
+    .complete p {
+        font-size:10px;
+    }
+}
+.table {
+border-width: 5px;  
+}
+.claim_table {
+  margin-top:20px;
+}
+.pagination {
+  padding-top:20px;
+}

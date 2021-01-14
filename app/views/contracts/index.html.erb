@@ -1,0 +1,35 @@
+<div class="header">
+  <h1>ご登録済みの契約一覧</h1>
+  <p>ご加入契約を新規で登録する場合は下記の「新規登録」より契約をご登録ください。</p>
+</div>
+
+<div class="contract_main col-xs-12 col-md-8 offset-md-2">
+  <% if @contracts.any? %>
+    <% @contracts.each do |contract| %>
+    <div class="contract_sub" >
+        <div class="card">
+          <div class="card-header">
+            <p>契約名：<%= contract.contract_name %></p>
+          </div>
+          <div class="card-body">
+            <p>契約者名：<%= contract.user.contractor_name %></p>
+            <p>保険証書番号：<%= contract.policy_number %></p>
+            <div class="contract_btn">
+              <span><%= link_to "変更", "/contracts/#{contract.id}/edit",class: "change_btn"  %></span>
+              <span><%= link_to "削除","/contracts/delete/confirm/#{contract.id}",class: "delete_btn" %></span>
+            </div>
+            </div>
+        </div>
+      </div>
+    <% end %>
+  <% else %>
+    <p class="contract_nill">ご加入契約の登録がありません。<br>契約の新規登録を行ってください。</p>
+<% end %>
+  <div class="pagination  justify-content-center">
+    <%= paginate @contracts %>
+  </div>
+  <div class="main_btn">
+    <%= link_to '戻る',root_path ,class: "return_btn" %>
+    <%= link_to '新規登録',new_contract_path(current_user.id) ,class: "next_btn" %>
+  </div>
+</div>

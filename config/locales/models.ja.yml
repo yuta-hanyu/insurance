@@ -1,0 +1,48 @@
+ja:
+  activerecord:
+    models:
+      user: 利用者
+      contract: 契約
+      post: 投稿
+      like: お気に入り
+      claim: 請求
+    # modelごとの定義
+    attributes:
+        user:
+          id: ID
+          contractor_name: 契約者名
+          email: メールアドレス
+          address: 住所
+          password_digest: パスワード
+          admin: 管理者
+          postcode: 住所自動登録
+        contract:
+          id: ID
+          users_id: 契約者ID
+          contract_name: 契約名
+          policy_number: 保険証書番号
+        post:
+          id: ID
+          user_id: 管理者ID
+          title: タイトル
+          content: 投稿内容
+          image: 画像
+        like:
+          id: ID
+          user_id: 契約者ID
+          post_id: 管理者ID
+        claim:
+          id: ID
+          user_id: 個人利用者ID
+          patient: 患者名（被保険者）
+          policy_number: 保険証書番号
+          illness: 傷病名
+          hospital_stay: 入院日
+          account_number: 振込口座
+          receipt_img: 領収書
+          destination: 支払通知書送付先
+          discharge: 退院日
+  # 共通
+  attributes:
+    created_at: 作成日
+    updated_at: 更新日

@@ -1,0 +1,29 @@
+<div class="header_admin">
+  <h1>【管理者用】管理者情報の変更内容の確認</h1>
+  <p>以下の内容で登録内容を変更します。</p>
+</div>
+<div class="main col-xs-12 col-md-8 offset-md-2">
+  <div class="form">
+  <%= form_with(model: @admin, local: true,url: { action: :update} ) do |f| %>
+
+  <div class="form-group">
+    <%= f.label :contractor_name, '-担当者名-' %>
+    <%= f.text_field :contractor_name,class: 'form-control',placeholder: "担当者名",:readonly => true %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :email, '-メール-' %>
+    <%= f.email_field :email, class: 'form-control',placeholder: "メール",:readonly => true %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :password, '-パスワード-' %>
+    <%= f.text_field :password, class: 'form-control',placeholder: "パスワード",:readonly => true %>
+  </div>
+  <div class="main_btn">
+    <%= link_to '戻る',edit_admin_info_path, class: "return_btn" %>
+    <%= f.submit '変更',class: 'next_btn' %>
+    <% end %>
+  </div>
+  </div>
+</div>

@@ -1,0 +1,22 @@
+<div class="header">
+  <h1>登録契約の削除</h1>
+  <p>以下のご契約の登録を削除します。</p>
+
+  <div class="contract_main col-xs-12 col-md-8 offset-md-2">
+    <div class="contract_sub" >
+      <div class="card">
+        <div class="card-header">
+          <p>契約名：<%= @contract.contract_name %></p>
+        </div>
+        <div class="card-body">
+          <p>保険証書番号：<%= @contract.policy_number %></p>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+
+<div class="contract_btn">
+  <%= link_to '戻る',contracts_path, class: "return_btn" %>
+  <%= link_to "削除","/contracts/#{@contract.id}", class: "delete_btn",method: :delete %>
+</div>

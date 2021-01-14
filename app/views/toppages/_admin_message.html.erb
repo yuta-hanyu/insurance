@@ -1,0 +1,79 @@
+<!--機能紹介-->
+<div class="message-wrapper">
+  <div class="message_container">
+    <div class="heading">
+      <h2><i class="fas fa-pencil-alt fa_color_head"></i>管理者画面で行えること<i class="fas fa-pencil-alt fa_color_head"></i></h2>
+    </div>
+    <div class="row">
+      
+      <div class="col-md-4">
+        <div class="message message-hover">
+          <div class="message-icon-a">
+            <div class="message-contents"><i class="fas fa-mouse-pointer fa-lg"></i> 商品投稿</div>
+          </div>
+          <div class="txt-contents">
+            <p>保険商品に関する投稿を行なうことができます。<br>投稿情報はユーザーのトップページへ表示され、商品PRを行なうことができます。</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-md-4">
+        <div class="message message-hover">
+          <div class="message-icon-b">
+            <div class="message-contents"><i class="fas fa-mouse-pointer fa-lg"></i> 請求確認</div>
+          </div>
+          <div class="txt-contents">
+            <p>各ユーザーからの給付金請求情報を全て閲覧することができます。<br>また、適宜、請求情報を削除することができます。</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-md-4">
+        <div class="message message-hover">
+          <div class="message-icon-c">
+            <div class="message-contents"><i class="fas fa-mouse-pointer fa-lg"></i> CSV出力</div>
+          </div>
+          <div class="txt-contents">
+            <p>給付金請求情報一覧をCSV出力することができます。</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!--商品紹介-->
+<div class="likes-wrapper">
+  <div class="likes_container">
+    <div class="heading">
+      <h2><i class="far fa-file-word fa_color_head"></i> 投稿記事一覧 <i class="far fa-file-word fa_color_head"></i></h2>
+    </div>
+      <div class="likes">
+      <% @posts.each do |post| %>
+        <ul>
+          <div class="claim_table">
+            <table class="table_toppage table-bordered">
+              <tr>
+                 <th class="text-center"><%= post.title %></th>
+              </tr>
+              <tr>
+                 <th class="text-center"><%= image_tag post.image.to_s, :size =>'280x280', :style => "border-radius: 30%" %></th>
+              </tr>
+              <tr>
+                 <% if current_user.present? %>
+                 <th class="text-center"><%= link_to "詳細/お気に入り登録", toppage_path(post.id) %></th>
+                 <% else %>
+                 <th class="text-center"><%= link_to "詳細", toppage_path(post.id) %></th>
+                 <% end %>
+              </tr>
+            </table>
+          </div>
+        </ul>
+    　<% end %>
+    </div>
+  </div>
+</div>
+<div class="pagination  justify-content-center">
+  <%= paginate @posts %> 
+</div>

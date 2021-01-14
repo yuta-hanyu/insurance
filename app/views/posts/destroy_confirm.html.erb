@@ -1,0 +1,34 @@
+<div class="header_admin">
+  <h1>投稿の削除</h1>
+  <p>以下の投稿を削除します。</p>
+</div>
+<div class="main col-xs-12 col-md-8 offset-md-2">
+  <div class="claim_table">
+    <table class="table table-bordered">
+      <tr>
+        <th class="text-center align-middle table-secondary">タイトル</th>
+        <td class="text-center align-middle"><%= @post.title%></td>
+      </tr>
+      <tr>
+        <th class="text-center align-middle table-secondary">投稿者</th>
+        <td class="text-center align-middle"><%= @post.user.contractor_name %></td>
+      </tr>
+      <tr>
+        <th class="text-center align-middle table-secondary">投稿日時</th>
+        <td class="text-center align-middle"><%= @post.created_at.to_s(:datetime_jp) %></td>
+      </tr>
+      <tr>
+        <th class="text-center align-middle table-secondary">投稿内容</th>
+        <td class="text-center align-middle"><%= @post.content %></td>
+      </tr>
+      <tr>
+        <th class="text-center align-middle table-secondary">画像</th>
+        <td class="text-center align-middle"><%= image_tag @post.image.to_s, :size =>'280x280' %></td>
+      </tr>
+    </table>
+  </div>
+</div>
+<div class="main_btn">
+  <%= link_to '戻る',post_path, class: "return_btn" %>
+  <%= link_to "削除",post_path(@post), class: "delete_btn",method: :delete %>
+</div>

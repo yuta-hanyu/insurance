@@ -1,0 +1,84 @@
+<div class="header">
+  <h1>請求内容の確認・領収書のアップロード</h1>
+  <p>ご請求する入院期間等は以下でお間違いないでしょうか。<br>また、入院時に使用した領収書のアップロードをお願いします。</p>
+</div>
+
+<div class="claim_sub col-xs-12 col-md-8 offset-md-2" >
+  
+  <div class="claim_card">
+    <div class="card">
+      
+      <div class="card-header">
+        <p>患者様について</p>
+      </div>
+      
+      <div class="card-body">
+        <div class="main col-xs-12 col-md-8 offset-md-2">
+
+            <%= form_with(model: @claim, local: true) do |f| %>
+            <%= render 'layouts/error_messages', model: f.object %>
+            
+            <div class="form-group">
+              <%= f.label :patient, '-患者様名-' %>
+              <%= f.text_field :patient, class: 'form-control',:readonly => true %>
+            </div>
+      
+            <div class="form-group">
+              <%= f.label :illness, '-傷病名-' %>
+              <%= f.text_field :illness, class: 'form-control',:readonly => true %>
+            </div>
+      
+            <div class="form-group">
+              <%= f.label :hospital_stay, '-入院日-' %>
+              <%= f.date_select :hospital_stay, class: 'form-control',:readonly => true %>
+            </div>
+        
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="claim_card">
+    <div class="card">
+      
+      <div class="card-header">
+        <p>ご契約について</p>
+      </div>
+      
+      <div class="card-body">
+        <div class="main col-xs-12 col-md-8 offset-md-2">
+            
+          <div class="form-group">
+            <%= f.label :policy_number, '-保険証書番号-' %>
+            <%= f.number_field :policy_number, class: 'form-control',:readonly => true %>
+          </div>
+    
+          <div class="form-group">
+            <%= f.label :account_number, '-振込口座番号-' %>
+            <%= f.number_field :account_number, class: 'form-control',:readonly => true %>
+          </div>
+    
+          <div class="form-group">
+            <%= f.label :destination, '-支払通知書送付住所-' %>
+            <%= f.text_field :destination, class: 'form-control',:readonly => true %>
+          </div>
+          
+          <div class="form-group">
+            <%= f.label :receipt_img, '-領収書等-' %>
+            <%= f.file_field :receipt_img, class: 'form-control' %>
+          </div>
+          
+          </div>  
+        </div>
+      </div>
+    </div>
+  </div>
+    
+
+</div>
+      
+<div class="main_btn">  
+  <%= f.submit "戻る", name: :back, class: "return_btn" %>    
+  <%= f.submit '請求する', class: 'next_btn' %>
+  <% end %>
+</div>
