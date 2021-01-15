@@ -1,7 +1,7 @@
 $(function() {
   
   // メイン画像
-  $('#main_visual').fadeIn(3000);
+  // $('#main_visual').fadeIn(3000);
   // 機能概要説明
   $('.message-hover').hover(
     function(){
