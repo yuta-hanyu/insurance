@@ -64,6 +64,6 @@ gem 'cloudinary'
 
 gem 'aws-sdk', '~> 2'
 gem "jquery-rails"
-gem 'rails_12factor', group: :production
+# gem 'rails_12factor', group: :production
 
 gem 'dotenv-rails'
