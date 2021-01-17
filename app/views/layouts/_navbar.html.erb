@@ -27,6 +27,7 @@
         <li class="nav-item"><%= link_to "ご契約一覧", contracts_path(current_user.id),class: "menu_color" %></li>
         <li class="nav-item"><%= link_to "請求のお手続き", new_claim_path(current_user.id),class: "menu_color" %></li>
         <li class="nav-item"><%= link_to "お気に入り", likes_path,class: "menu_color" %></li>
+        <li class="nav-item"><%= link_to "お問い合わせ", contacts_path,class: "menu_color" %></li>
         <li class="nav-item"><%= link_to 'ログアウト', logout_path, method: :delete,class: "menu_color"%></li>
       </ul>
     </div>

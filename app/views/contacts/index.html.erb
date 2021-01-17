@@ -1,0 +1,59 @@
+<div class="header">
+  <h1>お問い合わせフォーム</h1>
+  <p>下記フォーマットにご入力いただき、「次へ」ボタンを押して内容をご確認のうえ、送信してください。</p>
+</div>
+<div class="main col-xs-12 col-md-8 offset-md-2">
+  
+    <div class="form">
+    <%= form_with(model: @contact, local: true) do |f| %>
+    <%= render 'layouts/error_messages', model: f.object %>
+      
+      <div class="form-group">
+        <%= f.text_field :type, class: 'form-control',placeholder: "お問い合わせの種類" %>
+      </div>
+      
+      <div class="form-group">
+        <%= f.text_field :title, class: 'form-control',placeholder: "件名" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.number_field :tel, class: 'form-control',placeholder: "電話番号" %>
+      </div>
+      
+      <div class="form-group">
+        <%= f.text_field :content, class: 'form-control',placeholder: "お問い合わせ内容" %>
+      </div>
+
+    </div>
+    
+    <div class="main_btn">
+      <%= link_to '戻る',"/",class: "return_btn" %>
+      <%= f.submit '次へ', class: 'next_btn' %>
+      <% end %>
+    </div>
+</div>  
+
+<div class="header_admin">
+  <h1>お問い合わせ一覧</h1>
+</div>
+<% @contacts.each do |contact| %>
+  <div class="claim_sub col-xs-12 col-md-8 offset-md-2">
+    <div class="claim_table">
+      <table class="table table-bordered">
+        <tr class="table-primary">
+          <th class="users_th text-center">お問い合わせ日</th>
+          <th class="users_th text-center">お問い合わせ種類</th>
+          <th class="users_th text-center">詳細へ</th>
+        </tr>
+        <tr>
+          <th class="users_th text-center"><%= contact.created_at.to_s(:datetime_jp) %></th>
+        　<th class="users_th text-center"><%= contact.type %></th>
+        　<th class="users_th text-center"><%= link_to "詳細へ",contact_path(contact.id) %></th>
+        </tr>
+      </table>
+    </div>
+  </div>
+ <% end %>
+<div class="pagination  justify-content-center">
+  <%= paginate @contacts %>
+</div>

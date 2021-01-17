@@ -44,7 +44,8 @@ Rails.application.routes.draw do
   
   resources :guest_sessions, only: [:create]
   
-  resources :contacts, only[:index, :create, :destroy, :show]
+  resources :contacts, only: [:index, :create, :destroy]
   get 'contacts/complete', to: 'contacts#complete'
+  get 'contacts/:id', to: 'contacts#show'
 
 end

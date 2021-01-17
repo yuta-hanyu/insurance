@@ -42,6 +42,12 @@ ja:
           receipt_img: 領収書
           destination: 支払通知書送付先
           discharge: 退院日
+        contact:
+          id: ID
+          type: お問い合わせの種類
+          title: 件名
+          tel: 電話番号
+          content: お問い合わせ内容
   # 共通
   attributes:
     created_at: 作成日
