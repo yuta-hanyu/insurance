@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_17_095445) do
+ActiveRecord::Schema.define(version: 2021_01_17_130803) do
 
   create_table "claims", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "patient"
@@ -25,6 +25,17 @@ ActiveRecord::Schema.define(version: 2021_01_17_095445) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_claims_on_user_id"
+  end
+
+  create_table "contacts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "type"
+    t.string "title"
+    t.string "content"
+    t.string "tel"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_contacts_on_user_id"
   end
 
   create_table "contracts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -68,6 +79,7 @@ ActiveRecord::Schema.define(version: 2021_01_17_095445) do
   end
 
   add_foreign_key "claims", "users"
+  add_foreign_key "contacts", "users"
   add_foreign_key "contracts", "users"
   add_foreign_key "likes", "posts"
   add_foreign_key "likes", "users"

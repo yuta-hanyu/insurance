@@ -9,6 +9,7 @@ class User < ApplicationRecord
   has_many :contracts
   has_many :claims
   has_many :posts
+  has_many :contacts
   
   has_many :likes
   has_many :likeings, through: :likes, source: :post

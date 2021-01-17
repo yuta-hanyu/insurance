@@ -43,5 +43,8 @@ Rails.application.routes.draw do
   resources :likes, only: [:create, :destroy, :index]
   
   resources :guest_sessions, only: [:create]
+  
+  resources :contacts, only[:index, :create, :destroy, :show]
+  get 'contacts/complete', to: 'contacts#complete'
 
 end
