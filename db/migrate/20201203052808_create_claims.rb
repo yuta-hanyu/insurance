@@ -5,7 +5,7 @@ class CreateClaims < ActiveRecord::Migration[5.2]
       t.string :policy_number
       t.date :hospital_stay
       t.string :account_number
-      t.string :receipt_img
+      t.string :receipt_img_id
       t.string :destination
       t.references :user, foreign_key: true
       t.string :illness

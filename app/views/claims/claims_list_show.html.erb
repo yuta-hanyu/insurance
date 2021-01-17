@@ -42,7 +42,7 @@
       </tr>
       <tr>
         <th class="users_th text-center align-middle table-secondary">領収書</th>
-        <th class="users_th text-center align-middle"><%= image_tag @claim.receipt_img.to_s, :size =>'280x280' %></th>
+        <th class="users_th text-center align-middle"><%= attachment_image_tag @claim, :receipt_img, :size =>'300x300' %></th>
       </tr>
     </table>
   </div>

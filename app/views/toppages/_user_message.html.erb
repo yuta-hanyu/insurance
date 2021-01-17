@@ -58,7 +58,7 @@
                  <th class="text-center"><%= post.title %></th>
               </tr>
               <tr>
-                 <th class="text-center"><%= image_tag post.image.to_s, :size =>'280x280', :style => "border-radius: 30%" %></th>
+                 <th class="text-center"><%= attachment_image_tag post, :image, :size =>'300x300', :style => "border-radius: 30%" %></th>
               </tr>
               <tr>
                  <% if current_user.present? %>

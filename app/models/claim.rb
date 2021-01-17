@@ -1,7 +1,7 @@
 class Claim < ApplicationRecord
   belongs_to :user
 
-  mount_uploader :receipt_img, ImageUploader
+  attachment :receipt_img
   
   with_options on: :confirm do |confirm|
     confirm.validates :hospital_stay,:patient,:policy_number,:account_number,:destination,:illness, presence: true, length: { maximum: 50 }

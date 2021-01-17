@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 2020_12_07_130926) do
     t.string "policy_number"
     t.date "hospital_stay"
     t.string "account_number"
-    t.string "receipt_img"
+    t.string "receipt_img_id"
     t.string "destination"
     t.bigint "user_id"
     t.string "illness"
@@ -52,7 +52,7 @@ ActiveRecord::Schema.define(version: 2020_12_07_130926) do
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "image"
+    t.string "image_id"
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
