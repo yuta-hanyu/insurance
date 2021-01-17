@@ -10,7 +10,7 @@
               <tr>
                 <div class="row">
                   <th  class="text-center align-middle"><%= post.content %></th>
-                  <td class="text-center align-middle"><%= image_tag post.image.to_s, :size =>'300x300' %></td>
+                  <td class="text-center align-middle"><%= attachment_image_tag post, :post_img, :size =>'300x300' %></td>
                 </div>
               </tr>
             </table>

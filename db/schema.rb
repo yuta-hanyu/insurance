@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_07_130926) do
+ActiveRecord::Schema.define(version: 2021_01_17_095445) do
 
   create_table "claims", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "patient"
@@ -52,7 +52,7 @@ ActiveRecord::Schema.define(version: 2020_12_07_130926) do
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "image_id"
+    t.string "post_img_id"
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
 

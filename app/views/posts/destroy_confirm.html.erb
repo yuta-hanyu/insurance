@@ -23,7 +23,7 @@
       </tr>
       <tr>
         <th class="text-center align-middle table-secondary">画像</th>
-        <td class="text-center align-middle"><%= attachment_image_tag @post, :image, :fill, 300, 300, format: 'jpeg' %></td>
+        <td class="text-center align-middle"><%= attachment_image_tag @post, :post_img, :size =>'300x300' %></td>
       </tr>
     </table>
   </div>
