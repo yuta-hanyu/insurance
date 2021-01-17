@@ -57,9 +57,15 @@ gem 'kaminari'
 
 gem 'jp_prefecture'
 gem 'rails-i18n'
-gem 'carrierwave', '~> 1.3', '>= 1.3.1'
-gem 'cloudinary'
 
+# heroku用に画像投稿gemとして使用していたが、削除
+# gem 'carrierwave', '~> 1.3', '>= 1.3.1'
+# gem 'cloudinary'
+
+# 画像投稿用gem
+gem "refile", require: "refile/rails", github: 'manfe/refile'
+# 画像加工用（サイズ調整など）gem
+gem "refile-mini_magick"
 
 
 gem 'aws-sdk', '~> 2'
