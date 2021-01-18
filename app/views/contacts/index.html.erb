@@ -36,24 +36,29 @@
 <div class="header_admin">
   <h1>お問い合わせ一覧</h1>
 </div>
-<% @contacts.each do |contact| %>
-  <div class="claim_sub col-xs-12 col-md-8 offset-md-2">
-    <div class="claim_table">
-      <table class="table table-bordered">
-        <tr class="table-primary">
-          <th class="users_th text-center">お問い合わせ日</th>
-          <th class="users_th text-center">お問い合わせ種類</th>
-          <th class="users_th text-center">詳細へ</th>
-        </tr>
-        <tr>
-          <th class="users_th text-center"><%= contact.created_at.to_s(:datetime_jp) %></th>
-        　<th class="users_th text-center"><%= contact.type %></th>
-        　<th class="users_th text-center"><%= link_to "詳細へ",contact_path(contact.id) %></th>
-        </tr>
-      </table>
+<% if @contacts.any? %>
+  <% @contacts.each do |contact| %>
+    <div class="claim_sub col-xs-12 col-md-8 offset-md-2">
+      <div class="claim_table">
+        <table class="table table-bordered">
+          <tr class="table-primary">
+            <th class="users_th text-center">お問い合わせ日</th>
+            <th class="users_th text-center">お問い合わせ種類</th>
+            <th class="users_th text-center">詳細へ</th>
+          </tr>
+          <tr>
+            <th class="users_th text-center"><%= contact.created_at.to_s(:datetime_jp) %></th>
+          　<th class="users_th text-center"><%= contact.type %></th>
+          　<th class="users_th text-center"><%= link_to "詳細へ",contact_path(contact.id) %></th>
+          </tr>
+        </table>
+      </div>
     </div>
-  </div>
- <% end %>
+   <% end %>
+<% else %>
+  <p class="contract_nill">お問い合わせがありません。</p>
+<% end %>
+ 
 <div class="pagination  justify-content-center">
   <%= paginate @contacts %>
 </div>
