@@ -10,6 +10,7 @@
         <li class="nav-item"><%= link_to "管理者情報", admin_info_path(current_user.id),class: "menu_color" %></li>
         <li class="nav-item"><%= link_to "投稿一覧・新規投稿", posts_path,class: "menu_color" %></li>
         <li class="nav-item"><%= link_to "給付金請求一覧", claims_list_path,class: "menu_color" %></li>
+        <li class="nav-item"><%= link_to "お問い合わせ一覧", comments_path,class: "menu_color" %></li>
         <li class="nav-item"><%= link_to 'ログアウト', logout_path, method: :delete,class: "menu_color"%></li>
       </ul>
     </div>

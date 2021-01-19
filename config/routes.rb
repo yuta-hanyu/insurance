@@ -32,7 +32,7 @@ Rails.application.routes.draw do
   get 'claims/:id', to: 'claims#show'
   
   namespace :admin do
-    resources :info,only: [:show, :edit,:update]
+    resources :info,only: [:show, :edit, :update]
     patch 'info/edit/confirm/:id', to: 'info#edit_confirm'
   end
   
@@ -47,5 +47,8 @@ Rails.application.routes.draw do
   resources :contacts, only: [:index, :create, :destroy]
   get 'contacts/complete', to: 'contacts#complete'
   get 'contacts/:id', to: 'contacts#show'
+  
+  resources :comments, only: [:index, :create, :destroy]
+  get 'comments/:id', to: 'comments#show'
 
 end

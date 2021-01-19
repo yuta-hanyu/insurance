@@ -1,0 +1,65 @@
+<div class="header_admin">
+  <h1>お問い合わせの詳細</h1>
+</div>
+<!--お問い合わせ-->
+<div class="main col-xs-12 col-md-8 offset-md-2">
+  <div class="claim_table">
+    <table class="table table-bordered">
+      <tr>
+        <th class="users_th text-center align-middle table-secondary">お問い合わせ日</th>
+        <th class="users_th text-center align-middle"><%= @contact.created_at.to_s(:datetime_jp) %></th>
+      </tr>
+      <tr>
+        <th class="users_th text-center align-middle table-secondary">お問い合わせ種類</th>
+        <th class="users_th text-center align-middle"><%= @contact.type %></t>
+      </tr>
+      <tr>
+        <th class="users_th text-center align-middle table-secondary">件名</th>
+        <th class="users_th text-center align-middle"><%= @contact.title %></th>
+      </tr>
+      <tr>
+        <th class="users_th text-center align-middle table-secondary">電話番号</th>
+        <th class="users_th text-center align-middle"><%= @contact.tel %></th>
+      </tr>
+      <tr>
+        <th class="users_th text-center align-middle table-secondary">お問い合わせ内容</th>
+        <th class="users_th text-center align-middle"><%= @contact.content %></th>
+      </tr>
+    </table>
+  </div>
+</div>
+<!--返信表示-->
+<!--<div class="main col-xs-12 col-md-8 offset-md-2">-->
+<!--  <div class="claim_table">-->
+<!--    <table class="table table-bordered">-->
+<!--      <tr>-->
+<!--        <th class="users_th text-center align-middle table-secondary">返信日</th>-->
+<!--        <th class="users_th text-center align-middle"><%#= @comment.created_at.to_s(:datetime_jp) %></th>-->
+<!--      </tr>-->
+<!--      <tr>-->
+<!--        <th class="users_th text-center align-middle table-secondary">返信内容</th>-->
+<!--        <th class="users_th text-center align-middle"><%#= @comment.content %></t>-->
+<!--      </tr>-->
+<!--    </table>-->
+<!--  </div>-->
+<!--</div>-->
+<!--返信フォーム-->
+<div class="main col-xs-12 col-md-8 offset-md-2">
+  <div class="form">
+    <%= form_with(model: @comment, local: true) do |f| %>
+    <%= render 'layouts/error_messages', model: f.object %>
+    <div class="form-group">
+      <%= f.text_field :content, class: 'form-control',placeholder: "返信内容" %>
+    </div>
+  </div>
+    <div class="main_btn">
+    <%= f.submit '返信', class: 'next_btn' %>
+    <% end %>
+  </div>
+</div> 
+
+<div class="main_btn">
+  <%= link_to "戻る", comments_path,class: "return_btn" %>
+  <%= link_to "削除",@contact, method: :delete, data: { confirm: '本当に削除してよろしいですか？' }, class: 'delete_btn' %>
+</div>
+
