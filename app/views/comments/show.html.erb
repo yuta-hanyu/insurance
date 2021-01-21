@@ -29,24 +29,31 @@
   </div>
 </div>
 <!--返信表示-->
-<!--<div class="main col-xs-12 col-md-8 offset-md-2">-->
-<!--  <div class="claim_table">-->
-<!--    <table class="table table-bordered">-->
-<!--      <tr>-->
-<!--        <th class="users_th text-center align-middle table-secondary">返信日</th>-->
-<!--        <th class="users_th text-center align-middle"><%#= @comment.created_at.to_s(:datetime_jp) %></th>-->
-<!--      </tr>-->
-<!--      <tr>-->
-<!--        <th class="users_th text-center align-middle table-secondary">返信内容</th>-->
-<!--        <th class="users_th text-center align-middle"><%#= @comment.content %></t>-->
-<!--      </tr>-->
-<!--    </table>-->
-<!--  </div>-->
-<!--</div>-->
+<% @contact.comments.each do |comment| %>
+<div class="main col-xs-12 col-md-8 offset-md-2">
+  <div class="claim_table">
+    <table class="table table-bordered">
+      <tr>
+        <th class="users_th text-center align-middle table-secondary">返信者</th>
+        <th class="users_th text-center align-middle"><%= comment.user.contractor_name %></t>
+      </tr>
+      <tr>
+        <th class="users_th text-center align-middle table-secondary">返信日</th>
+        <th class="users_th text-center align-middle"><%= comment.created_at.to_s %></th>
+      </tr>
+      <tr>
+        <th class="users_th text-center align-middle table-secondary">返信内容</th>
+        <th class="users_th text-center align-middle"><%= comment.content %></t>
+      </tr>
+    </table>
+  </div>
+</div>
+<% end %>
 <!--返信フォーム-->
 <div class="main col-xs-12 col-md-8 offset-md-2">
   <div class="form">
     <%= form_with(model: @comment, local: true) do |f| %>
+    <%= hidden_field_tag :contact_id, @contact.id  %>
     <%= render 'layouts/error_messages', model: f.object %>
     <div class="form-group">
       <%= f.text_field :content, class: 'form-control',placeholder: "返信内容" %>

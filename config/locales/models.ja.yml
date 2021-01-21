@@ -48,6 +48,11 @@ ja:
           title: 件名
           tel: 電話番号
           content: お問い合わせ内容
+        comment:
+          id: ID
+          content: 返信内容
+          user: ユーザー名
+          contact: お問い合わせ
   # 共通
   attributes:
     created_at: 作成日

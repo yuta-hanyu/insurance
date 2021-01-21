@@ -7,17 +7,21 @@ class CommentsController < ApplicationController
   end
 
   def show
-    @comment = current_user.comments.build
     @contact = Contact.find(params[:id])
+    @comment = @contact.comments.build
+    @comment.user_id = current_user.id
   end
 
   def create
-    @comment = current_user.comments.build(comment_params)
+    @contact = Contact.find(params[:contact_id])
+    @comment = @contact.comments.build(comment_params)
+    @comment.user_id = current_user.id
     if @comment.save
-      redirect_to comment_path(contact.id)
+      flash[:success] = '返信しました'
+      redirect_to comment_path(@contact.id)
     else
-     @contact = Contact.find(params[:id])
-     render :comment_path
+      flash[:danger] = '返信できませんでした'
+      render :show
     end
   end
 

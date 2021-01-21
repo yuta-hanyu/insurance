@@ -6,11 +6,11 @@ class User < ApplicationRecord
                     uniqueness: { case_sensitive: false }
   has_secure_password
 
-  has_many :contracts
-  has_many :claims
-  has_many :posts
-  has_many :contacts
-  has_many :comments
+  has_many :contracts, dependent: :destroy
+  has_many :claims, dependent: :destroy
+  has_many :posts, dependent: :destroy
+  has_many :contacts, dependent: :destroy
+  has_many :comments, dependent: :destroy
   
   has_many :likes
   has_many :likeings, through: :likes, source: :post
