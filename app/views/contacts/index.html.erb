@@ -9,29 +9,37 @@
     <%= render 'layouts/error_messages', model: f.object %>
       <table class="table table-bordered table-hover table-md">
         <tr class="table-success">
-          <th width="30%">お問い合わせの種類</th>
+          <th width="30%" class="text-left align-middle">お問い合わせの種類</th>
           <td>
-            <%#= f.text_field :type, class: 'form-control' %>
-          <%= f.radio_button :gender, :male, checked: true %>
-          <%= f.label :gender, "男性", {value: :male, style: "display: inline-block;"} %>
+          <div class="form-check">
+            <label><%= f.radio_button :type, "資料請求について",checked: true %>&emsp;資料請求について</label>
+          </div>
+          
+          <div class="form-check">
+            <label><%= f.radio_button :type, "マイページの利用について" %>&emsp;マイページの利用について</label>
+          </div>
+          
+          <div class="form-check">
+            <label><%= f.radio_button :type, "その他" %>&emsp;その他</label>
+          </div>
           </td>
         </tr>
         <tr class="table-success">
-          <th>件名</th>
+          <th class="text-left align-middle">件名</th>
           <td>
             <%= f.text_field :title, class: 'form-control' %>
           </td>
         </tr>
         <tr class="table-success">
-          <th>電話番号</th>
+          <th class="text-left align-middle">電話番号</th>
           <td>
             <%= f.number_field :tel, class: 'form-control' %>
           </td>
         </tr>
         <tr class="table-success">
-          <th>お問い合わせ内容</th>
+          <th class="text-left align-middle">お問い合わせ内容</th>
           <td>
-            <%= f.text_field :content, class: 'form-control' %>
+            <%= f.text_area :content,:size => "60x10", class: 'form-control' %>
           </td>
         </tr>
       </table>

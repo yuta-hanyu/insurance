@@ -27,7 +27,7 @@
       </tr>
       <tr>
         <th class="users_th text-center align-middle table-secondary">お問い合わせ内容</th>
-        <th class="users_th text-center align-middle"><%= @contact.content %></th>
+        <th class="users_th text-left align-middle"><%= simple_format(@contact.content) %></th>
       </tr>
     </table>
   </div>
@@ -48,7 +48,7 @@
           </tr>
           <tr>
             <th class="users_th text-center align-middle table-secondary">内容</th>
-            <th class="users_th text-center align-middle"><%= comment.content %></t>
+            <th class="users_th  align-middle"><%= simple_format(comment.content) %></t>
           </tr>
           <tr>
             <!--ログインユーザー名と返信者が一致する場合に削除を表示-->
@@ -68,15 +68,18 @@
     <%= form_with(model: @comment, local: true) do |f| %>
     <%= hidden_field_tag :contact_id, @contact.id  %>
     <%= render 'layouts/error_messages', model: f.object %>
-    <div class="form-group">
-      <%= f.text_field :content, class: 'form-control',placeholder: "返信内容" %>
-    </div>
-  </div>
-    <div class="main_btn">
-    <%= f.submit '返信', class: 'next_btn' %>
+      <table class="table table-bordered table-md mt-3 table-success">
+        <tr class="">
+          <th width="20%" class="text-center align-middle">返信</th>
+          <td><%= f.text_area :content,:size => "60x6", class: 'form-control' %></td>
+        </tr>
+        <tr>
+          <td colspan="2" class="text-center align-middle"><%= f.submit '返信', class: 'next_btn' %></td>
+        </tr>
+      </table>
     <% end %>
   </div>
-</div> 
+</div>
 
 <div class="main_btn">
  <% if logged_in? && current_user.admin? %>

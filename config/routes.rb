@@ -46,7 +46,6 @@ Rails.application.routes.draw do
   
   resources :contacts, only: [:index, :create, :destroy]
   get 'contacts/complete', to: 'contacts#complete'
-  get 'contacts/:id', to: 'contacts#show'
   
   resources :comments, only: [:index, :create, :destroy]
   get 'comments/:id', to: 'comments#show'

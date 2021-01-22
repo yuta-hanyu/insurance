@@ -1,13 +1,9 @@
 class ContactsController < ApplicationController
   before_action :require_user_logged_in
   
-  def show
-    @contact = current_user.contacts.find(params[:id])
-  end
-  
   def index
     @contact = current_user.contacts.build
-    @contacts = current_user.contacts.order(id: :desc).page(params[:page]).per(5)
+    @contacts = current_user.contacts.order(id: :desc).page(params[:page]).per(3)
   end
 
   def create
