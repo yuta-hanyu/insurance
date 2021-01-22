@@ -9,12 +9,12 @@
           <tr class="table-primary">
             <th class="users_th text-center">お問い合わせ日</th>
             <th class="users_th text-center">お問い合わせ種類</th>
-            <th class="users_th text-center">詳細へ</th>
+            <th class="users_th text-center">返信</th>
           </tr>
           <tr>
             <th class="users_th text-center"><%= contact.created_at.to_s(:datetime_jp) %></th>
           　<th class="users_th text-center"><%= contact.type %></th>
-          　<th class="users_th text-center"><%= link_to "詳細へ",comment_path(contact.id) %></th>
+          　<th class="users_th text-center"><%= link_to "返信する",comment_path(contact.id) %></th>
           </tr>
         </table>
       </div>
