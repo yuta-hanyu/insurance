@@ -4,10 +4,14 @@
 <!--お問い合わせ-->
 <div class="main col-xs-12 col-md-8 offset-md-2">
   <div class="claim_table">
-    <table class="table table-bordered">
+    <table class="table table-bordered table-hover">
       <tr>
         <th class="users_th text-center align-middle table-secondary">お問い合わせ日</th>
         <th class="users_th text-center align-middle"><%= @contact.created_at.to_s(:datetime_jp) %></th>
+      </tr>
+      <tr>
+        <th class="users_th text-center align-middle table-secondary">送信者</th>
+        <th class="users_th text-center align-middle"><%= @contact.user.contractor_name %></t>
       </tr>
       <tr>
         <th class="users_th text-center align-middle table-secondary">お問い合わせ種類</th>
@@ -29,26 +33,30 @@
   </div>
 </div>
 <!--返信表示-->
-<% @contact.comments.each do |comment| %>
 <div class="main col-xs-12 col-md-8 offset-md-2">
   <div class="claim_table">
-    <table class="table table-bordered">
+      <% @contact.comments.each do |comment| %>
+    <table class="table table-bordered table-hover">
       <tr>
         <th class="users_th text-center align-middle table-secondary">返信者</th>
         <th class="users_th text-center align-middle"><%= comment.user.contractor_name %></t>
       </tr>
       <tr>
         <th class="users_th text-center align-middle table-secondary">返信日</th>
-        <th class="users_th text-center align-middle"><%= comment.created_at.to_s %></th>
+        <th class="users_th text-center align-middle"><%= comment.created_at %></th>
       </tr>
       <tr>
         <th class="users_th text-center align-middle table-secondary">返信内容</th>
         <th class="users_th text-center align-middle"><%= comment.content %></t>
       </tr>
+      <tr>
+        <td class="users_th text-center align-middle "><%= link_to "削除",comment, method: :delete, data: { confirm: '本当に削除してよろしいですか？' }, class: 'delete_btn' %></td>
+      </tr>
     </table>
+  <% end %>
   </div>
+
 </div>
-<% end %>
 <!--返信フォーム-->
 <div class="main col-xs-12 col-md-8 offset-md-2">
   <div class="form">

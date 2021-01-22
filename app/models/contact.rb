@@ -3,6 +3,6 @@ class Contact < ApplicationRecord
   validates :type,:title,:content,:tel, presence: true, length: { maximum: 500 }
   self.inheritance_column = :_type_disabled
   
-  has_many :comments
+  has_many :comments, dependent: :destroy
   
 end
