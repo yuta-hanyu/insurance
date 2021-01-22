@@ -1,6 +1,7 @@
 class CommentsController < ApplicationController
   before_action :require_user_logged_in
-  before_action :if_not_admin
+  before_action :if_not_admin, only: [:index]
+  before_action :correct_user, only: [:destroy]
   
   def index
     @contacts = Contact.order(id: :desc).page(params[:page]).per(2)
@@ -32,15 +33,6 @@ class CommentsController < ApplicationController
     redirect_back(fallback_location: comment_path)
   end
   
-  # def destroy
-    
-  #   @comment.destroy
-  #   flash[:success] = 'お問い合わせを削除しました。'
-  #   @comment = Comments.find(params[:contact_id])
-  #   @comment.user_id = current_user.id
-  #   redirect_to comment_path(contact)
-  # end
-  
   private
  
   def if_not_admin
@@ -49,6 +41,13 @@ class CommentsController < ApplicationController
   
   def comment_params
     params.require(:comment).permit(:content)
+  end
+  
+  def correct_user
+    @comment = current_user.comments.find(params[:id])
+    unless @comment
+    redirect_back(fallback_location: comment_path)
+    end
   end
   
 end

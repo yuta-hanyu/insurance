@@ -7,28 +7,38 @@
     <div class="form">
     <%= form_with(model: @contact, local: true) do |f| %>
     <%= render 'layouts/error_messages', model: f.object %>
-      
-      <div class="form-group">
-        <%= f.text_field :type, class: 'form-control',placeholder: "お問い合わせの種類" %>
-      </div>
-      
-      <div class="form-group">
-        <%= f.text_field :title, class: 'form-control',placeholder: "件名" %>
-      </div>
-
-      <div class="form-group">
-        <%= f.number_field :tel, class: 'form-control',placeholder: "電話番号" %>
-      </div>
-      
-      <div class="form-group">
-        <%= f.text_field :content, class: 'form-control',placeholder: "お問い合わせ内容" %>
-      </div>
-
+      <table class="table table-bordered table-hover table-md">
+        <tr class="table-success">
+          <th width="30%">お問い合わせの種類</th>
+          <td>
+            <%#= f.text_field :type, class: 'form-control' %>
+          <%= f.radio_button :gender, :male, checked: true %>
+          <%= f.label :gender, "男性", {value: :male, style: "display: inline-block;"} %>
+          </td>
+        </tr>
+        <tr class="table-success">
+          <th>件名</th>
+          <td>
+            <%= f.text_field :title, class: 'form-control' %>
+          </td>
+        </tr>
+        <tr class="table-success">
+          <th>電話番号</th>
+          <td>
+            <%= f.number_field :tel, class: 'form-control' %>
+          </td>
+        </tr>
+        <tr class="table-success">
+          <th>お問い合わせ内容</th>
+          <td>
+            <%= f.text_field :content, class: 'form-control' %>
+          </td>
+        </tr>
+      </table>
     </div>
     
     <div class="main_btn">
-      <%= link_to '戻る',"/",class: "return_btn" %>
-      <%= f.submit '次へ', class: 'next_btn' %>
+      <%= f.submit 'お問いわせ内容を送信', class: 'next_btn' %>
       <% end %>
     </div>
 </div>  
@@ -49,7 +59,7 @@
           <tr>
             <th class="users_th text-center"><%= contact.created_at.to_s(:datetime_jp) %></th>
           　<th class="users_th text-center"><%= contact.type %></th>
-          　<th class="users_th text-center"><%= link_to "詳細へ",contact_path(contact.id) %></th>
+          　<th class="users_th text-center"><%= link_to "詳細・返信確認へ",comment_path(contact.id) %></th>
           </tr>
         </table>
       </div>
@@ -61,4 +71,8 @@
  
 <div class="pagination  justify-content-center">
   <%= paginate @contacts %>
+</div>
+
+<div class="main_btn">
+  <%= link_to '戻る',"/",class: "return_btn" %>
 </div>
