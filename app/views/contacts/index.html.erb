@@ -52,7 +52,7 @@
 </div>  
 
 <div class="header_admin">
-  <h1>お問い合わせ一覧</h1>
+  <h1>お問い合わせ一覧・返信確認</h1>
 </div>
 <% if @contacts.any? %>
   <% @contacts.each do |contact| %>
@@ -60,9 +60,9 @@
       <div class="claim_table">
         <table class="table table-bordered">
           <tr class="table-primary">
-            <th class="users_th text-center">お問い合わせ日</th>
-            <th class="users_th text-center">お問い合わせ種類</th>
-            <th class="users_th text-center">詳細へ</th>
+            <th width="40%" class="users_th text-center">お問い合わせ日</th>
+            <th width="40%" class="users_th text-center">お問い合わせ種類</th>
+            <th width="20%" class="users_th text-center">詳細へ</th>
           </tr>
           <tr>
             <th class="users_th text-center"><%= contact.created_at.to_s(:datetime_jp) %></th>

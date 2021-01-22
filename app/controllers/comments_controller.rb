@@ -4,7 +4,7 @@ class CommentsController < ApplicationController
   before_action :correct_user, only: [:destroy]
   
   def index
-    @contacts = Contact.order(id: :desc).page(params[:page]).per(2)
+    @contacts = Contact.order(id: :desc).page(params[:page]).per(5)
   end
 
   def show
