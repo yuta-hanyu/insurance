@@ -302,3 +302,8 @@ footer {
     opacity: .5;
   }
 }
+@media (max-width:670px) {
+    .animation {
+        font-size:15px;
+  }
+}
