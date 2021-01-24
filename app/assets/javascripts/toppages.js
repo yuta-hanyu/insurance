@@ -103,6 +103,16 @@ $(function() {
     },
     offset: '100%',
   });
+　// ローディング
+  // 読み込んだらフェードアウト
+  $(window).load(function () {
+      $('.loading').delay(1500).fadeOut(200);
+  });
+  function stopload(){
+      $('.loading').delay(1000).fadeOut(700);
+  }
+  setTimeout('stopload()',10000);
+
 
 });
 
