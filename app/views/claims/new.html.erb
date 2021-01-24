@@ -26,12 +26,10 @@
                 <%= f.label :illness%>
                 <%= f.text_field :illness, class: 'form-control' %>
               </div>
-        
               <div class="form-group">
                 <%= f.label :hospital_stay, '入院日' %>
-                <%= f.date_select :hospital_stay, class: 'form-control' %>
+                <%= f.date_select :hospital_stay, "v-model" => "i_date", use_month_numbers: true, start_year: 1990, end_year: Time.now.year, prompt:"--",date_separator:'/' %>
               </div>
-              
           </div>
         </div>
       </div>
