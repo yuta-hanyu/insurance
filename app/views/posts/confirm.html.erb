@@ -18,9 +18,11 @@
       </div>
       
       <div class="form-group">
-        <%= f.label :post_img, '画像' %>
-        <%= f.file_field :post_img, class: 'form-control' %>
+        <%= f.label :post_img, '-画像-' %>
+        <%= f.file_field :post_img, id: "myfile" %>
+        <img v-show id="pImg" />
       </div>
+      
       <div class="main_btn">
         <%= f.submit "戻る", name: :back, class: "return_btn" %>
         <%= f.submit '新規投稿',class: 'next_btn' %>

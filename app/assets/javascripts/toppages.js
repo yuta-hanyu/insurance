@@ -106,13 +106,38 @@ $(function() {
 　// ローディング
   // 読み込んだらフェードアウト
   $(window).load(function () {
-      $('.loading').delay(1500).fadeOut(200);
+      $('.loading').delay(100).fadeOut(100);
   });
   function stopload(){
-      $('.loading').delay(1000).fadeOut(700);
+      $('.loading').delay(100).fadeOut(100);
   }
   setTimeout('stopload()',10000);
-
+  
+  // 画像プレビュー
+  $(function(){
+  $('#myfile').on('change', (e) => {
+    //ファイルオブジェクトを取得する
+    var file = e.target.files[0];
+    var reader = new FileReader();
+    $('#pImg').css('display', 'block');
+ 
+    //画像≠場合はストップ
+    if(file.type.indexOf("image") < 0){
+      alert("画像ファイルを指定してください。");
+      return false;
+    }
+ 
+    //アップロードした画像を表示する
+    reader.onload = (function(file){
+      return (e) => {
+        $('#pImg').attr('src', e.target.result);
+        $('#pImg').attr('title', file.name);
+      };
+    })(file);
+    reader.readAsDataURL(file);
+ 
+  });
+});
 
 });
 

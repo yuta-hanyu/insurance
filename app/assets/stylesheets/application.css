@@ -307,3 +307,14 @@ footer {
         font-size:15px;
   }
 }
+/*画像プレビュー*/
+#pImg {
+      width: 320px;
+      height: 300px;
+      margin: 10px 0;
+      border: 3px solid #ddd;
+      display: none;
+}
+#myfile {
+    display: block;
+}
