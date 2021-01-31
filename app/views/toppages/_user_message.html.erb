@@ -45,39 +45,34 @@
 </div>
 <!--商品紹介-->
 <div class="likes-wrapper animated">
-  <div class="likes_container">
-    <div class="heading">
-      <h2><i class="far fa-file-word fa_color_head"></i> 生命保険をご検討の方 <i class="far fa-file-word fa_color_head"></i></h2>
-    </div>
-      <div class="likes">
-      <% @posts.each do |post| %>
-        <%= link_to(toppage_path(post.id)) do %>
-          <ul>
-            <div class="claim_table">
-              <table class="table_toppage table-bordered">
-                <tr>
-                   <th class="text-center"><%= post.title %></th>
-                </tr>
-                <tr>
-                   <th class="text-center"><%= attachment_image_tag post, :post_img, :size =>'300x300', :style => "border-radius: 30%" %></th>
-                </tr>
-                <tr>
-                   <% if current_user.present? %>
-                   <th class="text-center"><%= link_to "詳細/お気に入り登録", toppage_path(post.id), class: "font_color" %></th>
-                   <% else %>
-                   <th class="text-center"><%= link_to "詳細", toppage_path(post.id), class: "font_color" %></th>
-                   <% end %>
-                </tr>
-              </table>
-            </div>
-          </ul>
+  <div class="heading">
+    <h2><i class="far fa-file-word fa_color_head"></i> 生命保険をご検討の方 <i class="far fa-file-word fa_color_head"></i></h2>
+  </div>
+  <div class="likes">
+    <% @posts.each do |post| %>
+      <%= link_to(toppage_path(post.id)) do %>
+        <ul>
+          <div class="claim_table">
+            <table class="table_toppage table-bordered">
+              <tr>
+                 <th class="text-center"><%= post.title %></th>
+              </tr>
+              <tr>
+                 <th class="text-center"><%= attachment_image_tag post, :post_img, :size =>'250x250', :style => "border-radius: 30%" %></th>
+              </tr>
+              <tr>
+                 <% if current_user.present? %>
+                 <th class="text-center"><%= link_to "詳細/お気に入り登録", toppage_path(post.id), class: "font_color" %></th>
+                 <% else %>
+                 <th class="text-center"><%= link_to "詳細", toppage_path(post.id), class: "font_color" %></th>
+                 <% end %>
+              </tr>
+            </table>
+          </div>
+        </ul>
         <% end %>
     　<% end %>
-    </div>
   </div>
-</div>
-<div class="pagination  justify-content-center">
-  <%= paginate @posts %> 
 </div>
 <!--FQQ-->
 <div class="faq-wrapper animated">

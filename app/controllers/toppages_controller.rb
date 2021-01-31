@@ -3,7 +3,7 @@ class ToppagesController < ApplicationController
 
   
   def index
-    @posts = Post.order(id: :desc).page(params[:page]).per(4)
+    @posts = Post.order(id: :desc)
   end
   
   def show

@@ -251,35 +251,66 @@ color:#515151;
     display: none;
 }
 // 商品紹介
-
 .likes-wrapper {
-    padding: 0 20px;
+    margin: 0 auto;
+    margin: 100px 0;
+    padding: 40px;
+    background: lightyellow;
+    width: 100%;
 }
-.likes {
-    display:flex;
-    flex-wrap:wrap;
-    justify-content: center;
-}
-.likes li {
-    list-style:none;
+// likeのスライドショー 
+.slick-slide {
     text-align: center;
+    margin: 2em 0;
+    color: #2c2c2f;
+    background: silver;
+    border-top: solid 5px #5989cf;
+    border-bottom: solid 5px #5989cf;
+}
+.prev {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	margin: auto;
+	width: 30px;
+	height: 30px;
+	background-color: rgba(255,255,255,0.8);
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: 7px auto;
+	z-index: 1;
+}
+.next {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	margin: auto;
+	width: 30px;
+	height: 30px;
+	background-color: rgba(255,255,255,0.8);
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: 7px auto;
+	z-index: 1;  
 }
 .likes {
     .title {
-        background-color:mediumaquamarine;
-        margin:5px;
-        border-radius:10px;
-        color:white;
+        background-color: mediumaquamarine;
+        margin: 5px;
+        border-radius: 10px;
+        color: white;
     }
-} 
+}
 .likes {
     .details_btn {
         margin:5px 0 ;
     }
 } 
 .table_toppage {
-    background-color:#c1c1c1;
-    border-radius:10px;
+    background-color: aliceblue;
+    border-radius: 10px;
     box-shadow: 8px 8px;
 }
 .table_toppage:hover {
@@ -325,16 +356,6 @@ color:#515151;
 }
 .likes ul:hover {
     transform: scale(1.1)  rotate(7deg);
-}
-@media (max-width:670px) {
-    .table,
-    .table td,
-    .table th {
-        border: 1px solid #cbced2;
-        border-collapse: collapse;
-        font-size:10px;
-        text-align: center;
-    }
 }
 @media (max-width:670px) {
     .table th:not(.users_th) {
