@@ -17,13 +17,13 @@ class CommentsController < ApplicationController
     @contact = Contact.find(params[:contact_id])
     @comment = @contact.comments.build(comment_params)
     @comment.user_id = current_user.id
-    if @comment.save
-      flash[:success] = '返信しました'
-      redirect_to comment_path(@contact.id)
-    else
-      flash[:danger] = '返信できませんでした'
-      render :show
-    end
+    @comment.save
+      # flash[:success] = '返信しました'
+      # redirect_to comment_path(@contact.id)
+    # else
+    #   flash[:danger] = '返信できませんでした'
+    #   render :show
+    # end
   end
 
   def destroy
