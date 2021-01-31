@@ -1,0 +1,11 @@
+<% if current_user.likeing?(@post) %>
+  <%= form_with(model: current_user.likes.find_by(post_id: @post.id), method: :delete) do |f| %>
+    <%= hidden_field_tag :post_id ,@post.id %>
+    <%= f.submit 'お気に入りを解除',class: "unlike_btn" %>
+  <% end %>
+<% else %>
+  <%= form_with(model: current_user.likes.build) do |f| %>
+    <%= hidden_field_tag :post_id, @post.id %>
+    <%= f.submit 'お気に入り登録',class: "like_btn" %>
+  <% end %>
+<% end %>

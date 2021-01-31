@@ -1,0 +1,3 @@
+<!--ボタン切り替えJquely -->
+alert('お気に入りを解除します');
+$('#likes_buttons_<%= @post.id %>').html("<%= j(render partial: 'likes/toppage_like', locals: {post: @post}) %>");

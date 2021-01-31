@@ -1,39 +1,43 @@
 <div class="header">
   <h1>お気に入り一覧</h1>
 </div>
+
 <div class="posts_table">
-    <% if @posts.any? %>
+<% if @posts.any? %>
     <% @posts.each do |post| %>
-    <div class="col-xs-12 col-md-8 offset-md-2">
-        <div class="like_title"><%= post.title %></div>
-            <table class="table table-bordered table-sm table-success ">
-              <tr>
-                <div class="row">
-                  <th  class="text-center align-middle"><%= post.content %></th>
-                  <td class="text-center align-middle"><%= attachment_image_tag post, :post_img, :size =>'300x300' %></td>
-                </div>
-              </tr>
-            </table>
+      <div class="col-xs-12 col-md-8 offset-md-2">
+          <div class="like_title"><%= post.title %></div>
+              <table class="table table-bordered table-sm table-success ">
+                <tr>
+                  <div class="row">
+                    <th  class="text-center align-middle"><%= post.content %></th>
+                    <td class="text-center align-middle"><%= attachment_image_tag post, :post_img, :size =>'300x300' %></td>
+                  </div>
+                </tr>
+              </table>
+          </div>
+      </div>
+      <div class="main_btn">
+        <div id="likes_buttons_<%= post.id %>">
+        <% if current_user.likeing?(post) %>
+            <%= form_with(model: current_user.likes.find_by(post_id: post.id), method: :delete) do |f| %>
+              <%= hidden_field_tag :post_id ,post.id %>
+              <%= f.submit 'お気に入りを解除',class: "unlike_btn" %>
+            <% end %>
+        <% else %>
+            <%= form_with(model: current_user.likes.build) do |f| %>
+              <%= hidden_field_tag :post_id, post.id %>
+              <%= f.submit 'お気に入り登録',class: "like_btn" %>
+            <% end %>
+        <% end %>
         </div>
-    </div>
-</div>
-  <div class="main_btn">
-    <% if current_user.likeing?(post) %>
-    <%= form_with(model: current_user.likes.find_by(post_id: post.id), local: true, method: :delete) do |f| %>
-       <%= hidden_field_tag :post_id ,post.id %>
-       <%= f.submit 'お気に入りを解除',class: "unlike_btn"%>
+      </div>
     <% end %>
-   <% else %>
-    <%= form_with(model: current_user.likes.build, local: true) do |f| %>
-       <%= hidden_field_tag :post_id, post.id %>
-       <%= f.submit 'お気に入り登録',class: "like_btn" %>
-    <% end %>
-   <% end %>
-  <% end %>
 <% else %>
   <p class="contract_nill">お気に入り登録がありません。</p>
 <% end %>
 </div>
+
 <div class="pagination  justify-content-center">
   <%= paginate @posts %> 
 </div>
