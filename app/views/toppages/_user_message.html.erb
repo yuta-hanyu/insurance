@@ -51,25 +51,27 @@
     </div>
       <div class="likes">
       <% @posts.each do |post| %>
-        <ul>
-          <div class="claim_table">
-            <table class="table_toppage table-bordered">
-              <tr>
-                 <th class="text-center"><%= post.title %></th>
-              </tr>
-              <tr>
-                 <th class="text-center"><%= attachment_image_tag post, :post_img, :size =>'300x300', :style => "border-radius: 30%" %></th>
-              </tr>
-              <tr>
-                 <% if current_user.present? %>
-                 <th class="text-center"><%= link_to "詳細/お気に入り登録", toppage_path(post.id) %></th>
-                 <% else %>
-                 <th class="text-center"><%= link_to "詳細", toppage_path(post.id) %></th>
-                 <% end %>
-              </tr>
-            </table>
-          </div>
-        </ul>
+        <%= link_to(toppage_path(post.id)) do %>
+          <ul>
+            <div class="claim_table">
+              <table class="table_toppage table-bordered">
+                <tr>
+                   <th class="text-center"><%= post.title %></th>
+                </tr>
+                <tr>
+                   <th class="text-center"><%= attachment_image_tag post, :post_img, :size =>'300x300', :style => "border-radius: 30%" %></th>
+                </tr>
+                <tr>
+                   <% if current_user.present? %>
+                   <th class="text-center"><%= link_to "詳細/お気に入り登録", toppage_path(post.id), class: "font_color" %></th>
+                   <% else %>
+                   <th class="text-center"><%= link_to "詳細", toppage_path(post.id), class: "font_color" %></th>
+                   <% end %>
+                </tr>
+              </table>
+            </div>
+          </ul>
+        <% end %>
     　<% end %>
     </div>
   </div>

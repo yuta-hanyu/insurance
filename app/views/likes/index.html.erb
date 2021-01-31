@@ -37,7 +37,10 @@
   <p class="contract_nill">お気に入り登録がありません。</p>
 <% end %>
 </div>
-
+<div class="fas_text">
+  <i class="fas fa-file-signature"></i>
+  資料請求、ご相談（無料）は<%= link_to 'お問い合わせ',contacts_path, class: "font_color" %>まで！
+</div>
 <div class="pagination  justify-content-center">
   <%= paginate @posts %> 
 </div>

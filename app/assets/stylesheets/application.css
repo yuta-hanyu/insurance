@@ -98,6 +98,11 @@ footer {
      width: 100%;
      bottom:0;
 }
+/*リンク文字の色変更*/
+.font_color {
+    color: dodgerblue;
+    text-decoration: underline;
+}
 /*全てのボタンに適用*/
 .btn {
     margin:10px;

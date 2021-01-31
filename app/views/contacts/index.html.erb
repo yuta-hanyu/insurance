@@ -67,7 +67,7 @@
           <tr>
             <th class="users_th text-center"><%= contact.created_at.to_s(:datetime_jp) %></th>
           　<th class="users_th text-center"><%= contact.type %></th>
-          　<th class="users_th text-center"><%= link_to "詳細・返信確認へ",comment_path(contact.id) %></th>
+          　<th class="users_th text-center"><%= link_to "詳細・返信確認へ",comment_path(contact.id), class: "font_color" %></th>
           </tr>
         </table>
       </div>

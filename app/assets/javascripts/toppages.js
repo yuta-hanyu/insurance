@@ -96,8 +96,8 @@ $(function() {
         $(this.element).removeClass('fadeOutUp');
         $(this.element).addClass('fadeInUp');
       } else {
-        $(this.element).removeClass('fadeInUp');
-        $(this.element).addClass('fadeOutUp')
+        // $(this.element).removeClass('fadeInUp');
+        // $(this.element).addClass('fadeOutUp')
   
       }
     },

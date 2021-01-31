@@ -13,25 +13,32 @@
         </table>
     </div>
 </div>
-<div class="fas_text">
-  <i class="fas fa-phone"></i>
-  資料請求、ご相談（無料）はxxx-xxx-xxxまで！
-</div>
+<!--資料請求案内。ログインしていればお問い合わせ、そうでなければ電話番号案内-->
+<% if current_user.present? %>
+  <div class="fas_text">
+    <i class="fas fa-file-signature"></i>
+    資料請求、ご相談（無料）は<%= link_to 'お問い合わせ',contacts_path, class: "font_color" %>まで！
+  </div>
+<% else %>
+  <div class="fas_text">
+    <i class="fas fa-phone"></i>
+    資料請求、ご相談（無料）はxxx-xxx-xxxまで！
+  </div>
+<% end %>
 <div class="main_btn">
-  <div class="row">
   <!--ログインしていなければ「戻る」ボタンのみ表示  -->
   <% if current_user.present? %>
-    <div class="col-xs-12 offset-md-3 col-md-3">
+  <div class="row justify-content-center">
+    <div class="col-md-3">
       <%= link_to '戻る',root_path,class: "return_btn" %>
     </div>
-    <div id="likes_buttons_<%= @post.id %>">
-　    <%= render "likes/toppage_like", locals: { post: @post} %>
-　 </div>
+    <div id="likes_buttons_<%= @post.id %>" class="col-md-3">
+      <%= render "likes/toppage_like", locals: { post: @post} %>
+    </div>
+  </div>
   <% else %>
     <div class="top_show_btn">
      <%= link_to '戻る',root_path,class: "return_btn" %>
     </div>
   <% end %>
-    </div>
-  </div>
 </div>
