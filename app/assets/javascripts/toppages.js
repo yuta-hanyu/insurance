@@ -3,14 +3,17 @@ $(function() {
   // メイン画像
   $('#main_visual').fadeIn("slow");
   // 機能概要説明
-  $('.message-hover').hover(
-    function(){
-      $(this).find('.txt-contents').fadeIn('slow').addClass('text-active');
-    },
-    function(){
-      $(this).find('.txt-contents').fadeOut('slow').removeClass('text-active');
-    }
-    )
+  $(function(){
+      setTimeout(function(){
+      $('.output1').fadeIn('slow');
+      }, 1000);
+      setTimeout(function(){
+      $('.output2').fadeIn('slow');
+      }, 2000);
+      setTimeout(function(){
+      $('.output3').fadeIn('slow');
+      }, 3000);
+  });
   });
 // ログイン、ゲストログインmodal  
   $(function() {
@@ -98,7 +101,6 @@ $(function() {
       } else {
         // $(this.element).removeClass('fadeInUp');
         // $(this.element).addClass('fadeOutUp')
-  
       }
     },
     offset: '100%',

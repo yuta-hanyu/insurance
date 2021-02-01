@@ -1,5 +1,5 @@
 <% if logged_in? && current_user.admin? %>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-success">
+  <nav class="navbar navbar-expand-lg navbar-dark">
     <%= image_tag('5_White_logo_on_black_223x67',:size =>'150x50') %>
     <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#nav-bar">
       <span class="navbar-toggler-icon"></span>
@@ -16,7 +16,7 @@
     </div>
   </nav>
 <% elsif  logged_in? %>
-  <nav class="navbar navbar-expand-sm navbar-dark bg-secondary">
+  <nav class="navbar navbar-expand-sm navbar-dark">
     <%= image_tag('5_White_logo_on_black_223x67',:size =>'150x50') %>
     <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#nav-bar">
       <span class="navbar-toggler-icon"></span>

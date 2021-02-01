@@ -1,6 +1,7 @@
 <% @contact.comments.each do |comment| %>
   <!--データブランクがあるものは非表示-->
     <% unless comment.content.blank? %>
+     <!--destroy.jsで削除するID-->
       <div id="comment-<%= comment.id %>" >
         <table class="table table-bordered" >
           <tr>

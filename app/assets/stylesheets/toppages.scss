@@ -64,13 +64,9 @@ color:#515151;
     font-size: 10px;
   }
 }
-.message_container {
-    padding: 0 20px;
-}
 // ご契約者専用サイトのご利用について、生命保険をご検討の方
 .heading {
-    margin:40px 20px;
-    padding: 5px;
+    margin: 40px 0;
     padding: 0.5em;
     background: linear-gradient(transparent 0%, #add6ff 100%);
     text-align: center
@@ -89,6 +85,12 @@ color:#515151;
   }
 }
 // ご契約者専用サイトのご利用について 各種説明概要
+.message-wrapper {
+    margin: 0 auto;
+    margin: 10px 0;
+    padding: 20px 0;
+    width: 100%;
+}
 .message {
     padding: 5px 10px;
 }
@@ -197,13 +199,9 @@ color:#515151;
         margin: auto;
   }
 }
-// hover用
-.text-active {
-  display: block;
-}
 // FAQ
 .faq-container {
-    padding: 0 20px;
+
 }
 .faq {
     padding: 5px 10px;
@@ -253,8 +251,8 @@ color:#515151;
 // 商品紹介
 .likes-wrapper {
     margin: 0 auto;
-    margin: 100px 0;
-    padding: 40px;
+    margin: 10px 0;
+    padding: 20px 0;
     background: lightyellow;
     width: 100%;
 }
