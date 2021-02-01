@@ -18,19 +18,12 @@ class CommentsController < ApplicationController
     @comment = @contact.comments.build(comment_params)
     @comment.user_id = current_user.id
     @comment.save
-      # flash[:success] = '返信しました'
-      # redirect_to comment_path(@contact.id)
-    # else
-    #   flash[:danger] = '返信できませんでした'
-    #   render :show
-    # end
   end
 
   def destroy
     @comment = current_user.comments.find(params[:id])
     @comment.destroy
-    flash[:success] = 'お問い合わせを削除しました。'
-    redirect_back(fallback_location: comment_path)
+    @msg = "削除しました"
   end
   
   private
