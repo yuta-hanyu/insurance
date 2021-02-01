@@ -18,6 +18,7 @@ class CommentsController < ApplicationController
     @comment = @contact.comments.build(comment_params)
     @comment.user_id = current_user.id
     @comment.save
+    @msg = "返信しました"
   end
 
   def destroy
