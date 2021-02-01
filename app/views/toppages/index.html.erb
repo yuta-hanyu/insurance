@@ -2,16 +2,16 @@
   <h1>筋肉生命の<br>ご契約者専用サイトへようこそ！</h1>
 </div>
 
-<div class="main col-xs-12 col-md-8 offset-md-2">
-  <div class="main_btn">
-  <% unless logged_in? %>
-  <div class="main_btn">
-    <div class="sinup_btn guest_show">ゲストログイン</div>
-    <div class="sinup_btn login_show">ユーザーログイン</div>
-    <div class="sinup_btn admin_login_show">管理者ログイン</div>
-    <%= link_to '新規登録', signup_path,class: "sinup_btn" %>
-  <% end %>
-  </div>
+<div class="btn_wrapper">
+  <div class="col-xs-12 col-md-8 offset-md-2">
+    <div class="main_btn">
+      <% unless logged_in? %>
+          <div class="sinup_btn guest_show">ゲストログイン</div>
+          <div class="sinup_btn login_show">ユーザーログイン</div>
+          <div class="sinup_btn admin_login_show">管理者ログイン</div>
+          <%= link_to '新規登録', signup_path,class: "sinup_btn" %>
+      <% end %>
+    </div>
   </div>
 </div>
 <!--モーダル-->

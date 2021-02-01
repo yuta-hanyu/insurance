@@ -23,7 +23,7 @@ body {
     font-size: 18px;
     font-family: 'Abel', sans-serif;
     font-family: 'Kosugi Maru', sans-serif;
-    background-color :whitesmoke;
+    background-color : aliceblue;
 }
 .wrapper {
     width: 100%;
@@ -39,6 +39,9 @@ body {
     right: 20%;
 }
 /*ナビ関係*/
+.navbar-nav {
+    color: red;
+}
 .nav_wrapper {
     height: 65px;
     width: 100%;
@@ -48,7 +51,8 @@ body {
     z-index:10;
 }
 .navbar {
-    padding:0;
+    padding: 0;
+    background-color: aliceblue;
 }
 .navbar-nav {
     margin: 0 0 0 auto;
@@ -70,11 +74,10 @@ body {
   }
 }
 .login_bar {
-    background-color:#333333;
+    background: #e0ffef;
     text-align: center;
     right: 0;
     bottom: 20px;
-    color: white;
     height: 40px;
     padding-top: 5px;
 }
@@ -85,9 +88,6 @@ body {
 }
 .login_color {
     color:#ffbf7f;
-}
-.menu_color {
-    color:white;
 }
 footer {
      text-align: center;
