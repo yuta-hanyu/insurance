@@ -9,13 +9,13 @@ $(function() {
       }, 2000);
       setTimeout(function(){
       $('.output2').fadeIn('slow');
-      }, 4000);
+      }, 3000);
       setTimeout(function(){
       $('.output3').fadeIn('slow');
-      }, 6000);
+      }, 4000);
       setTimeout(function(){
       $('.output4').fadeIn('slow');
-      }, 8000);
+      }, 5000);
   });
   });
 // ログイン、ゲストログインmodal  
@@ -145,34 +145,34 @@ $(function() {
 });
 // スライドショー
 $('.likes').slick({
-  arrows: true,
-  prevArrow:'<div class="prev"><i class="fas fa-angle-double-left"></i></div>',
-  nextArrow:'<div class="next"><i class="fas fa-angle-double-right"></i></div>',
-  autoplay: true,
-  autoplaySpeed: 700,
-  centerMode: true,
-  centerPadding: '60px',
-  slidesToShow: 3,
-  responsive: [
-    {
-      breakpoint: 768,
-      settings: {
-        arrows: false,
+        arrows: true,
+        prevArrow:'<div class="prev"><i class="fas fa-angle-double-left"></i></div>',
+        nextArrow:'<div class="next"><i class="fas fa-angle-double-right"></i></div>',
+        autoplay: true,
+        autoplaySpeed: 1200,
         centerMode: true,
-        centerPadding: '40px',
-        slidesToShow: 2
-      }
-    },
-    {
-      breakpoint: 480,
-      settings: {
-        arrows: false,
-        centerMode: true,
-        centerPadding: '40px',
-        slidesToShow: 1
-      }
-    }
-  ]
+        centerPadding: '60px',
+        slidesToShow: 3,
+        responsive: [
+          {
+            breakpoint: 768,
+            settings: {
+              arrows: false,
+              centerMode: true,
+              centerPadding: '40px',
+              slidesToShow: 2
+            }
+          },
+          {
+            breakpoint: 480,
+            settings: {
+              arrows: false,
+              centerMode: true,
+              centerPadding: '40px',
+              slidesToShow: 1
+            }
+          }
+        ]
 });
 
 });
