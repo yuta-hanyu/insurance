@@ -6,16 +6,16 @@ $(function() {
   $(function(){
       setTimeout(function(){
       $('.output1').fadeIn('slow');
-      }, 1000);
-      setTimeout(function(){
-      $('.output2').fadeIn('slow');
       }, 2000);
       setTimeout(function(){
+      $('.output2').fadeIn('slow');
+      }, 4000);
+      setTimeout(function(){
       $('.output3').fadeIn('slow');
-      }, 3000);
+      }, 6000);
       setTimeout(function(){
       $('.output4').fadeIn('slow');
-      }, 4000);
+      }, 8000);
   });
   });
 // ログイン、ゲストログインmodal  

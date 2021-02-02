@@ -1,6 +1,6 @@
 <% if logged_in? && current_user.admin? %>
   <nav class="navbar navbar-expand-lg navbar-light">
-    <%= image_tag('5_White_l',:size =>'150x50') %>
+    <i class="fas fa-leaf fa-3x fa_nav_color"></i>
     <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#nav-bar">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -17,7 +17,8 @@
   </nav>
 <% elsif  logged_in? %>
   <nav class="navbar navbar-expand-lg navbar-light">
-    <%= image_tag('3_White_logo_on_color1_138x74.png',:size =>'150x50') %>
+    <i class="fas fa-leaf fa-3x fa_nav_color"></i>
+    <div class="login"><%= current_user.contractor_name %>さん</div>
     <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#nav-bar">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -35,7 +36,7 @@
   </nav>
 <% else %>
   <nav class="navbar navbar-expand-lg">
-    <%= image_tag('5_White_logo_on_black_223x67',:size =>'150x50') %>
+    <i class="fas fa-leaf fa-3x fa_nav_color"></i>
   </nav>
 <% end %>
 <%
