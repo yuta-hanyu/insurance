@@ -13,6 +13,9 @@ $(function() {
       setTimeout(function(){
       $('.output3').fadeIn('slow');
       }, 3000);
+      setTimeout(function(){
+      $('.output4').fadeIn('slow');
+      }, 4000);
   });
   });
 // ログイン、ゲストログインmodal  

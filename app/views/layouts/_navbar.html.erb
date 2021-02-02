@@ -1,12 +1,12 @@
 <% if logged_in? && current_user.admin? %>
   <nav class="navbar navbar-expand-lg navbar-light">
-    <%= image_tag('3_White_logo_on_color1_138x74.png',:size =>'150x50') %>
+    <%= image_tag('5_White_l',:size =>'150x50') %>
     <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#nav-bar">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="nav-bar">
       <ul class="navbar-nav">
-        <li class="nav-item"><%= link_to "トップページ","/" %>
+        <li class="nav-item"><%= link_to "トップページ","/", class: "menu_color" %>
         <li class="nav-item"><%= link_to "管理者情報", admin_info_path(current_user.id),class: "menu_color" %></li>
         <li class="nav-item"><%= link_to "投稿一覧・新規投稿", posts_path,class: "menu_color" %></li>
         <li class="nav-item"><%= link_to "給付金請求一覧", claims_list_path,class: "menu_color" %></li>
@@ -23,7 +23,7 @@
     </button>
     <div class="collapse navbar-collapse" id="nav-bar">
       <ul class="navbar-nav">
-        <li class="nav-item"><%= link_to "トップページ","/" %>
+        <li class="nav-item"><%= link_to "トップページ","/", class: "menu_color" %>
         <li class="nav-item"><%= link_to "ご契約者様情報", user_path(current_user.id),class: "menu_color" %></li>
         <li class="nav-item"><%= link_to "ご契約一覧", contracts_path(current_user.id),class: "menu_color" %></li>
         <li class="nav-item"><%= link_to "請求のお手続き", new_claim_path(current_user.id),class: "menu_color" %></li>
@@ -38,6 +38,9 @@
     <%= image_tag('5_White_logo_on_black_223x67',:size =>'150x50') %>
   </nav>
 <% end %>
+<%
+=begin
+%>
 <div>
     <div class="login_bar">
       <% if logged_in? && current_user.admin? %>
@@ -48,4 +51,7 @@
        <a></a>
       <% end %>
 </div>
+<%
+=end
+%>
 

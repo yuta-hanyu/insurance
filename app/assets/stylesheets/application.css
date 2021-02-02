@@ -27,7 +27,6 @@ body {
 }
 .wrapper {
     width: 100%;
-    margin-top : 90px;
 }
 /*フラッシュメッセージ*/
 .flash_msg {
@@ -39,20 +38,20 @@ body {
     right: 20%;
 }
 /*ナビ関係*/
-.navbar-nav {
-    color: red;
+nav {
+    background-color: rgba(0,0,0,0.6);
+    position: relative;
+}
+.menu_color {
+    color: white;
 }
 .nav_wrapper {
     height: 65px;
     width: 100%;
-    background-color: rgba(34, 49, 52, 0.9);
-    position:fixed;
-    top:0px;
-    z-index:10;
-}
-.navbar {
     padding: 0;
-    background-color: aliceblue;
+    position: fixed;
+    top: 0px;
+    z-index: 10;
 }
 .navbar-nav {
     margin: 0 0 0 auto;
@@ -72,22 +71,6 @@ body {
     .navbar-nav li {
         font-size:15px;
   }
-}
-.login_bar {
-    background: #e0ffef;
-    text-align: center;
-    right: 0;
-    bottom: 20px;
-    height: 40px;
-    padding-top: 5px;
-}
-@media (max-width:670px) {
-    .login_bar {
-        font-size:10px;
-  }
-}
-.login_color {
-    color:#ffbf7f;
 }
 footer {
      text-align: center;
