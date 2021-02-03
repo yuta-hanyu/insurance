@@ -1,13 +1,13 @@
 <div class="login_modal_wrapper" id='login_modal'>
-  <div class="row">
-      <div class="login_modal">
-          <!--閉じる-->
-          <div class="close-modal">
-            <i class="fas fa-times-circle fa-2x"></i>
-          </div>
-          <!--入力フォーム-->
-         <h1>ユーザーログイン</h1>
-         <p>ログインします。<br>以下をご入力ください。</p>
+  <div class="row justify-content-center">
+    <div class="login_modal col-8">
+        <!--閉じる-->
+        <div class="close-modal">
+          <i class="fas fa-times-circle fa-2x"></i>
+        </div>
+        <!--入力フォーム-->
+       <h1>ユーザーログイン</h1>
+       <p>ログインします。<br>以下をご入力ください。</p>
          <%= form_with(url: login_path, scope: :session, local: true) do |f| %>
            <div class="form-group">
              <%= f.email_field :email, class: 'form-control',placeholder: "メール"%>
@@ -18,7 +18,7 @@
            <div class="main_btn">
              <%= f.submit 'ログイン', class: 'next_btn' %>
            </div>
-           <% end %>
-      </div>
+         <% end %>
+    </div>
   </div>
 </div>

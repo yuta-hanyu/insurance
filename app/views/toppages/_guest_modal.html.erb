@@ -1,16 +1,16 @@
-<div class="guest_modal_wrapper" id='guest_modal'>
-    <div class="row">
-      <div class="guest_modal">
-        <!--閉じる-->
-        <div class="close-modal">
-          <i class="fas fa-times-circle fa-2x"></i>
-        </div>
-        <!--リード文-->
-        <h1>ゲストログイン</h1>
-        <p>お試しユーザーとしてログインします。<br>本登録される場合は「新規登録」より、ご登録をお願いします。</p>
-        <%= link_to 'ログイン', guest_sessions_path,class: "next_btn",method: :post %>
+<div class="login_modal_wrapper" id='guest_modal'>
+  <div class="row justify-content-center">
+    <div class="login_modal col-8">
+      <!--閉じる-->
+      <div class="close-modal">
+        <i class="fas fa-times-circle fa-2x"></i>
       </div>
+      <!--リード文-->
+      <h1>ゲストログイン</h1>
+      <p>お試しユーザーとしてログインします。<br>本登録される場合は「新規登録」より、ご登録をお願いします。</p>
+      <%= link_to 'ログイン', guest_sessions_path,class: "next_btn",method: :post %>
     </div>
+  </div>
 </div>
 
         
