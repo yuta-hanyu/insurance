@@ -6,7 +6,7 @@
     <% unless logged_in? %>
       <h1>筋肉生命の<br>ご契約者専用アプリへようこそ！</h1>
     <% else %>
-      <h1>ようこそ<br><%= current_user.contractor_name %>さん！</h1>
+      <h1>ようこそ！<br><%= current_user.contractor_name %>さん！</h1>
     <% end %>
   </div>
 <!--IDはページ内偏移用-->

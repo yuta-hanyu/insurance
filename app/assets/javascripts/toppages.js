@@ -1,7 +1,13 @@
 $(function() {
   
   // メイン画像
-  $('#main_visual').fadeIn("slow");
+$(function() {
+ 
+  // 一旦hide()で隠してフェードインさせる
+  $('.main_visual, .u_main_visual, .a_main_visual').hide().fadeIn(2000);
+ 
+});
+  
   // 機能概要説明
   $(function(){
       setTimeout(function(){
@@ -18,6 +24,7 @@ $(function() {
       }, 5000);
   });
   });
+  
 // ログイン、ゲストログインmodal  
   $(function() {
       // ログインモーダル開く
@@ -39,6 +46,7 @@ $(function() {
       $('#admin_login_modal').slideUp('slow');
     });
   });
+  
 // FAQ
   $(function() {
     $('.faq-list-item').click(function(){
@@ -56,6 +64,7 @@ $(function() {
       }
     });
   });
+  
 // ナビアイテム
   $(function(){
   $('.navbar-nav li ').hover(
@@ -70,6 +79,7 @@ $(function() {
       },300)
     })
   });
+  
 // トップへ戻るボタン（ロゴ）
   $(function(){
     $('.top_btn').click(function(){
@@ -88,12 +98,14 @@ $(function() {
         'font-size':'15px'
       },300)
   });
+  
   // フラッシュMSG
   $(function(){
     setTimeout(function() {
     $('.flash_msg').fadeOut('slow');
     },3000);
   });
+  
   // トップページスラインドイン
   $('.animated').waypoint({
     handler(direction) {
@@ -108,6 +120,7 @@ $(function() {
     },
     offset: '100%',
   });
+  
 　// ローディング
   // 読み込んだらフェードアウト
   $(window).load(function () {
@@ -143,6 +156,7 @@ $(function() {
  
   });
 });
+
 // スライドショー
 $('.likes').slick({
         arrows: true,
