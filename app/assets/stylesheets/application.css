@@ -75,6 +75,9 @@ nav {
 .menu_color {
     color: white;
 }
+.menu_color:hover {
+    color: green;
+}
 .fa_nav_color {
     color: greenyellow;
 }
@@ -84,6 +87,11 @@ nav {
     margin: 0 25px;
     color: white;
     border-bottom: solid 2px white;
+}
+@media(max-width:670px) {
+    .login { 
+        font-size: 15px;
+    }
 }
 footer {
      text-align: center;

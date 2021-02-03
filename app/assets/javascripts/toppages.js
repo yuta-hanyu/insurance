@@ -61,7 +61,7 @@ $(function() {
   $('.navbar-nav li ').hover(
     function(){
       $(this).animate({
-        'font-size':'25px'
+        'font-size':'22px'
       },300);
     },
     function(){

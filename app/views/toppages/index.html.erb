@@ -1,6 +1,13 @@
-<div class="main_visual">
+<!--画像分岐-->
+<div class=<%= "a_main_visual" if logged_in? && current_user.admin?  %>
+           <%= "u_main_visual" if logged_in?  %>
+           <%= "main_visual" unless logged_in?  %>>
   <div class="main_container">
-    <h1>筋肉生命の<br>ご契約者専用サイトへようこそ！</h1>
+    <% unless logged_in? %>
+      <h1>筋肉生命の<br>ご契約者専用サイトへようこそ！</h1>
+    <% else %>
+      <h1>おかえりなさい<br><%= current_user.contractor_name %>さん！</h1>
+    <% end %>
   </div>
   
   <div class="btn_wrapper">

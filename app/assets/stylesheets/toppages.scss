@@ -1,3 +1,91 @@
+// ユーザーログイン
+.u_main_visual {
+    height: 850px;
+    text-align: center;
+    background-image: image-url("autumn-leaves_00009.jpg");
+    background-size: cover;
+    top: 0;
+    position: relative;
+}
+@media (max-width:670px) {
+    .u_main_visual {
+    height: 600px;
+    width: 100%;
+    margin: 0 auto 25px;
+    padding: 150px 0 ;
+    text-align: center;
+    background-image: image-url('autumn-leaves_00009.jpg');
+    margin-bottom: 5px;
+    margin: 0 0 40px;
+    background-size: cover;
+  }
+}
+.u_main_container {
+    background-color: rgba(255,255,255,0.5);
+    top: 30%;
+    left: 0;
+    right: 0;
+    position: absolute;
+    margin: auto;
+    padding: 20px;
+}
+.u_main_visual h1 {
+    font-weight: bold;
+    font-size: 60px;
+    font-family: 'Abel', sans-serif;
+    font-family: 'Kosugi Maru', sans-serif;
+    color: #000000;
+    
+}
+@media (max-width:670px) {
+    .u_main_visual h1 {
+    font-size:25px;
+  }
+}
+// 管理者ログイン
+.a_main_visual {
+    height: 850px;
+    text-align: center;
+    background-image: image-url("cherry-blossom_00041.jpg");
+    background-size: cover;
+    top: 0;
+    position: relative;
+}
+@media (max-width:670px) {
+    .a_main_visual {
+    height: 600px;
+    width: 100%;
+    margin: 0 auto 25px;
+    padding: 150px 0 ;
+    text-align: center;
+    background-image: image-url('cherry-blossom_00041.jpg');
+    margin-bottom: 5px;
+    margin: 0 0 40px;
+    background-size: cover;
+  }
+}
+.a_main_container {
+    background-color: rgba(255,255,255,0.5);
+    top: 30%;
+    left: 0;
+    right: 0;
+    position: absolute;
+    margin: auto;
+    padding: 20px;
+}
+.a_main_visual h1 {
+    font-weight: bold;
+    font-size: 60px;
+    font-family: 'Abel', sans-serif;
+    font-family: 'Kosugi Maru', sans-serif;
+    color: #000000;
+    
+}
+@media (max-width:670px) {
+    .a_main_visual h1 {
+    font-size:25px;
+  }
+}
 .main_visual {
     height: 850px;
     text-align: center;
@@ -5,11 +93,10 @@
     background-size: cover;
     top: 0;
     position: relative;
-    
 }
 @media (max-width:670px) {
     .main_visual {
-    height: 300px;
+    height: 600px;
     width: 100%;
     margin: 0 auto 25px;
     padding: 150px 0 ;
