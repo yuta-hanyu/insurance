@@ -4,7 +4,7 @@ class ContractsController < ApplicationController
   before_action :correct_user, only: [:destroy,:edit, :edit_confirm, :update]
   
   def index
-    @contracts = current_user.contracts.order(id: :desc).page(params[:page]).per(30)
+    @contracts = current_user.contracts.order(id: :desc).page(params[:page]).per(5)
     @contract = current_user.contracts.build
   end
 
@@ -32,16 +32,11 @@ class ContractsController < ApplicationController
     flash[:success] = 'ご契約の登録内容の変更が完了しました。'
     redirect_to contracts_path(current_user.id)
   end
-  
-  def destroy_confirm
-    @contract = current_user.contracts.find(params[:id])
-  end
 
   def destroy
     @contract = current_user.contracts.find(params[:id])
     @contract.destroy
-    flash[:success] = 'ご契約の登録を削除しました。'
-    redirect_to contracts_path
+    @msg = "削除しました"
   end
   
   private

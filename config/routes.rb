@@ -20,9 +20,7 @@ Rails.application.routes.draw do
   delete 'logout', to: 'sessions#destroy'
 
   resources :contracts
-  post 'contracts/confirm', to: 'contracts#confirm'
   patch 'contracts/edit/confirm/:id', to: 'contracts#edit_confirm'
-  get 'contracts/delete/confirm/:id', to: 'contracts#destroy_confirm'
   
   resources :claims, only: [:new, :create, :destroy]
   post 'claims/confirm', to: 'claims#confirm'
