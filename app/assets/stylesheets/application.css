@@ -62,9 +62,9 @@ nav {
     font-size:20px;
     font-weight:bold;
 }
-@media (max-width:670px) {
+@media (max-width:1100px) {
     .navbar-nav li {
-        font-size:15px;
+        font-size:10px;
   }
 }
 @media (max-width:1100px) {
@@ -101,141 +101,6 @@ footer {
 
      width: 100%;
      bottom:0;
-}
-/*リンク文字の色変更*/
-.font_color {
-    color: dodgerblue;
-    text-decoration: underline;
-}
-/*全てのボタンに適用*/
-.btn {
-    margin:10px;
-}
-/*次、登録ボタン*/
-.next_btn {
-  display: inline-block;
-  padding: 3px;
-  text-decoration: none;
-  background: blue;
-  color: #FFF;
-  border-bottom: solid 4px black;
-  border-radius: 20px;
-  width:120px;
-  margin:10px 10px;
-  height:40px;
-}
-.next_btn:active {
-  -webkit-transform: translateY(4px);
-  transform: translateY(4px);
-  border-bottom: none;
-}
-/*戻るボタン*/
-.return_btn {
-  display: inline-block;
-  padding: 3px;
-  text-decoration: none;
-  background: dimgray;
-  color: #FFF;
-  border-bottom: solid 4px black;
-  border-radius: 20px;
-  width:120px;
-  margin:10px 10px;
-  height:40px;
-}
-.return_btn:active {
-  -webkit-transform: translateY(4px);
-  transform: translateY(4px);
-  border-bottom: none;
-}
-/*変更ボタン*/
-.change_btn {
-  display: inline-block;
-  padding: 3px;
-  text-decoration: none;
-  background: green;
-  color: #FFF;
-  border-bottom: solid 4px black;
-  border-radius: 20px;
-  width:120px;
-  margin:10px 10px;
-  height:40px;
-}
-.change_btn:active {
-  -webkit-transform: translateY(4px);
-  transform: translateY(4px);
-  border-bottom: none;
-}
-/*削除ボタン*/
-.delete_btn {
-  display: inline-block;
-  padding: 3px;
-  text-decoration: none;
-  background: crimson;
-  color: #FFF;
-  border-bottom: solid 4px black;
-  border-radius: 20px;
-  width:120px;
-  margin:10px 10px;
-  height:40px;
-}
-.delete_btn:active {
-  -webkit-transform: translateY(4px);
-  transform: translateY(4px);
-  border-bottom: none;
-}
-/*詳細ボタン*/
-.show_btn {
-  display: inline-block;
-  padding: 3px;
-  text-decoration: none;
-  background: teal;
-  color: #FFF;
-  border-bottom: solid 4px black;
-  border-radius: 20px;
-  width:120px;
-  margin:10px 10px;
-  height:40px;
-}
-.show_btn:active {
-  -webkit-transform: translateY(4px);
-  transform: translateY(4px);
-  border-bottom: none;
-}
-/*お気に入り解除*/
-.unlike_btn {
-  display: inline-block;
-  padding: 3px;
-  text-decoration: none;
-  background: orange;
-  color: #FFF;
-  border-bottom: solid 4px black;
-  border-radius: 20px;
-  width:200px;
-  margin:10px 10px;
-  height:40px;
-}
-.unlike_btn:active {
-  -webkit-transform: translateY(4px);
-  transform: translateY(4px);
-  border-bottom: none;
-}
-/*お気に入り*/
-.like_btn {
-  display: inline-block;
-  padding: 3px;
-  text-decoration: none;
-  background: green;
-  color: #FFF;
-  border-bottom: solid 4px black;
-  border-radius: 20px;
-  width:200px;
-  margin:10px 10px;
-  height:40px;
-}
-.like_btn:active {
-  -webkit-transform: translateY(4px);
-  transform: translateY(4px);
-  border-bottom: none;
 }
 .flash_msg {
     text-align:center;

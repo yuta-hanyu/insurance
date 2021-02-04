@@ -1,0 +1,213 @@
+/*リンク文字の色変更*/
+.font_color {
+    color: dodgerblue;
+    text-decoration: underline;
+}
+// ボタン
+// 変更ボタン
+.change_btn {
+    display: inline-block;
+    width: 160px;
+    border: 2px solid #9ec34b;
+    font-size: 16px;
+    color: #9ec34b;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 4px;
+    transition: .4s;
+}
+.change_btn:hover {
+    background-color: #9ec34b;
+    border-color: #cbe585;
+    // ここは変えない
+    color: #FFF;
+}
+// 削除ボタン
+.delete_btn {
+    display: inline-block;
+    width: 160px;
+    border: 2px solid red;
+    font-size: 16px;
+    color: red;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 4px;
+    transition: .4s;
+}
+.delete_btn:hover {
+    background-color: red;
+    border-color: red;
+    // ここは変えない
+    color: #FFF;
+}
+// 戻るボタン
+.return_btn {
+    display: inline-block;
+    width: 160px;
+    border: 2px solid gray;
+    font-size: 16px;
+    color: gray;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 4px;
+    transition: .4s;
+}
+.return_btn:hover {
+    background-color: gray;
+    border-color: gray;
+    // ここは変えない
+    color: #FFF;
+}
+// 次へ、新規登録ボタン
+.next_btn {
+    display: inline-block;
+    width: 160px;
+    border: 2px solid blue;
+    font-size: 16px;
+    color: blue;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 4px;
+    transition: .4s;
+}
+.next_btn:hover {
+    background-color: blue;
+    border-color: blue;
+    // ここは変えない
+    color: #FFF;
+}
+// お気に入りボタン
+
+// お気に入り解除ボタン
+
+
+// /*次、登録ボタン*/
+// .next_btn {
+//   display: inline-block;
+//   padding: 3px;
+//   text-decoration: none;
+//   background: blue;
+//   color: #FFF;
+//   border-bottom: solid 4px black;
+//   border-radius: 20px;
+//   width:120px;
+//   margin:10px 10px;
+//   height:40px;
+// }
+// .next_btn:active {
+//   -webkit-transform: translateY(4px);
+//   transform: translateY(4px);
+//   border-bottom: none;
+// }
+// /*戻るボタン*/
+// .return_btn {
+//   display: inline-block;
+//   padding: 3px;
+//   text-decoration: none;
+//   background: dimgray;
+//   color: #FFF;
+//   border-bottom: solid 4px black;
+//   border-radius: 20px;
+//   width:120px;
+//   margin:10px 10px;
+//   height:40px;
+// }
+// .return_btn:active {
+//   -webkit-transform: translateY(4px);
+//   transform: translateY(4px);
+//   border-bottom: none;
+// }
+// /*変更ボタン*/
+// .change_btn {
+//   display: inline-block;
+//   padding: 3px;
+//   text-decoration: none;
+//   background: green;
+//   color: #FFF;
+//   border-bottom: solid 4px black;
+//   border-radius: 20px;
+//   width:120px;
+//   margin:10px 10px;
+//   height:40px;
+// }
+// .change_btn:active {
+//   -webkit-transform: translateY(4px);
+//   transform: translateY(4px);
+//   border-bottom: none;
+// }
+// /*削除ボタン*/
+// .delete_btn {
+//   display: inline-block;
+//   padding: 3px;
+//   text-decoration: none;
+//   background: crimson;
+//   color: #FFF;
+//   border-bottom: solid 4px black;
+//   border-radius: 20px;
+//   width:120px;
+//   margin:10px 10px;
+//   height:40px;
+// }
+// .delete_btn:active {
+//   -webkit-transform: translateY(4px);
+//   transform: translateY(4px);
+//   border-bottom: none;
+// }
+// /*詳細ボタン*/
+// .show_btn {
+//   display: inline-block;
+//   padding: 3px;
+//   text-decoration: none;
+//   background: teal;
+//   color: #FFF;
+//   border-bottom: solid 4px black;
+//   border-radius: 20px;
+//   width:120px;
+//   margin:10px 10px;
+//   height:40px;
+// }
+// .show_btn:active {
+//   -webkit-transform: translateY(4px);
+//   transform: translateY(4px);
+//   border-bottom: none;
+// }
+// /*お気に入り解除*/
+// .unlike_btn {
+//   display: inline-block;
+//   padding: 3px;
+//   text-decoration: none;
+//   background: orange;
+//   color: #FFF;
+//   border-bottom: solid 4px black;
+//   border-radius: 20px;
+//   width:200px;
+//   margin:10px 10px;
+//   height:40px;
+// }
+// .unlike_btn:active {
+//   -webkit-transform: translateY(4px);
+//   transform: translateY(4px);
+//   border-bottom: none;
+// }
+// /*お気に入り*/
+// .like_btn {
+//   display: inline-block;
+//   padding: 3px;
+//   text-decoration: none;
+//   background: green;
+//   color: #FFF;
+//   border-bottom: solid 4px black;
+//   border-radius: 20px;
+//   width:200px;
+//   margin:10px 10px;
+//   height:40px;
+// }
+// .like_btn:active {
+//   -webkit-transform: translateY(4px);
+//   transform: translateY(4px);
+//   border-bottom: none;
+// }
