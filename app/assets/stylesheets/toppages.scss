@@ -7,7 +7,7 @@
     top: 0;
     position: relative;
 }
-@media (max-width:670px) {
+@media (max-width: 670px) {
     .u_main_visual {
     height: 600px;
     width: 100%;
@@ -240,11 +240,14 @@ color:#515151;
         margin: auto;
   }
 }
-.fa_ms_color {
-    color: green;
+.fa_us_color {
+    color: orange;
 }
 .fa_ad_color {
     color: palevioletred;
+}
+.fa_no_color {
+    color: green;
 }
 // お気に入り
 .message-icon-c {
@@ -320,11 +323,18 @@ color:#515151;
     display: none;
 }
 // 商品紹介
-.likes-wrapper {
+.likes-wrapper_us {
     margin: 0 auto;
     margin: 10px 0;
     padding: 20px 0;
-    background: #e0ffef;
+    background: #ffd3a8;
+    width: 100%;
+}
+.likes-wrapper_no {
+    margin: 0 auto;
+    margin: 10px 0;
+    padding: 20px 0;
+    background: #a8ffa8;
     width: 100%;
 }
 // likeのスライドショー 

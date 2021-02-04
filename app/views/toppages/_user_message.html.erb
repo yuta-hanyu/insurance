@@ -10,7 +10,9 @@
       <div class="col-md-3">
         <div class="message">
           <div class="fas_text">
-            <i class="fas fa-address-card fa-4x fa_ms_color"></i>
+            <i class="fas fa-address-card fa-4x       
+            <%= "fa_us_color" if logged_in?  %>
+            <%= "fa_no_color" unless logged_in?  %>"></i>
           </div>
           <h2>ご加入契約の登録</h2>
           <div class="output1 txt-contents">
@@ -22,7 +24,9 @@
       <div class="col-md-3">
         <div class="message">
           <div class="fas_text">
-           <i class="fas fa-calculator fa-4x fa_ms_color"></i>
+            <i class="fas fa-address-card fa-4x       
+            <%= "fa_us_color" if logged_in?  %>
+            <%= "fa_no_color" unless logged_in?  %>"></i>
           </div>
           <h2>請求のお手続き</h2>
           <div class="output2 txt-contents">
@@ -34,7 +38,9 @@
       <div class="col-md-3">
         <div class="message">
           <div class="fas_text">
-            <i class="fas fa-check-circle fa-4x fa_ms_color"></i>
+            <i class="fas fa-address-card fa-4x       
+            <%= "fa_us_color" if logged_in?  %>
+            <%= "fa_no_color" unless logged_in?  %>"></i>
           </div>
           <h2>各種お問い合わせ</h2>
           <div class="output3 txt-contents">
@@ -46,7 +52,9 @@
       <div class="col-md-3">
         <div class="message">
           <div class="fas_text">
-            <i class="fas fa-address-card fa-4x fa_ms_color"></i>
+            <i class="fas fa-address-card fa-4x       
+            <%= "fa_us_color" if logged_in?  %>
+            <%= "fa_no_color" unless logged_in?  %>"></i>
           </div>
           <h2>お気に入り</h2>
           <!--IDはページ内リンク用-->
@@ -60,7 +68,8 @@
   </div>
 </div>
 <!--商品紹介-->
-<div class="likes-wrapper animated">
+<div class="<%= "likes-wrapper_no" unless logged_in?  %>
+            <%= "likes-wrapper_us" if logged_in?  %> animated">
   <div class="heading">
     <h2>生命保険をご検討の方</h2>
   </div>
