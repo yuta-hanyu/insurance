@@ -14,8 +14,6 @@ Rails.application.routes.draw do
   patch 'users/edit/confirm/:id', to: 'users#edit_confirm'
   get 'users/delete/confirm/:id', to: 'users#destroy_confirm'
   
-  # モーダル作成につき、一旦削除
-  # get 'login', to: 'sessions#new'
   post 'login', to: 'sessions#create'
   delete 'logout', to: 'sessions#destroy'
 

@@ -13,6 +13,8 @@ class ContractsController < ApplicationController
     if @contract.save(contract_params)
       @msg = 'ご契約の新規登録が完了しました'
       @contracts = current_user.contracts.order(id: :desc)
+    else 
+      exit
     end
   end
 

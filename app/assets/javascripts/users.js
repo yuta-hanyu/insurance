@@ -22,7 +22,7 @@ $(function() {
       });
   });
 });
-// バリデーション
+// contractバリデーション
 $(function() {
   $('#form').submit(function() {
     // フォーム入力値を代入
@@ -36,6 +36,22 @@ $(function() {
     } else {
       // 正しく入力された場合はエラー削除
       $('#error-message').text('');
+    }
+  });
+});
+// commentバリデーション
+$(function() {
+  $('#contact_form').submit(function() {
+    // フォーム入力値を代入
+    var selectValue = $('.ajax_text').val();
+    // フォームのいずれが空の時はエラー表示
+    if( selectValue == ""){
+      $("#error-message").removeClass();
+      $("#error-message").addClass("error-message");
+      $('#error-message').text('返信が入力されてません');
+    } else {
+      // 正しく入力された場合はエラー削除
+      $('.error-message').text('');
     }
   });
 });

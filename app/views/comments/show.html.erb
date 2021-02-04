@@ -42,13 +42,13 @@
 <div id="comment_msg"></div>
 <div class="main col-xs-12 col-md-8 offset-md-2">
   <div class="form">
-    <%= form_with(model: @comment) do |f| %>
+    <%= form_with(model: @comment, id: 'contact_form') do |f| %>
     <%= hidden_field_tag :contact_id, @contact.id  %>
-    <%= render 'layouts/error_messages', model: f.object %>
+    <p id="error-message" class="error-message none"></p>
       <table class="table table-bordered table-md mt-3 table-success">
         <tr>
           <th width="20%" class="text-center align-middle">返信</th>
-          <td><%= f.text_area :content,:size => "60x6", class: 'form-control' %></td>
+          <td><%= f.text_area :content,:size => "60x6", class: 'form-control ajax_text' %></td>
         </tr>
         <tr>
           <td colspan="2" class="text-center align-middle"><%= f.submit '返信', class: 'next_btn' %></td>

@@ -19,6 +19,8 @@ class CommentsController < ApplicationController
     @comment.user_id = current_user.id
     if @comment.save
       @msg = "返信しました"
+    else
+      exit
     end
   end
 
