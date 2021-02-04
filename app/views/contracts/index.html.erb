@@ -8,17 +8,17 @@
   
   <div class="row justify-content-md-center ml-2 mr-2 mb-3">
     <!--新規登録フォーム-->
-    <div class="contract_form col-md-3 mr-4">
+    <div class="contract_form col-md-3">
       <h2>ご契約の新規登録</h2>
-      <%= form_with(model: @contract) do |f| %>
-      <%= render 'layouts/error_messages', model: f.object %>
+      <%= form_with(model: @contract, id: 'form') do |f| %>
+      <p id="error-message" class="error-message none"></p>
         <div class="form-group">
           <%= f.label :contract_name, '-契約名-' %>
-          <%= f.text_field :contract_name, class: 'form-control' %>
+          <%= f.text_field :contract_name, class: 'form-control ajax_text' %>
         </div>
         <div class="form-group">
           <%= f.label :policy_number, '-保険証書番号-' %>
-          <%= f.number_field :policy_number, class: 'form-control' %>
+          <%= f.number_field :policy_number, class: 'form-control ajax_num' %>
         </div>
         <div class="main_btn">
           <%= f.submit '新規登録', class: 'next_btn' %>
@@ -26,9 +26,10 @@
       <% end %>
     </div>
     <!--登録済み契約一覧-->
-    <div class="contract_index col-md-7">
+    <div class="contract_index offset-md-1 col-md-7">
       <h2>ご登録契約一覧</h2>
       <!--ajax-->
+      <div id="contract_msg"></div>
       <div id="j_contract">
         <%= render "contracts/contract" %>
       </div>

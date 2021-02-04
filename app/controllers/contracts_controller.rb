@@ -10,9 +10,10 @@ class ContractsController < ApplicationController
 
   def create
     @contract = current_user.contracts.build(contract_params)
-    @contract.save(contract_params)
-    @msg = 'ご契約の新規登録が完了しました'
-    @contracts = current_user.contracts.order(id: :desc)
+    if @contract.save(contract_params)
+      @msg = 'ご契約の新規登録が完了しました'
+      @contracts = current_user.contracts.order(id: :desc)
+    end
   end
 
   def edit

@@ -1,4 +1,5 @@
 $(function() {
+  // 住所自動登録API
   $("#zip-code").change(function() {
     let zip = $(this).val();
     $.ajax({
@@ -19,5 +20,22 @@ $(function() {
       .fail(function() {
         alert("郵便番号が誤っています");
       });
+  });
+});
+// バリデーション
+$(function() {
+  $('#form').submit(function() {
+    // フォーム入力値を代入
+    var selectValue = $('.ajax_text').val();
+    var textValue = $('.ajax_num').val();
+    // フォームのいずれが空の時はエラー表示
+    if( selectValue == "" || textValue == ""){
+      $("#error-message").removeClass();
+      $("#error-message").addClass("error-message");
+      $('#error-message').text('空欄があります');
+    } else {
+      // 正しく入力された場合はエラー削除
+      $('#error-message').text('');
+    }
   });
 });

@@ -8,6 +8,7 @@
     background-color: #eeeeee;
     border: 1px solid;
     padding: 10px;
+    margin-bottom: 25px;
 }
 .contract_form h2 {
     color: #000000;
@@ -17,6 +18,7 @@
 }
 // 既登録一覧
 .contract_index {
+    background-color: #eeeeee;
     border: 1px solid;
     padding: 10px;
 }
@@ -30,7 +32,7 @@
     margin: 25px auto;
 }
 #contract_table {
-    background-color: #eeeeee;
+    background-color: white;
 }
 #contract_table th {
     background-color: #ffd3a8;
@@ -38,6 +40,21 @@
 }
 .table td,.table th{
     border: gray solid 1px !important;
+}
+// ajaxフラッシュMSG
+#contract_msg {
+    text-align: center;
+    margin: 10px;
+}
+// ajaxバリデーションエラー
+.error-message {
+    color: #F51414;
+}
+#error-message {
+    margin: 0 0 0 0;
+}
+.none {
+    display: none;
 }
 // 契約がない場合
 .contract_nill {
