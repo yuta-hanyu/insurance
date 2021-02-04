@@ -4,28 +4,15 @@ class ContractsController < ApplicationController
   before_action :correct_user, only: [:destroy,:edit, :edit_confirm, :update]
   
   def index
-    @contracts = current_user.contracts.order(id: :desc).page(params[:page]).per(2)
+    @contracts = current_user.contracts.order(id: :desc).page(params[:page]).per(30)
     @contract = current_user.contracts.build
-  end
-
-  def new
-    @contract = current_user.contracts.build
-  end
-  
-  def confirm
-    @contract = current_user.contracts.build(contract_params)
-    render :new if @contract.invalid?
   end
 
   def create
     @contract = current_user.contracts.build(contract_params)
-    if params[:back] 
-      render :new 
-    else 
-      @contract.save(contract_params)
-      flash[:success] = 'ご契約の新規登録が完了しました。'
-      redirect_to contracts_path
-    end
+    @contract.save(contract_params)
+    @msg = 'ご契約の新規登録が完了しました'
+    @contracts = current_user.contracts.order(id: :desc)
   end
 
   def edit

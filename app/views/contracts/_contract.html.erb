@@ -1,0 +1,25 @@
+<% if @contracts.any? %>
+  <% @contracts.each do |contract| %>
+    <div class="contract_main">
+      <table class="table table-bordered text-center" id="contract_table">
+        <tr>
+          <th colspan="2"><%= contract.contract_name %></th>
+        </tr>
+        <tr>
+          <td>契約者名</td>
+          <td><%= contract.user.contractor_name %></td>
+        </tr>
+        <tr>
+          <td>保険証書番号</td>
+          <td><%= contract.policy_number %></td>
+        </tr>
+        <tr>
+          <td><%= link_to "変更", "/contracts/#{contract.id}/edit",class: "change_btn"  %></td>
+          <td><%= link_to "削除","/contracts/delete/confirm/#{contract.id}",class: "delete_btn" %></td>
+        </tr>
+      </table>
+    </div>
+  <% end %>
+<% else %>
+  <p class="contract_nill">ご加入契約の登録がありません。<br>契約の新規登録を行ってください。</p>
+<% end %>

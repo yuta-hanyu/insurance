@@ -10,7 +10,7 @@
     <!--新規登録フォーム-->
     <div class="contract_form col-md-3 mr-4">
       <h2>ご契約の新規登録</h2>
-      <%= form_with(model: @contract, local: true, url: {action: :confirm}) do |f| %>
+      <%= form_with(model: @contract) do |f| %>
       <%= render 'layouts/error_messages', model: f.object %>
         <div class="form-group">
           <%= f.label :contract_name, '-契約名-' %>
@@ -21,39 +21,17 @@
           <%= f.number_field :policy_number, class: 'form-control' %>
         </div>
         <div class="main_btn">
-          <!--<%#= link_to '戻る',contracts_path(current_user.id),class: "return_btn" %>-->
           <%= f.submit '新規登録', class: 'next_btn' %>
         </div>
       <% end %>
     </div>
     <!--登録済み契約一覧-->
     <div class="contract_index col-md-7">
-      <h2>ご録済契約一覧</h2>
-      <% if @contracts.any? %>
-        <% @contracts.each do |contract| %>
-          <div class="contract_main">
-            <table class="table table-bordered text-center" id="contract_table">
-              <tr>
-                <th colspan="2"><%= contract.contract_name %></th>
-              </tr>
-              <tr>
-                <td>契約者名</td>
-                <td><%= contract.user.contractor_name %></td>
-              </tr>
-              <tr>
-                <td>保険証書番号</td>
-                <td><%= contract.policy_number %></td>
-              </tr>
-              <tr>
-                <td><%= link_to "変更", "/contracts/#{contract.id}/edit",class: "change_btn"  %></td>
-                <td><%= link_to "削除","/contracts/delete/confirm/#{contract.id}",class: "delete_btn" %></td>
-              </tr>
-            </table>
-          </div>
-        <% end %>
-      <% else %>
-        <p class="contract_nill">ご加入契約の登録がありません。<br>契約の新規登録を行ってください。</p>
-      <% end %>
+      <h2>ご登録契約一覧</h2>
+      <!--ajax-->
+      <div id="j_contract">
+        <%= render "contracts/contract" %>
+      </div>
     <div class="pagination  justify-content-center">
       <%= paginate @contracts %>
     </div>
