@@ -2,14 +2,34 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-// 契約がない場合
-.contract_nill {
-    color: red;
-    padding-top: 20px;
-    text-align: center
+// 新規登録フォーム
+.contract_form {
+    height: 70%;
+    background-color: #eeeeee;
+    border: 1px solid;
+    padding: 10px;
+}
+.contract_form h2 {
+    color: #000000;
+    text-align: center;
+    font-size: 22px;
+    margin: 10px;
+}
+// 既登録一覧
+.contract_index {
+    // height: 70%;
+    // background-color: #ffd3a8;
+    // margin: 25px auto 60px;
+    border: 1px solid;
+    padding: 10px;
+}
+.contract_index h2 {
+    color: #000000;
+    text-align: center;
+    font-size: 22px;
+    margin: 10px;
 }
 .contract_main {
-    width: 60%;
     margin: 25px auto;
 }
 #contract_table {
@@ -18,4 +38,13 @@
 #contract_table th {
     background-color: #ffd3a8;
     color: #000000;
+}
+.table td,.table th{
+    border: gray solid 1px !important;
+}
+// 契約がない場合
+.contract_nill {
+    color: red;
+    padding-top: 20px;
+    text-align: center
 }

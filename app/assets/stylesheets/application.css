@@ -37,8 +37,13 @@ body {
     left: 20%;
     right: 20%;
 }
+/*ページネーション*/
+.pagination li a {          
+    border: none;
+    color: #696969;
+}
 /*ナビ関係*/
-nav {
+.navbar {
     background-color: rgba(0,0,0,0.6);
 }
 .nav_wrapper {
@@ -112,10 +117,6 @@ footer {
     .flash_msg {
         font-size:15px;
   }
-}
-.pagination li a {          
-  border: none;
-  color: #696969;
 }
 
 .pagination .active a {     

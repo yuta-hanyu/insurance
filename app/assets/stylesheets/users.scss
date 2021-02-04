@@ -4,7 +4,7 @@
 
 // ログインユーザー共通
 .us_visual {
-    height: 250px;
+    height: 220px;
     background-image: image-url("autumn-leaves_00009.jpg");
     background-size: cover;
     top: 0;
@@ -23,7 +23,7 @@
   }
 }
 .us_container {
-    top: 35%;
+    top: 55%;
     left: 0;
     right: 0;
     position: absolute;
@@ -41,13 +41,13 @@
     font-size: 25px;
   }
 }
-.us_container p {
+.contract_wrapper p {
     font-size: 20px;
     padding: 20px;
     text-align: center;
 }
 @media (max-width: 670px) {
-    .us_container p {
+    .contract_wrapper p {
         font-size: 15px;
   }
 }
