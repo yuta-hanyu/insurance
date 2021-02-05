@@ -54,4 +54,16 @@ $(function() {
       $('.error-message').text('');
     }
   });
+// 編集フォーム表示切替 
+  $(function() {
+      // フォームを開く
+    $("#e_icon").click(function(){
+      $('.e_form').slideDown('slow');
+    });
+    $(".close-e_form").click(function(){
+      $('.e_form').slideUp('slow');
+    });
+
+  });
+  
 });

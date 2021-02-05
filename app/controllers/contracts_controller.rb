@@ -6,6 +6,8 @@ class ContractsController < ApplicationController
   def index
     @contracts = current_user.contracts.order(id: :desc).page(params[:page]).per(5)
     @contract = current_user.contracts.build
+    # @contractt = current_user.contracts.find(params[:id])
+    # @contract = current_user.contracts.find(params[:id])
   end
 
   def create
@@ -18,22 +20,23 @@ class ContractsController < ApplicationController
     end
   end
 
-  def edit
-    @contract = current_user.contracts.find(params[:id])
-  end
-  
-  def edit_confirm
-    @contract = current_user.contracts.find(params[:id])
-    @contract.attributes = contract_params
-    render :edit if @contract.invalid?
-  end
-
   def update
     @contract = current_user.contracts.find(params[:id])
-    @contract.update(contract_params)
-    flash[:success] = 'ご契約の登録内容の変更が完了しました。'
-    redirect_to contracts_path(current_user.id)
+    if @contract.update(contract_params)
+      @msg = '変更が完了しました'
+      @contracts = current_user.contracts.order(id: :desc)
+    else
+      exit
+    end
   end
+  
+  
+  # def edit_confirm
+  #   @contract = current_user.contracts.find(params[:id])
+  #   @contract.attributes = contract_params
+  #   render :edit if @contract.invalid?
+  # end
+
 
   def destroy
     @contract = current_user.contracts.find(params[:id])

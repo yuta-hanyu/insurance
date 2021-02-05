@@ -1,6 +1,8 @@
 <% if @contracts.any? %>
   <% @contracts.each do |contract| %>
     <div class="contract_main" id="contract-<%= contract.id %>">
+      <!--フラッシュmsg-->
+      <div id="contract_up-msg"></div>
       <table class="table table-bordered text-center" id="contract_table">
         <tr>
           <th colspan="2"><%= contract.contract_name %></th>
@@ -14,10 +16,32 @@
           <td><%= contract.policy_number %></td>
         </tr>
         <tr>
-          <td><%= link_to "変更", "/contracts/#{contract.id}/edit",class: "change_btn"  %></td>
+          <!--編集フォーム展開-->
+          <td><span id="e_icon" ><i class="fas fa-edit"></i></span></td>
           <td><%= link_to "削除", contract, method: :delete, class: "delete_btn", remote: true %></td>
         </tr>
       </table>
+      <!--編集フォーム-->
+      <div id="contract_e-<%= contract.id %>" class="e_form">
+        <p>契約内容の変更</p>
+        <%= form_with(model: contract) do |f| %>
+
+        <div class="form-group">
+          <%= f.label :contract_name, '契約名' %>
+          <%= f.text_field :contract_name, class: 'form-control', value: contract.contract_name %>
+        </div>
+        
+        <div class="form-group">
+          <%= f.label :policy_number, '保険証書番号' %>
+          <%= f.number_field :policy_number, class: 'form-control', value: contract.policy_number %>
+        </div>
+        
+        <div class="main_btn">
+          <%= f.submit '保存',class: 'next_btn close-e_form' %>
+        <% end %>
+        </div>
+      </div>
+      
     </div>
   <% end %>
 <% else %>
