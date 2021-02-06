@@ -38,7 +38,7 @@
 }
 @media (max-width: 670px) {
     .us_visual h1 {
-    font-size: 25px;
+    font-size: 20px;
   }
 }
 .us_wrapper p {
@@ -47,7 +47,7 @@
     text-align: center;
 }
 @media (max-width: 670px) {
-    .contract_wrapper p {
+    .us_wrapper p {
         font-size: 15px;
   }
 }
@@ -58,56 +58,3 @@
 .user_table {
   margin-top: 20px;
 }
-
-
-
-
-
-// モーダル
-// .u_new_modal_wrapper {
-//     position: fixed;
-//     top: 0;
-//     right: 0;
-//     bottom: 0;
-//     left: 0;
-//     background-color: rgba(0, 0, 0, 0.6);
-//     z-index: 100;
-//     display: none;
-// }
-// .u_new_modal {
-//     position: absolute;
-//     background-color: #ffeddb;
-//     padding: 30px 40px;
-//     border-radius: 10px;
-//     width: 600px;
-//     margin: 10% 30%;
-//     height: auto;
-//     text-align: center;
-// }
-// @media (max-width:670px) {
-//     .u_new_modal {
-//         width: 70%;
-//     }
-// }
-// .u_new_modal h1 {
-//     width: 70%;
-//     margin: 0 auto;
-//     color: #818181;
-//     padding: 0.2em 0;
-//     border-top: solid 3px #364e96;
-//     border-bottom: solid 3px #364e96;
-//     margin-bottom: 20px;
-// }
-// .u_new_modal p {
-//     margin-bottom: 20px;
-// }
-// @media (max-width:670px) {
-//     .u_new_modal h1 {
-//         font-size:25px;
-//     }
-// }
-// @media (max-width:670px) {
-//     .u_new_modal p {
-//         font-size:15px;
-//     }
-// }

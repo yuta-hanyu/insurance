@@ -5,132 +5,68 @@
     </div>
   </div>
     <p>「お問い合わせフォーム」よりご質問ください。返信は「お問い合わせ一覧」よりご覧いただけます。</p>
-
   <div class="row justify-content-md-center ml-2 mr-2 mb-3">
     <!--お問い合わせフォーム-->
     <div class="contact_form col-md-5">
       <h2>お問い合わせフォーム</h2>
-      <%= form_with(model: @contact, local: true) do |f| %>
-      <%= render 'layouts/error_messages', model: f.object %>
-        <table class="table mt-3 mb-3 offset-1 col-10 offset-1">
-          <tr>
-            <th width="30%" class="text-left align-middle t_font_color">お問い合わせ種類</th>
-            <td>
-            <div class="form-check">
-              <label><%= f.radio_button :type, "資料請求について",checked: true %>&emsp;資料請求について</label>
-            </div>
-            
-            <div class="form-check">
-              <label><%= f.radio_button :type, "マイページの利用について" %>&emsp;マイページの利用について</label>
-            </div>
-            
-            <div class="form-check">
-              <label><%= f.radio_button :type, "その他" %>&emsp;その他</label>
-            </div>
-            </td>
-          </tr>
-          <tr>
-            <th class="text-left align-middle t_font_color">件名</th>
-            <td>
-              <%= f.text_field :title, class: 'form-control' %>
-            </td>
-          </tr>
-          <tr>
-            <th class="text-left align-middle t_font_color">電話番号</th>
-            <td>
-              <%= f.number_field :tel, class: 'form-control' %>
-            </td>
-          </tr>
-          <tr>
-            <th class="text-left align-middle t_font_color">お問い合わせ内容</th>
-            <td>
-              <%= f.text_area :content,:size => "60x10", class: 'form-control' %>
-            </td>
-          </tr>
-        </table>
-
-        <div class="main_btn">
-          <%= f.submit '送信', class: 'next_btn' %>
-          <% end %>
-        </div>
-        
-    </div>
-    <!--お問い合わせ一覧-->
-    <div class="contact_form offset-1 col-md-5">
-      <h2>お問い合わせ一覧</h2>
-      
-        <% if @contacts.any? %>
-          <% @contacts.each do |contact| %>
-            <table class="table">
-              <tr>
-                <th width="40%" class="text-center t_font_color">お問い合わせ日</th>
-                <th width="40%" class="text-center t_font_color">お問い合わせ種類</th>
-                <th width="20%" class="text-center t_font_color">詳細へ</th>
-              </tr>
-              <tr>
-                <th class="text-center"><%= contact.created_at.strftime('%Y/%m/%d') %></th>
-              　<th class="text-center"><%= contact.type %></th>
-              　<th class="text-center"><%= link_to "返信確認",comment_path(contact.id), class: "font_color" %></th>
-              </tr>
-            </table>
-           <% end %>
-        <% else %>
-          <p class="contract_nill">お問い合わせがありません。</p>
-        <% end %>
-       
-        <div class="pagination  justify-content-center">
-          <%= paginate @contacts %>
-        </div>
-      
-        <div class="main_btn">
-          <%= link_to '戻る',"/",class: "return_btn" %>
-        </div>
-        
-    </div>
-      
-  </div>
-</div>
- 
-<%
-=begin
-%>
-
-  
-  <div class="header_admin">
-    <h1>お問い合わせ一覧・返信確認</h1>
-  </div>
-  <% if @contacts.any? %>
-    <% @contacts.each do |contact| %>
-      <div class="claim_sub col-xs-12 col-md-8 offset-md-2">
-        <div class="claim_table">
-          <table class="table table-bordered">
-            <tr class="table-primary">
-              <th width="40%" class="users_th text-center">お問い合わせ日</th>
-              <th width="40%" class="users_th text-center">お問い合わせ種類</th>
-              <th width="20%" class="users_th text-center">詳細へ</th>
+      <!--ajax-->
+      <div id="j_contact">
+        <%= render "contacts/complete" %>
+      </div>
+      <!--送信後非表示-->
+      <div id="ajax_contact_table">
+        <%= form_with(model: @contact) do |f| %>
+        <%= render 'layouts/error_messages', model: f.object %>
+          <table class="table offset-1 col-10 offset-1">
+            <tr>
+              <th width="30%" class="text-left align-middle t_font_color">お問い合わせ種類</th>
+              <td>
+              <div class="form-check">
+                <label><%= f.radio_button :type, "資料請求について",checked: true %>&emsp;資料請求について</label>
+              </div>
+              <div class="form-check">
+                <label><%= f.radio_button :type, "マイページの利用について" %>&emsp;マイページの利用について</label>
+              </div>
+              <div class="form-check">
+                <label><%= f.radio_button :type, "その他" %>&emsp;その他</label>
+              </div>
+              </td>
             </tr>
             <tr>
-              <th class="users_th text-center"><%= contact.created_at.to_s(:datetime_jp) %></th>
-            　<th class="users_th text-center"><%= contact.type %></th>
-            　<th class="users_th text-center"><%= link_to "詳細・返信確認へ",comment_path(contact.id), class: "font_color" %></th>
+              <th class="text-left align-middle t_font_color">件名</th>
+              <td>
+                <%= f.text_field :title, class: 'form-control ajax_text1' %>
+              </td>
+            </tr>
+            <tr>
+              <th class="text-left align-middle t_font_color">電話番号</th>
+              <th>
+                <%= f.number_field :tel, class: 'form-control ajax_num' %>
+              </th>
+            </tr>
+            <tr>
+              <th class="text-left align-middle t_font_color">お問い合わせ内容</th>
+              <td>
+                <%= f.text_area :content,:size => "60x10", class: 'form-control ajax_text2' %>
+              </td>
             </tr>
           </table>
-        </div>
+          <div class="main_btn">
+            <%= f.submit '送信', class: 'next_btn' %>
+            <% end %>
+          </div>
       </div>
-     <% end %>
-  <% else %>
-    <p class="contract_nill">お問い合わせがありません。</p>
-  <% end %>
-   
-  <div class="pagination  justify-content-center">
-    <%= paginate @contacts %>
+    </div>
+    <!--お問い合わせ一覧-->
+    <div class="contact_form offset-md-1 col-md-5 contact_table">
+      <h2>お問い合わせ一覧</h2>
+      <div id="ji_contact">
+        <%= render "contacts/contact" %>
+      </div>
+    </div>
   </div>
-  
   <div class="main_btn">
     <%= link_to '戻る',"/",class: "return_btn" %>
   </div>
 </div>
-
-<%
-=end
-%>
+ 

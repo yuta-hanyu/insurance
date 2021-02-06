@@ -9,10 +9,9 @@ class ContactsController < ApplicationController
   def create
     @contact = current_user.contacts.build(contact_params)
     if @contact.save
-      redirect_to contacts_complete_path
-    else
-      @contacts = current_user.contacts.order(id: :desc).page(params[:page]).per(5)
-     render :index
+      @contacts = current_user.contacts.order(id: :desc).page(params[:page]).per(3)
+    else 
+      exit
     end
   end
 

@@ -50,7 +50,31 @@ $(function() {
       contractTextArea.toggle('slow');
     });
   });
-
+// contact関係
+// contact complete消す
+$(function() {
+    $('.close-modal').click(function(){
+      $('#j_contact').hide('slow');
+      $('#ajax_contact_table').show('slow');
+      $(".ajax_text1, .ajax_num, .ajax_text2").val('');
+    });
+});
+// contactバリデーション
+$(function() {
+  $('#contact_form').submit(function() {
+    // フォーム入力値を代入
+    var selectValue = $('.ajax_text').val();
+    // フォームのいずれが空の時はエラー表示
+    if( selectValue == ""){
+      $("#error-message").removeClass();
+      $("#error-message").addClass("error-message");
+      $('#error-message').text('返信が入力されてません');
+    } else {
+      // 正しく入力された場合はエラー削除
+      $('.error-message').text('');
+    }
+  });
+});
 // comment関係
 // commentバリデーション
 $(function() {
@@ -67,8 +91,4 @@ $(function() {
       $('.error-message').text('');
     }
   });
-  
-  
-  
-  
 });

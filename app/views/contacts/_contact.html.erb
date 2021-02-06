@@ -1,0 +1,22 @@
+<% if @contacts.any? %>
+  <% @contacts.each do |contact| %>
+  <span>お問い合わせID:<%= contact.id %></span>
+    <table class="table">
+      <tr>
+        <th width="40%" class="text-center t_font_color">お問い合わせ日</th>
+        <th width="40%" class="text-center t_font_color">お問い合わせ種類</th>
+        <th width="20%" class="text-center t_font_color">詳細へ</th>
+      </tr>
+      <tr>
+        <th class="text-center th_color"><%= contact.created_at.strftime('%Y/%m/%d') %></th>
+      　<th class="text-center th_color"><%= contact.type %></th>
+      　<th class="text-center th_color"><%= link_to "返信確認",comment_path(contact.id), class: "font_color" %></th>
+      </tr>
+    </table>
+   <% end %>
+<% else %>
+  <p class="contract_nill">お問い合わせがありません。</p>
+<% end %>
+<div class="pagination  justify-content-center">
+  <%= paginate @contacts %>
+</div>
