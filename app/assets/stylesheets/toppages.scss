@@ -436,13 +436,13 @@ color:#515151;
 .likes ul:hover {
     transform: scale(1.1)  rotate(7deg);
 }
-@media (max-width:670px) {
-    .table th:not(.users_th) {
-        padding: 4px 12px;
-        display: block;
-        width: 100%;
-    }
-}
+// @media (max-width:670px) {
+//     .table th:not(.users_th) {
+//         padding: 4px 12px;
+//         display: block;
+//         width: 100%;
+//     }
+// }
 @media (max-width:670px) {
     .table td {
         padding: 4px 12px;

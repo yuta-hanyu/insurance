@@ -6,8 +6,6 @@ class ContractsController < ApplicationController
   def index
     @contracts = current_user.contracts.order(id: :desc).page(params[:page]).per(5)
     @contract = current_user.contracts.build
-    # @contractt = current_user.contracts.find(params[:id])
-    # @contract = current_user.contracts.find(params[:id])
   end
 
   def create
@@ -29,14 +27,6 @@ class ContractsController < ApplicationController
       exit
     end
   end
-  
-  
-  # def edit_confirm
-  #   @contract = current_user.contracts.find(params[:id])
-  #   @contract.attributes = contract_params
-  #   render :edit if @contract.invalid?
-  # end
-
 
   def destroy
     @contract = current_user.contracts.find(params[:id])
