@@ -2,10 +2,25 @@
   <% @contracts.each do |contract| %>
     <div class="contract_main" id="contract-<%= contract.id %>">
       <!--フラッシュmsg-->
-      <div id="contract_up-msg"></div>
-      <table class="table table-bordered text-center" id="contract_table">
+      <div id="contract_msg"></div>
+      <!--契約一覧-->
+      <table class="table table-bordered text-center offset-1 col-10 offset-1" id="contract_table">
         <tr>
-          <th colspan="2"><%= contract.contract_name %></th>
+          <th colspan="2">
+            <div class="header_item">
+              <div>
+                <%= contract.contract_name %>
+              </div>
+              <div class="icon_item">
+                <!--編集アイコン-->
+                <span id="e_contract" class="font_color e_icon"><i class="fas fa-edit"></i></span>
+                <!--削除アイコン-->
+                <%= link_to contract, method: :delete, remote: true do %>
+                  <span id="e_icon" class="font_color_red" ><i class="fas fa-trash-alt"></i></span>
+                <% end %>
+              </div>
+            </div>
+          </th>
         </tr>
         <tr>
           <td>契約者名</td>
@@ -15,30 +30,27 @@
           <td>保険証書番号</td>
           <td><%= contract.policy_number %></td>
         </tr>
-        <tr>
-          <!--編集フォーム展開-->
-          <td><span id="e_icon" ><i class="fas fa-edit"></i></span></td>
-          <td><%= link_to "削除", contract, method: :delete, class: "delete_btn", remote: true %></td>
-        </tr>
       </table>
       <!--編集フォーム-->
-      <div id="contract_e-<%= contract.id %>" class="e_form">
+      <div id="contract_e-<%= contract.id %>" class="e_form offset-1 col-10 offset-1">
         <p>契約内容の変更</p>
-        <%= form_with(model: contract) do |f| %>
-
-        <div class="form-group">
-          <%= f.label :contract_name, '契約名' %>
-          <%= f.text_field :contract_name, class: 'form-control', value: contract.contract_name %>
-        </div>
-        
-        <div class="form-group">
-          <%= f.label :policy_number, '保険証書番号' %>
-          <%= f.number_field :policy_number, class: 'form-control', value: contract.policy_number %>
-        </div>
-        
-        <div class="main_btn">
-          <%= f.submit '保存',class: 'next_btn close-e_form' %>
-        <% end %>
+        <div class="offset-2 col-8 offset-2">
+          <%= form_with(model: contract) do |f| %>
+  
+          <div class="form-group">
+            <%= f.label :contract_name, '-契約名-' %>
+            <%= f.text_field :contract_name, class: 'form-control', value: contract.contract_name %>
+          </div>
+          
+          <div class="form-group">
+            <%= f.label :policy_number, '-保険証書番号-' %>
+            <%= f.number_field :policy_number, class: 'form-control', value: contract.policy_number %>
+          </div>
+          
+          <div class="main_btn">
+            <%= f.submit '保存',class: 'next_btn close-e_form' %>
+          <% end %>
+          </div>
         </div>
       </div>
       

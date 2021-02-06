@@ -16,6 +16,7 @@
     font-size: 22px;
     margin: 10px;
 }
+// 編集フォーム
 // 既登録一覧
 .contract_index {
     background-color: #eeeeee;
@@ -41,7 +42,7 @@
 .table td,.table th{
     border: gray solid 1px !important;
 }
-// ajaxフラッシュMSG
+// ajaxフラッシュMSG　削除、新規登録、変更共通
 #contract_msg {
     text-align: center;
     margin: 10px;
@@ -61,4 +62,27 @@
     color: red;
     padding-top: 20px;
     text-align: center
+}
+// 編集削除
+.e_icon {
+    cursor: pointer;
+    cursor: hand;
+}
+.header_item {
+    display: flex;
+    justify-content: center;
+    position: relative; 
+}
+.icon_item {
+    position: absolute; 
+    right: 0; 
+}
+.e_form {
+    display: none;
+border: 1px solid;
+}
+.e_form p {
+    color: #000000;
+    padding: 10px !important;
+    margin-bottom: 0px !important;
 }
