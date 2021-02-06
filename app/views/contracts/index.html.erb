@@ -12,7 +12,9 @@
       <h2>ご契約の新規登録</h2>
       <div class="offset-1 col-10 offset-1">
         <%= form_with(model: @contract, id: 'form') do |f| %>
+        <!--JSバリデーションエラー-->
         <p id="error-message" class="error-message none"></p>
+        
           <div class="form-group">
             <%= f.label :contract_name, '-契約名-' %>
             <%= f.text_field :contract_name, class: 'form-control ajax_text' %>
