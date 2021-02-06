@@ -42,7 +42,7 @@
 <div id="comment_msg"></div>
 <div class="main col-xs-12 col-md-8 offset-md-2">
   <div class="form">
-    <%= form_with(model: @comment, id: 'contact_form') do |f| %>
+    <%= form_with(model: @comment, id: 'comment_form') do |f| %>
     <%= hidden_field_tag :contact_id, @contact.id  %>
     <p id="error-message" class="error-message none"></p>
       <table class="table table-bordered table-md mt-3 table-success">

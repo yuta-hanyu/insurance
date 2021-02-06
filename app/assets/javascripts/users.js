@@ -63,12 +63,14 @@ $(function() {
 $(function() {
   $('#contact_form').submit(function() {
     // フォーム入力値を代入
-    var selectValue = $('.ajax_text').val();
+    var text1Value = $('.ajax_text1').val();
+    var numValue = $('.ajax_num').val();
+    var text2Value = $('.ajax_text2').val();
     // フォームのいずれが空の時はエラー表示
-    if( selectValue == ""){
+    if( text1Value == "" || numValue == "" || text2Value == "") {
       $("#error-message").removeClass();
       $("#error-message").addClass("error-message");
-      $('#error-message').text('返信が入力されてません');
+      $('#error-message').text('空欄があります');
     } else {
       // 正しく入力された場合はエラー削除
       $('.error-message').text('');
@@ -78,11 +80,11 @@ $(function() {
 // comment関係
 // commentバリデーション
 $(function() {
-  $('#contact_form').submit(function() {
+  $('#comment_form').submit(function() {
     // フォーム入力値を代入
-    var selectValue = $('.ajax_text').val();
+    var textValue = $('.ajax_text').val();
     // フォームのいずれが空の時はエラー表示
-    if( selectValue == ""){
+    if( textValue == ""){
       $("#error-message").removeClass();
       $("#error-message").addClass("error-message");
       $('#error-message').text('返信が入力されてません');
