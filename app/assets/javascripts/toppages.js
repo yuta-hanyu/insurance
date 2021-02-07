@@ -25,7 +25,7 @@ $(function() {
   });
   });
   
-// ログイン、ゲストログインmodal  
+// ログイン、ゲスト、アドミン、新規登録modal  
   $(function() {
       // ログインモーダル開く
     $('.login_show').click(function(){
@@ -39,11 +39,18 @@ $(function() {
     $('.admin_login_show').click(function(){
       $('#admin_login_modal').slideDown('slow');
     });  
+    // 新規登録モーダル開く
+    $('.new_show').click(function(){
+      $('#new_modal').slideDown('slow');
+    }); 
     // モーダル閉じる
     $('.close-modal').click(function(){
       $('#login_modal').slideUp('slow');
       $('#guest_modal').slideUp('slow');
       $('#admin_login_modal').slideUp('slow');
+      $('#new_modal').slideUp('slow');
+      // 新規登録モーダルのエラーmsg削除
+      $('#errors_div').html('').removeClass();
     });
   });
   
@@ -188,6 +195,21 @@ $('.likes').slick({
           }
         ]
 });
-
 });
+// // 新規登録バリデーション
+// $(function() {
+//   $('#new_form').submit(function() {
+//     // フォーム入力値を代入
+//     var textValue = $('.ajax_text').val();
+//     // フォームのいずれが空の時はエラー表示
+//     if( textValue == ""){
+//       $("#error-message").removeClass();
+//       $("#error-message").addClass("error-message");
+//       $('#error-message').text('返信が入力されてません');
+//     } else {
+//       // 正しく入力された場合はエラー削除
+//       $('.error-message').text('');
+//     }
+//   });
+// });
 

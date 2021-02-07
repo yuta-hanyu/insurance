@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   
   get 'signup', to: 'users#new'
 
-  resources :users, only: [:show, :create, :edit, :update,:destroy,:destroy_confirm] do
+  resources :users, only: [:show, :create, :edit, :update, :destroy, :destroy_confirm] do
    member do
      get :likes
    end

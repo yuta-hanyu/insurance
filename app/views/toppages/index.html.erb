@@ -14,10 +14,10 @@
     <div class="col-xs-12 col-md-8 offset-md-2">
       <div class="main_btn">
         <% unless logged_in? %>
-            <div class="sinup_btn guest_show">ゲストログイン</div>
-            <div class="sinup_btn login_show">ユーザーログイン</div>
-            <div class="sinup_btn admin_login_show">管理者ログイン</div>
-            <%= link_to '新規登録', signup_path,class: "sinup_btn" %>
+          <div class="sinup_btn guest_show">ゲストログイン</div>
+          <div class="sinup_btn login_show">ユーザーログイン</div>
+          <div class="sinup_btn admin_login_show">管理者ログイン</div>
+          <div class="sinup_btn new_show">新規登録</div>
         <% end %>
       </div>
     </div>
@@ -27,6 +27,7 @@
 <%= render "login_modal" %>
 <%= render "guest_modal" %>
 <%= render "admin_login_modal" %>
+<%= render "new_modal" %>
 <!--hover message-->
 <% if logged_in? && current_user.admin? %>
   <%= render "admin_message" %>

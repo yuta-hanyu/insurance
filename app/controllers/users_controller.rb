@@ -21,13 +21,12 @@ class UsersController < ApplicationController
   
   def create
     @user = User.new(user_params)
-    if params[:back] 
-      render :new 
-    else 
-      @user.save(user_params)
+    if @user.save
       session[:user_id] = @user.id
-      flash[:success] = 'ご契約者情報の登録が完了しました。'
-      redirect_to "/"
+      flash[:success] = 'ご契約者情報の登録が完了しました'
+      render :js => "window.location = '/'"
+    else
+      @msgs = @user.errors.full_messages.join(" , ")
     end
   end
 
