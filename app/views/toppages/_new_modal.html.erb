@@ -10,6 +10,7 @@
       <!--入力フォーム-->
       <div class="row offset-2 col-8">
         <%= form_with(model: @user ) do |f| %>
+          <!--バリデーションエラー-->
           <div id="errors_new"></div>
           <div class="form-group">
             <%= f.text_field :contractor_name, class: 'form-control new_text1',placeholder: "契約者氏名" %>

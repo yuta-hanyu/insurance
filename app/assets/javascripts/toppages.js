@@ -49,8 +49,10 @@ $(function() {
       $('#guest_modal').slideUp('slow');
       $('#admin_login_modal').slideUp('slow');
       $('#new_modal').slideUp('slow');
-      // 新規登録モーダルのエラーmsg削除
-      $('#errors_div').html('').removeClass();
+      // モーダルのエラーmsg削除
+      $('#errors_new').html('').removeClass();
+      $('#errors_login').html('').removeClass();
+      
     });
   });
   

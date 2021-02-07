@@ -8,10 +8,9 @@ class SessionsController < ApplicationController
     password = params[:session][:password]
     if login(email, password)
       flash[:success] = 'ログインしました。'
-      redirect_to "/"
+      render :js => "window.location = '/'"
     else
-      flash[:danger] = 'ログインに失敗しました。メールアドレス、パスワードを再度ご確認ください。'
-      redirect_to "/"
+      @msgs = 'ログインに失敗しました。メールアドレス、パスワードを再度ご確認ください。'
     end
   end
 
