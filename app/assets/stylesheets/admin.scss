@@ -1,0 +1,88 @@
+// Place all the styles related to the admin::info controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+// アドミン共通
+.ad_visual {
+    height: 220px;
+    background-image: image-url("cherry-blossom_00041.jpg");
+    background-size: cover;
+    top: 0;
+    position: relative;
+    background-color: rgba(255,255,255,0.3);
+    background-blend-mode: lighten;
+}
+@media (max-width: 670px) {
+    .ad_visual {
+    height: 100px;
+    width: 100%;
+    padding: 100px 0 ;
+    background-image: image-url("cherry-blossom_00041.jpg");
+    margin-bottom: 5px;
+    background-size: cover;
+  }
+}
+.ad_container {
+    top: 55%;
+    left: 0;
+    right: 0;
+    position: absolute;
+    padding: 20px 20px;
+}
+.ad_container h1 {
+    font-weight: bold;
+    font-size: 30px;
+    color: #000000;
+    text-align: center;
+    z-index: 15;
+}
+@media (max-width: 670px) {
+    .ad_visual h1 {
+    font-size: 20px;
+  }
+}
+.ad_wrapper p {
+    font-size: 20px;
+    padding: 15px 0 0 0;
+    text-align: center;
+    margin: 0 0 0 0 !important;
+}
+@media (max-width: 670px) {
+    .ad_wrapper p {
+        font-size: 15px;
+  }
+}
+// データがない時のメッセージ用（朱書きではない）
+.data_nill {
+    text-align: center;
+}
+
+// .header_admin {
+//     padding:30px 20px 0 20px;
+// }
+// .header_admin h1 {
+//     color: #364e96;
+//     padding: 0.5em 0;
+//     border-top: solid 3px #364e96;
+//     border-bottom: solid 3px #364e96;
+//     margin:0 auto;
+//     text-align: center;
+//     width:800px;
+//     font-weight:bold;
+// }
+// @media (max-width:670px) {
+//     .header_admin h1 {
+//         font-size:20px;
+//         width:250px
+//   }
+// }
+// .header_admin p {
+//     font-size:20px;
+//     padding:20px;
+//     text-align: center;
+// }
+// @media (max-width:670px) {
+//     .header_admin p {
+//         font-size:15px;
+//   }
+// }

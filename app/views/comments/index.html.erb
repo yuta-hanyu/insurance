@@ -1,42 +1,38 @@
-<div class="us_wrapper">
-  <div class="us_visual" >
-    <div class="us_container">
+<div class="ad_wrapper">
+  <div class="ad_visual" >
+    <div class="ad_container">
       <h1>お問い合わせ一覧</h1>
     </div>
+  </div>
+  <p>加入者からのお問い合わせを確認の上、ご返信ください。</p>
+  <% if @contacts.any? %>
+    <% @contacts.each do |contact| %>
+      <div class="col-md-8 offset-md-2 mt-5 mb-5">
+        <span>お問い合わせID:<%= contact.id %></span>
+        <table class="table">
+          <tr>
+            <th width="40%" class="text-center a_font_color">お問い合わせ日</th>
+            <th width="40%" class="text-center a_font_color">お問い合わせ種類</th>
+            <th width="20%" class="text-center a_font_color">−</th>
+          </tr>
+          <tr>
+            <th class="text-center"><%= contact.created_at.to_s(:datetime_jp) %></th>
+          　<th class="text-center"><%= contact.type %></th>
+          　<th rowspan=”2 class="text-center"><%= link_to "返信する", comment_path(contact.id), class: "font_color" %></th>
+          </tr>
+        </table>
+      </div>
+     <% end %>
+  <% else %>
+    <p class="contract_nill">お問い合わせがありません。</p>
+  <% end %>
+  <div class="pagination  justify-content-center">
+    <%= paginate @contacts %>
+  </div>
+  <div class="main_btn">
+    <%= link_to "戻る", "/",class: "return_btn" %>
   </div>
 </div>
 
 
-<div class="header_admin">
-  <h1>お問い合わせ一覧</h1>
-</div>
-<% if @contacts.any? %>
-  <% @contacts.each do |contact| %>
-    <div class="claim_sub col-xs-12 col-md-8 offset-md-2">
-      <div class="claim_table">
-        <table class="table table-bordered">
-          <tr class="table-primary">
-            <th width="40%" class="users_th text-center">お問い合わせ日</th>
-            <th width="40%" class="users_th text-center">お問い合わせ種類</th>
-            <th width="20%" class="users_th text-center">返信</th>
-          </tr>
-          <tr>
-            <th class="users_th text-center"><%= contact.created_at.to_s(:datetime_jp) %></th>
-          　<th class="users_th text-center"><%= contact.type %></th>
-          　<th class="users_th text-center"><%= link_to "返信する",comment_path(contact.id) %></th>
-          </tr>
-        </table>
-      </div>
-    </div>
-   <% end %>
-<% else %>
-  <p class="contract_nill">お問い合わせがありません。</p>
-<% end %>
  
-<div class="pagination  justify-content-center">
-  <%= paginate @contacts %>
-</div>
-
-<div class="main_btn">
-  <%= link_to "戻る", "/",class: "return_btn" %>
-</div>
