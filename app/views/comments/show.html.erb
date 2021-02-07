@@ -1,5 +1,7 @@
+<!--do us共通画面につき画面分岐-->
 <div class="us_wrapper">
-  <div class="us_visual" >
+  <div class=<%= "ad_visual" if logged_in? && current_user.admin?  %>
+           <%= "us_visual" if logged_in?  %>>
     <div class="us_container">
       <h1>お問い合わせの詳細</h1>
     </div>
@@ -11,7 +13,18 @@
       <h2 class="comment_h2">お問い合わせ内容</h2>
       <table class="table comment_table">
         <tr>
-          <th colspan="2" class="text-center align-middle c_font_color table-secondary">お問い合わせID: <%= @contact.id %></th>
+          
+          <th colspan="2" class="text-center align-middle c_font_color table-secondary">
+            <div class="cm_header_item">
+              お問い合わせID: <%= @contact.id %>
+              <div class="cm_icon_item">
+                <%= link_to @contact, method: :delete, data: { confirm: "返信内容も全て削除されますがよろしいですか？" } do %>
+                  <span id="e_icon" class="font_color_red" ><i class="fas fa-trash-alt"></i></span>
+                <% end %>
+              </div>
+            </div>
+          </th>
+        
         </tr>
         <tr>
           <th class="text-center align-middle c_font_color">お問い合わせ日</th>
@@ -62,19 +75,15 @@
         <%= render "comments/u_comment" %>
       </div>
     </div>
-        
-      <div class="main_btn">
-       <% if logged_in? && current_user.admin? %>
-        <%= link_to "戻る", comments_path,class: "return_btn" %>
-       <% else %>
-        <%= link_to "戻る", contacts_path,class: "return_btn" %>
-       <% end %>
-        <%= link_to "お問い合わせ削除",@contact, method: :delete, data: { confirm: '返信内容も全て削除されますがよろしいですか？' }, class: 'delete_btn' %>
-      </div>
-    </div>
-      
   </div>
-</div>
+    <div class="main_btn">
+     <% if logged_in? && current_user.admin? %>
+      <%= link_to "戻る", comments_path,class: "return_btn" %>
+     <% else %>
+      <%= link_to "戻る", contacts_path,class: "return_btn" %>
+     <% end %>
+    </div>
+</div> 
 
 
 
