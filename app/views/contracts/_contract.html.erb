@@ -16,7 +16,7 @@
                 <!--id="e_contract"でイベント発火-->
                 <span data-contract-id=<%= contract.id %> id="e_contract" class="font_color e_icon"><i class="fas fa-edit"></i></span>
                 <!--削除アイコン-->
-                <%= link_to contract, method: :delete, remote: true do %>
+                <%= link_to contract, method: :delete, data: { confirm: "削除しますか？" }, remote: true do %>
                   <span id="e_icon" class="font_color_red" ><i class="fas fa-trash-alt"></i></span>
                 <% end %>
               </div>

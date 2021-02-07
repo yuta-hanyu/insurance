@@ -8,3 +8,27 @@
     text-align: center;
     margin: 10px;
 }
+.c_font_color {
+    color: #000000;
+}
+.comment_nill {
+    color: red;
+}
+.comment_table {
+    background-color: white;
+}
+.comment_h2 {
+    color: #000000;
+    font-size : 25px;
+    text-align: center;
+    margin: 10px 0 10px 0;
+}
+.cm_header_item {
+    display: flex;
+    justify-content: center;
+    position: relative; 
+}
+.cm_icon_item {
+    position: absolute; 
+    right: 0; 
+}

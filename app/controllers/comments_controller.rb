@@ -4,13 +4,14 @@ class CommentsController < ApplicationController
   before_action :correct_user, only: [:destroy]
   
   def index
-    @contacts = Contact.order(id: :desc).page(params[:page]).per(5)
+    @contacts = Contact.order(created_at: :desc).page(params[:page]).per(5)
   end
 
   def show
     @contact = Contact.find(params[:id])
     @comment = @contact.comments.build
     @comment.user_id = current_user.id
+    @comments = @contact.comments.order(id: :desc)
   end
 
   def create
@@ -19,6 +20,7 @@ class CommentsController < ApplicationController
     @comment.user_id = current_user.id
     if @comment.save
       @msg = "返信しました"
+      @comments = @contact.comments.order(id: :desc)
     else
       exit
     end

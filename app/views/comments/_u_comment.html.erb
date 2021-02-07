@@ -1,25 +1,35 @@
-<% @contact.comments.each do |comment| %>
+<!--返信一覧パーシャル-->
+<!--フラッシュmsg-->
+<div id="comment_msg"></div>
+<%# @contact.comments.each do |comment| %>
+<% @comments.each do |comment| %>
   <!--データブランクがあるものは非表示-->
-    <% unless comment.content.blank? %>
+    <% unless comment.blank? %>
      <!--destroy.jsで削除するID-->
       <div id="comment-<%= comment.id %>" >
-        <table class="table table-bordered" >
+        <table class="table comment_table" >
           <tr>
-            <th width="20%" colspan="2" class="users_th text-center align-middle table-warning <%= "a_color" if comment.user.contractor_name == "管理者" %>"><%= comment.user.contractor_name %></th>
+            <th colspan="2" class="text-center align-middle table-warning c_font_color <%= "a_color" if comment.user.contractor_name == "管理者" %>">
+              <div class="cm_header_item">
+                <%= comment.user.contractor_name %>
+                <!--ログインユーザー名と返信者が一致する場合に削除を表示-->
+                <% if current_user.contractor_name == comment.user.contractor_name %>
+                  <div class="cm_icon_item">
+                    <%= link_to comment, method: :delete, data: { confirm: "削除しますか？" }, remote: true do %>
+                      <span id="e_icon" class="font_color_red" ><i class="fas fa-trash-alt"></i></span>
+                    <% end %>
+                  </div>
+                <% end %>
+              </div>
+            </th>
           </tr>
           <tr>
-            <th width="20%" class="users_th text-center align-middle">返信日</th>
-            <th class="users_th text-center align-middle"><%= comment.created_at.to_s(:datetime_jp) %></th>
+            <th width="20%" class="users_th text-center align-middle c_font_color">返信日</th>
+            <th class="text-center align-middle"><%= comment.created_at.to_s(:datetime_jp) %></th>
           </tr>
           <tr>
-            <th width="20%" class="users_th text-center align-middle">内容</th>
-            <th class="users_th  align-middle"><%= simple_format(comment.content) %></th>
-          </tr>
-          <tr>
-            <!--ログインユーザー名と返信者が一致する場合に削除を表示-->
-            <% if current_user.contractor_name == comment.user.contractor_name %>
-              <th colspan="2" class="users_th text-center align-middle"><%= link_to "返信削除", comment, method: :delete, class: 'delete_btn', remote: true %></th>
-            <% end %>
+            <th width="20%" class="users_th text-center align-middle c_font_color">内容</th>
+            <th class="align-middle"><%= simple_format(comment.content) %></th>
           </tr>
         </table>
       </div>
