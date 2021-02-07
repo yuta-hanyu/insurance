@@ -11,6 +11,7 @@ class ClaimsController < ApplicationController
   def new
     @claim = current_user.claims.build
     @contracts = current_user.contracts.all
+    @claims =  current_user.claims.order(id: :desc).page(params[:page]).per(2)
   end
   
   def confirm

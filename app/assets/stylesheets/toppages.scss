@@ -138,35 +138,6 @@
     position: absolute;
     margin: auto;
 }
-// 新規登録ボタン
-.sinup_btn {
-    display: inline-block;
-    padding: 0.5em 1em;
-    text-decoration: none;
-    background-color: mediumseagreen;
-    color: #FFF;
-    border-bottom: solid 4px #627295;
-    border-radius: 20px;
-    width:180px;
-    font-weight:bold;
-    margin:5px 5px;
-}
-
-// ボタンを押したとき
-.sinup_btn:active {
-    -webkit-transform: translateY(4px);
-    transform: translateY(4px);/*下に動く*/
-    border-bottom: none;/*線を消す*/
-}
-a {
-color:#515151;
-}
-@media (max-width: 670px) {
-    .sinup_btn {
-    width: 120px;
-    font-size: 10px;
-  }
-}
 // ご契約者専用サイトのご利用について、生命保険をご検討の方
 .heading {
     margin: 40px 0;

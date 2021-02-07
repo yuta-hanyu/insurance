@@ -84,3 +84,50 @@
   <%= f.submit '次へ', class: 'next_btn' %>
 </div>
 <% end %>
+
+ <div class="header">
+    <h1>ご請求履歴</h1>
+  </div>
+  
+  <% if @claims.any? %>
+  <% @claims.each do |claim| %>
+  <div class="claim_sub col-xs-12 col-md-8 offset-md-2">
+    <div class="claim_table">
+      <div class="aaa">
+          <table class="table table-bordered">
+            <tr class="table-primary">
+              <th class="users_th text-center">項目</th>
+              <th class="users_th text-center">請求内容</th>
+            </tr>
+            <tr>
+              <th class="users_th text-center">請求No.</th>
+              <th class="users_th text-center"><%= claim.id %></th>
+            </tr>
+            <tr>
+              <th class="users_th text-center">傷病名</th>
+              <th class="users_th text-center"><%= claim.illness %></th>
+            </tr>
+            <tr>
+              <th class="users_th text-center">入院日</th>
+              <th class="users_th text-center"><%= claim.hospital_stay %></th>
+            </tr>
+          </table>
+          </div>
+    </div>
+  </div>
+  <div class="main_btn">
+    <%= link_to"詳細へ",claim_path(claim),class: "show_btn" %></span>
+  </div>
+  <% end %>
+  <% else %>
+    <p class="data_nill">ご請求はございません。</p>
+  <% end %>
+  <div class="pagination  justify-content-center">
+    <%= paginate @claims %>
+  </div>
+  <div class="main_btn">
+    <%= link_to "請求へ", new_claim_path,class: "next_btn" %>
+  </div>
+  <div class="main_btn">
+    <%= link_to '戻る',root_path ,class: "return_btn" %>
+  </div>

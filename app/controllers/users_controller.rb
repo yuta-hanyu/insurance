@@ -6,7 +6,6 @@ class UsersController < ApplicationController
   
   def show
     @user = User.find_by(id: params[:id])
-    @contracts = current_user.contracts.order(id: :desc).page(params[:page]).per(2)
     @claims =  current_user.claims.order(id: :desc).page(params[:page]).per(2)
   end
 

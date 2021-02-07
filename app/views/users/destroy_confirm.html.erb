@@ -1,8 +1,14 @@
-<div class="header">
-  <h1>退会</h1>
+<!--do us共通画面につき画面分岐-->
+<div class="us_wrapper">
+  <div class= <%= "ad_visual" if logged_in? && current_user.admin?  %>
+              <%= "us_visual" if logged_in?  %>>
+    <div class="us_container">
+      <h1>退会のご確認</h1>
+    </div>
+  </div>
   <p>退会でお間違いないですか？<br>※退会後はご登録情報は削除となり、復元できません。</p>
-</div>
-<div class="main_btn">
-  <%= link_to '戻る',user_path(current_user.id), class: "return_btn" %>
-  <%= link_to "退会する",user_path(current_user.id), class: "delete_btn",method: :delete %>
+  <div class="main_btn">
+    <%= link_to '戻る',user_path(current_user.id), class: "return_btn" %>
+    <%= link_to "退会する",user_path(current_user.id), class: "delete_btn",method: :delete %>
+  </div>
 </div>

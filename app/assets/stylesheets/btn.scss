@@ -1,3 +1,34 @@
+// 新規登録ボタン
+.sinup_btn {
+    display: inline-block;
+    padding: 0.5em 1em;
+    text-decoration: none;
+    background-color: #ffffb2;
+    color: #000000;
+    border-bottom: solid 4px #627295;
+    border-radius: 20px;
+    width: 180px;
+    font-weight: bold;
+    margin: 5px 5px;
+    cursor: pointer;
+    cursor: hand;
+}
+
+// ボタンを押したとき
+.sinup_btn:active {
+    -webkit-transform: translateY(4px);
+    transform: translateY(4px);/*下に動く*/
+    border-bottom: none;/*線を消す*/
+}
+a {
+color:#515151;
+}
+@media (max-width: 670px) {
+    .sinup_btn {
+    width: 120px;
+    font-size: 10px;
+  }
+}
 /*リンク文字の色変更*/
 .font_color {
     color: dodgerblue;
@@ -141,4 +172,11 @@
     border-color: red;
     // ここは変えない
     color: #FFF;
+}
+/*トップへ戻るボタン*/
+.top_btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index:10;
 }

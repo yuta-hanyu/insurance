@@ -2,8 +2,6 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root to: 'toppages#index'
   resources :toppages, only: [:show]
-  
-  get 'signup', to: 'users#new'
 
   resources :users, only: [:show, :create, :edit, :update, :destroy, :destroy_confirm] do
    member do
@@ -41,7 +39,6 @@ Rails.application.routes.draw do
   resources :guest_sessions, only: [:create]
   
   resources :contacts, only: [:index, :create, :destroy]
-  get 'contacts/complete', to: 'contacts#complete'
   
   resources :comments, only: [:index, :create, :destroy]
   get 'comments/:id', to: 'comments#show'
