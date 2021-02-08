@@ -6,7 +6,6 @@ class UsersController < ApplicationController
   
   def show
     @user = User.find_by(id: params[:id])
-    @claims =  current_user.claims.order(id: :desc).page(params[:page]).per(2)
   end
 
   def new
@@ -25,25 +24,28 @@ class UsersController < ApplicationController
       flash[:success] = 'ご契約者情報の登録が完了しました'
       render :js => "window.location = '/'"
     else
+      @user = User.find_by(params[:id])
       @msgs = @user.errors.full_messages.join(" , ")
     end
   end
 
-  def edit
-    @user = User.find_by(id: params[:id])
-  end
+  # def edit
+  #   @user = User.find_by(id: params[:id])
+  # end
   
-  def edit_confirm
-    @user = User.find_by(id: params[:id])
-    @user.attributes = user_params
-    render :edit if @user.invalid?
-  end
+  # def edit_confirm
+  #   @user = User.find_by(id: params[:id])
+  #   @user.attributes = user_params
+  #   render :edit if @user.invalid?
+  # end
   
   def update
-    @user = User.find_by(id: params[:id])
-    @user.update(user_params)
-    flash[:success] = '登録内容の変更が完了しました。'
-    redirect_to @user
+    @user = User.find(params[:id])
+    if @user.update(user_params)
+      flash[:success] = '変更が完了しました'
+    else
+      exit
+    end
   end
   
   def destroy
