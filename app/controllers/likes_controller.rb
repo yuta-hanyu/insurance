@@ -18,6 +18,6 @@ class LikesController < ApplicationController
     current_user.unlike(post)
     # destoy.jsへIDを渡す
     @post = Post.find(params[:post_id])
-    @msg = "削除しました"
+    @msg = "解除しました"
   end
 end

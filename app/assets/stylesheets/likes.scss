@@ -5,3 +5,18 @@
 #like_msg {
     text-align: center;
 }
+@media (max-width: 670px) {
+    .like_size { 
+        width: 100%;
+        height: 100%;
+    }
+}
+table {
+    height: 30px;
+}
+.like_th {
+    background-color: #edffdb;
+}
+.like_td {
+    background-color: white;
+}

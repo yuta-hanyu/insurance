@@ -6,36 +6,14 @@
       <h1>契約者情報</h1>
     </div>
   </div>
-    <table class="table text-center offset-3 col-6 mt-5" id="user_table" style="background-color: white;">
-      <tr id="user_table_tr">
-        <th colspan="2">
-          <div class="header_item">
-            <div style="color: #000000;" >
-              <%= @user.contractor_name %>
-            </div>
-            <div class="icon_item">
-              <!--編集アイコン-->
-              <!--id="e_user"でイベント発火-->
-              <span id="e_user" class="font_color e_icon"><i class="fas fa-edit"></i></span>
-            </div>
-          </div>
-        </th>
-      </tr>
-      <tr>
-        <th width="30%" style="color: #000000;">メールアドレス</th>
-        <th><%= @user.email %></th>
-      </tr>
-      <tr>
-        <th style="color: #000000;">住所</th>
-        <th><%= @user.address %></th>
-      </tr>
-      <tr>
-        <th colspan="2"><%= link_to '退会',"/users/delete/confirm/current_user.id",class: "delete_btn" %></th>
-      </tr>
-    </table>
+  <!--ajax-->
+  <div id="j_user">
+    <%= render "users/edit" %>
+  </div>
     <!--編集フォーム-->
     <div id="e_us_form" class="e_us_form offset-3 col-6 mt-5">
       <p style="color: #000000;">契約内容の変更</p>
+      <div id="errors_edit"></div>
       <div class="offset-1 col-10 offset-1">
         <%= form_with(model: @user) do |f| %>
         

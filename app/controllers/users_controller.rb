@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   before_action :correct_user, only: [:show,:destroy,:edit, :edit_confirm, :update]
   
   def show
-    @user = User.find_by(id: params[:id])
+    @user = User.find(params[:id])
   end
 
   def new
@@ -24,32 +24,23 @@ class UsersController < ApplicationController
       flash[:success] = 'ご契約者情報の登録が完了しました'
       render :js => "window.location = '/'"
     else
-      @user = User.find_by(params[:id])
+      @user = User.find(params[:id])
       @msgs = @user.errors.full_messages.join(" , ")
     end
   end
 
-  # def edit
-  #   @user = User.find_by(id: params[:id])
-  # end
-  
-  # def edit_confirm
-  #   @user = User.find_by(id: params[:id])
-  #   @user.attributes = user_params
-  #   render :edit if @user.invalid?
-  # end
-  
   def update
     @user = User.find(params[:id])
     if @user.update(user_params)
-      flash[:success] = '変更が完了しました'
+      @msg = '変更が完了しました'
+      @user = User.find(params[:id])
     else
       exit
     end
   end
   
   def destroy
-    @user = User.find_by(id: params[:id]) 
+    @user = User.find(params[:id]) 
     @user.destroy
     flash[:success] = '退会が完了しました。'
     redirect_to "/"

@@ -5,7 +5,6 @@
     </div>
   </div>
     <p>ご加入契約を新規で登録する場合は「新規登録」より契約をご登録ください。</p>
-  
   <div class="row justify-content-md-center ml-2 mr-2 mb-3">
     <!--新規登録フォーム-->
     <div class="contract_form col-md-3">
@@ -14,7 +13,6 @@
         <%= form_with(model: @contract, id: 'form') do |f| %>
         <!--JSバリデーションエラー-->
         <p id="error-message" class="error-message none"></p>
-        
           <div class="form-group">
             <%= f.label :contract_name, '-契約名-' %>
             <%= f.text_field :contract_name, class: 'form-control ajax_text' %>
@@ -42,9 +40,7 @@
     </div>
     </div>
   </div>
-  
   <div class="main_btn">
     <%= link_to '戻る',root_path ,class: "return_btn" %>
   </div>
-  
 </div>

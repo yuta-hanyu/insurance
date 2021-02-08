@@ -95,10 +95,7 @@ $(function() {
   });
 });
 // // 編集フォーム表示切替 
-$(function() {
-    // フォームを開く
-  $("#e_user").click(function () {
-    $("#e_us_form").toggle('slow');
-  });
+$(document).on("click", "#e_user", function () {
+  $("#e_us_form").toggle('slow');
 });
 

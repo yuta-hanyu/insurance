@@ -198,20 +198,4 @@ $('.likes').slick({
         ]
 });
 });
-// // 新規登録バリデーション
-// $(function() {
-//   $('#new_form').submit(function() {
-//     // フォーム入力値を代入
-//     var textValue = $('.ajax_text').val();
-//     // フォームのいずれが空の時はエラー表示
-//     if( textValue == ""){
-//       $("#error-message").removeClass();
-//       $("#error-message").addClass("error-message");
-//       $('#error-message').text('返信が入力されてません');
-//     } else {
-//       // 正しく入力された場合はエラー削除
-//       $('.error-message').text('');
-//     }
-//   });
-// });
 
