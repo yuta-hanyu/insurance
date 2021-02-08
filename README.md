@@ -39,7 +39,8 @@
 - 画像アップロード：refile使用
 - 管理者：boolean型による判定
 - テスト：rspec
-- 多言語化 :i18n使用
-- 非同期通信 :画像プレビュー、各機能（CRUD処理）の完全SPA化、住所自動検索
-- API :zipcloudによる住所自動検索
+- 多言語化 : i18n使用
+- 非同期通信 : 画像プレビュー、各機能（CRUD処理）の完全SPA化、住所自動検索
+- API : zipcloudによる住所自動検索
+- CI/CD : GitHubActionsによる自動デプロイ
 
