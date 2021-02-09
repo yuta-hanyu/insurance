@@ -1,26 +1,24 @@
-<div class="header_admin">
-  <h1>【管理者用】新規投稿</h1>
-  <p>投稿一覧へ記事の投稿を行います。以下をご入力ください。<br>投稿を削除する場合は各投稿の詳細ページより投稿を削除してください。</p>
-</div>
-<div class="main col-xs-12 col-md-8 offset-md-2">
-  <div class="form">
-    <%= form_with(model: @post, local: true, url: {action: :confirm}) do |f| %>
-     <% @post.errors.messages.delete(:post_img) %>
-     <%= render 'layouts/error_messages', model: f.object %>
-      
-      <div class="form-group">
-        <%= f.label :title, '-タイトル-' %>
-        <%= f.text_field :title, class: 'form-control',placeholder: "タイトル" %>
-      </div>
 
-      <div class="form-group">
-        <%= f.label :content, '-投稿内容-' %>
-        <%= f.text_area :content, class: 'form-control',placeholder: "投稿内容" %>
-      </div>
-      <div class="main_btn">
-        <%= link_to '戻る',posts_path,class: "return_btn" %>
-        <%= f.submit '次へ', class: 'next_btn' %>
-      </div>     
-    <% end %>
-  </div>
+<div class="main col-xs-12 col-md-8 offset-md-2">
+  <%= form_with(model: @post, data: { confirm: "削除しますか？" }) do |f| %>
+  <%# @post.errors.messages.delete(:post_img) %>
+    <!--バリデーションエラー-->
+    <div id="errors_new"></div>
+    <div class="form-group">
+      <%= f.label :title, '-タイトル-' %>
+      <%= f.text_field :title, class: 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= f.label :content, '-投稿内容-' %>
+      <%= f.text_area :content, class: 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= f.label :post_img, '-画像-' %>
+      <%= f.file_field :post_img, id: "myfile" %>
+      <img v-show id="pImg" />
+    </div>
+    <div class="main_btn">
+      <%= f.submit '新規投稿', class: 'next_btn' %>
+    </div>     
+  <% end %>
 </div>

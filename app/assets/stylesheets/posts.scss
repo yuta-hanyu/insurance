@@ -3,8 +3,18 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 // テーブルの文字を小さく
-@media (max-width:670px) {
+@media (max-width: 670px) {
     .table {
-        font-size:15px;
+        font-size: 15px;
     }
+}
+.post_form {
+    height: auto;
+    background-color: #cce5ff;
+    border: 1px solid;
+    padding: 10px;
+    margin: 25px;
+}
+#j_post {
+    display: none;
 }

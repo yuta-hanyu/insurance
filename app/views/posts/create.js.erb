@@ -1,0 +1,6 @@
+$("#ji_post").html("<%= j(render partial: 'posts/post') %>");
+$(".post_form").hide();
+$("#j_post").show("<%= j(render partial: 'contacts/complete') %>");
+$(".p_ajax_text1, .p_ajax_text2").val('');
+$("#post_msg").html("<%= @msg %>")
+<!--$("#post_msg").addClass("alert alert-danger mb-3")-->

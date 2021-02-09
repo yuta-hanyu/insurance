@@ -3,30 +3,26 @@ class PostsController < ApplicationController
   before_action :require_user_logged_in
   
   def index
-    @posts = current_user.posts.order(id: :desc).page(params[:page]).per(5)
-  end
-  
-  def new
+    @posts = current_user.posts.order(id: :desc).page(params[:page]).per(4)
     @post = current_user.posts.build
   end
+  
+  # def new
+  # end
 
-  def confirm
-    @post = current_user.posts.build(post_params)
-    if @post.invalid?(:confirm)
-      render :new
-    end
-  end
+  # def confirm
+  #   @post = current_user.posts.build(post_params)
+  #   if @post.invalid?(:confirm)
+  #     render :new
+  #   end
+  # end
 
   def create
     @post = current_user.posts.build(post_params)
     if @post.save(post_params)
-      flash[:success] = '投稿が完了しました。'
-      redirect_to posts_path
-    elsif 
-      params[:back]
-      render :new
-    elsif
-      render :confirm
+      @posts = current_user.posts.order(id: :desc).page(params[:page]).per(5)
+    else
+      exit
     end
   end
 
@@ -34,9 +30,9 @@ class PostsController < ApplicationController
     @post = current_user.posts.find(params[:id])
   end
   
-  def destroy_confirm
-    @post = current_user.posts.find(params[:id])
-  end
+  # def destroy_confirm
+  #   @post = current_user.posts.find(params[:id])
+  # end
 
   def destroy
     @post = current_user.posts.find(params[:id])

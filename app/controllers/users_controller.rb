@@ -19,7 +19,6 @@ class UsersController < ApplicationController
       flash[:success] = 'ご契約者情報の登録が完了しました'
       render :js => "window.location = '/'"
     else
-      # @user = User.find(params[:id])
       @msgs = @user.errors.full_messages.join(" , ")
     end
   end

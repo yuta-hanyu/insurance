@@ -1,7 +1,67 @@
-<div class="header_admin">
-  <h1>【管理者用】新規投稿一覧</h1>
-  <p>既投稿の一覧です。投稿を削除する場合は「詳細へ」をクリックの上、詳細画面より削除ください。</p>
+<div class="ad_wrapper">
+  <div class="ad_visual" >
+    <div class="ad_container">
+      <h1>商品PR</h1>
+    </div>
+  </div>
+    <div class="mb-5"><p>商品PR、投稿済みの商品PR記事は以下より投稿・確認いただけます。</p></div>
+
+  <div class="row justify-content-md-center ml-2 mr-2 mb-3 mb-3">
+    <!--新規投稿フォーム-->
+    <div class="col-md-6 mb-5">
+      <h2 class="text-center" style="color: #000000; font-size: 22px;">新規投稿フォーム</h2>
+      <!--フラッシュmsg-->
+      <div id="post_msg"></div>
+      <!--ajax-->
+      <div id="j_post">
+        <%= render "posts/complete" %>
+      </div>
+      <div class="post_form">
+        <div class="offset-1 col-10 offset-1">
+          <%= form_with(model: @post, data: { confirm: "投稿しますか？" }) do |f| %>
+            <!--バリデーションエラー-->
+        <p id="error-message" class="error-message none"></p>
+            <div class="form-group">
+              <%= f.label :title, '-タイトル-' %>
+              <%= f.text_field :title, class: 'form-control p_ajax_text1' %>
+            </div>
+            <div class="form-group">
+              <%= f.label :content, '-投稿内容-' %>
+              <%= f.text_area :content, :size => "50x5", class: 'form-control p_ajax_text2' %>
+            </div>
+            <div class="form-group">
+              <%= f.label :post_img, '-画像-' %>
+              <%= f.file_field :post_img, id: "myfile", class: 'p_ajax_text3' %>
+              <img v-show id="pImg" />
+            </div>
+            <div class="main_btn">
+              <%= f.submit '新規投稿', class: 'next_btn' %>
+            </div>     
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <!--投稿一覧-->
+    <div class="col-md-6">
+      <h2 class="text-center mb-3" style="color: #000000; font-size: 22px;">投稿一覧</h2>
+      <div id="ji_post">
+        <%= render "posts/post" %>
+      </div>
+    </div>
+  　
+  　
+  　
+  </div>
+
+    <!--戻る-->
+    <div class="main_btn">
+      <%= link_to '戻る',"/",class: "return_btn" %>
+    </div>
 </div>
+
+<%
+=begin
+%>
 <% if @posts.any? %>
 <% @posts.each do |post| %>
 <div class="claim_sub col-xs-12 col-md-8 offset-md-2">
@@ -32,3 +92,6 @@
       <%= link_to '戻る',root_path,class: "return_btn" %>
       <%= link_to '新規投稿',new_post_path,class: "next_btn" %>
    </div>
+<%
+=end
+%>
