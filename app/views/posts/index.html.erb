@@ -6,12 +6,12 @@
   </div>
     <div class="mb-5"><p>商品PR、投稿済みの商品PR記事は以下より投稿・確認いただけます。</p></div>
 
-  <div class="row justify-content-md-center ml-2 mr-2 mb-3 mb-3">
+    <!--フラッシュmsg-->
+    <div id="post_msg"></div>
+  <div class="row justify-content-md-center ml-5 mr-5 mb-3 mb-3">
     <!--新規投稿フォーム-->
     <div class="col-md-6 mb-5">
       <h2 class="text-center" style="color: #000000; font-size: 22px;">新規投稿フォーム</h2>
-      <!--フラッシュmsg-->
-      <div id="post_msg"></div>
       <!--ajax-->
       <div id="j_post">
         <%= render "posts/complete" %>
@@ -35,7 +35,7 @@
               <img v-show id="pImg" />
             </div>
             <div class="main_btn">
-              <%= f.submit '新規投稿', class: 'next_btn' %>
+              <%= f.submit '新規投稿', class: 'next_btn mt-2' %>
             </div>     
           <% end %>
         </div>
@@ -48,50 +48,9 @@
         <%= render "posts/post" %>
       </div>
     </div>
-  　
-  　
-  　
   </div>
-
     <!--戻る-->
-    <div class="main_btn">
-      <%= link_to '戻る',"/",class: "return_btn" %>
-    </div>
-</div>
-
-<%
-=begin
-%>
-<% if @posts.any? %>
-<% @posts.each do |post| %>
-<div class="claim_sub col-xs-12 col-md-8 offset-md-2">
-  <div class="claim_table">
-    <table class="table table-bordered">
-      <tr class="table-secondary">
-        <th class="users_th text-center">タイトル</th>
-        <th class="users_th text-center">投稿日時</th>
-        <th class="users_th text-center">詳細へ</th>
-      </tr>
-      <tr>
-        <th class="users_th text-center"><%= post.title%></th>
-        <th class="users_th text-center"><%= post.created_at.to_s(:datetime_jp) %></th>
-        <th class="users_th text-center"><%= link_to "詳細・削除へ", post_path(post.id) %></th>
-      </tr>
-    </table>
+  <div class="main_btn">
+    <%= link_to '戻る',"/",class: "return_btn" %>
   </div>
 </div>
-<% end %>
-<% else %>
-  <p class="data_nill">投稿はありません。</p>
-<% end %>
-  
-  <div class="pagination  justify-content-center">
-    <%= paginate @posts %>
-  </div>
-    <div class="main_btn">
-      <%= link_to '戻る',root_path,class: "return_btn" %>
-      <%= link_to '新規投稿',new_post_path,class: "next_btn" %>
-   </div>
-<%
-=end
-%>

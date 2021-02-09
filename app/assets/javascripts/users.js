@@ -128,10 +128,10 @@ $(function() {
 $(function() {
     // フォームを開く
     // リロードしないと表示されなくなるため、documentを付与
-  $(document).on("click", "#e_contract", function () {
-    const contractId = $(this).data('contract-id');
-    const contractTextArea = $('#contract_e-' + contractId);
-    contractTextArea.toggle('slow');
+  $(document).on("click", "#e_post", function () {
+    const postId = $(this).data('post-id');
+    const postArea = $('#post_e-' + postId);
+    postArea.toggle('slow');
   });
 });
 

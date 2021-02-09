@@ -6,16 +6,6 @@ class PostsController < ApplicationController
     @posts = current_user.posts.order(id: :desc).page(params[:page]).per(4)
     @post = current_user.posts.build
   end
-  
-  # def new
-  # end
-
-  # def confirm
-  #   @post = current_user.posts.build(post_params)
-  #   if @post.invalid?(:confirm)
-  #     render :new
-  #   end
-  # end
 
   def create
     @post = current_user.posts.build(post_params)
@@ -26,19 +16,10 @@ class PostsController < ApplicationController
     end
   end
 
-  def show
-    @post = current_user.posts.find(params[:id])
-  end
-  
-  # def destroy_confirm
-  #   @post = current_user.posts.find(params[:id])
-  # end
-
   def destroy
     @post = current_user.posts.find(params[:id])
     @post.destroy
-    flash[:success] = '投稿を削除しました。'
-    redirect_to posts_path
+    @msg = "削除しました"
   end
   
   private
