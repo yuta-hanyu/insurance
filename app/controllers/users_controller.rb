@@ -12,11 +12,6 @@ class UsersController < ApplicationController
     @user = User.new
   end
   
-  def confirm
-    @user = User.new(user_params)
-    render :new if @user.invalid?
-  end
-  
   def create
     @user = User.new(user_params)
     if @user.save
@@ -24,7 +19,7 @@ class UsersController < ApplicationController
       flash[:success] = 'ご契約者情報の登録が完了しました'
       render :js => "window.location = '/'"
     else
-      @user = User.find(params[:id])
+      # @user = User.find(params[:id])
       @msgs = @user.errors.full_messages.join(" , ")
     end
   end

@@ -1,45 +1,93 @@
-<div class="header">
-  <h1>商品の詳細</h1>
-</div>
-<div class="col-xs-12 col-md-8 offset-md-2">
-    <div class="like_title"><%= @post.title %></div>
-        <table class="table table-bordered table-sm table-success ">
-          <tr>
-            <div class="row">
-              <th  class="text-center align-middle"><%= @post.content %></th>
-              <td class="text-center align-middle"><%= attachment_image_tag @post, :post_img, :size =>'300x300' %></td>
-            </div>
-          </tr>
-        </table>
+<!--do us共通画面につき画面分岐-->
+<div class="us_wrapper">
+  <div class=<%= "ad_visual" if logged_in? && current_user.admin?  %>
+           <%= "us_visual" if logged_in?  %>
+           <%= "ma_visual" unless logged_in?  %>>
+    <div class="us_container">
+      <h1>保険商品の詳細</h1>
     </div>
-</div>
-<div id="like_msg"></div>
-<!--資料請求案内。ログインしていればお問い合わせ、そうでなければ電話番号案内-->
-<% if current_user.present? %>
-  <div class="fas_text">
-    <i class="fas fa-file-signature"></i>
-    資料請求、ご相談（無料）は<%= link_to 'お問い合わせ',contacts_path, class: "font_color" %>まで！
   </div>
-<% else %>
-  <div class="fas_text">
-    <i class="fas fa-phone"></i>
-    資料請求、ご相談（無料）はxxx-xxx-xxxまで！
-  </div>
-<% end %>
-<div class="main_btn">
-  <!--ログインしていなければ「戻る」ボタンのみ表示  -->
+  <!--資料請求案内。ログインしていればお問い合わせ、そうでなければ電話番号案内-->
   <% if current_user.present? %>
-  <div class="row justify-content-center">
-    <div class="col-md-3">
-      <%= link_to '戻る',root_path,class: "return_btn" %>
+    <div class="fas_text">
+      <i class="fas fa-file-signature"></i>
+      資料請求、ご相談（無料）は<%= link_to 'お問い合わせ',contacts_path, class: "font_color" %>まで！
     </div>
-    <div id="likes_buttons_<%= @post.id %>" class="col-md-3">
-      <%= render "likes/toppage_like", locals: { post: @post} %>
-    </div>
-  </div>
   <% else %>
-    <div class="top_show_btn">
-     <%= link_to '戻る',root_path,class: "return_btn" %>
+    <div class="fas_text">
+      <i class="fas fa-phone"></i>
+      資料請求、ご相談（無料）はxxx-xxx-xxxまで！
     </div>
   <% end %>
+  
+  <div class="offset-1 col-10 offset-1 mt-3 mb-5 like_table">
+    <table class="table">
+      <tr>
+        <th colspan="2" class="text-center like_th" style="color: #000000;"><%= @post.title %></th>
+      </tr>
+      <tr>
+        <td width=50% class="text-center align-middle like_td"><%= attachment_image_tag @post, :post_img, :size =>'300x300', class: "like_size" %></td>
+        <td width=50% class="text-center align-middle like_td"><%= @post.content %></td>
+      </tr>
+      <% if current_user.present? %>
+      <tr>
+        <th colspan="2" class="like_td">
+          <div id="likes_buttons_<%= @post.id %>" class="text-center">
+            <% if current_user.likeing?(@post) %>
+              <%= form_with(model: current_user.likes.find_by(post_id: @post.id), method: :delete) do |f| %>
+                <%= hidden_field_tag :post_id ,@post.id %>
+                <%= f.submit 'お気に入りを解除',class: "unlike_btn" %>
+              <% end %>
+            <% else %>
+              <%= form_with(model: current_user.likes.build) do |f| %>
+                <%= hidden_field_tag :post_id, @post.id %>
+                <%= f.submit 'お気に入り登録',class: "like_btn" %>
+              <% end %>
+            <% end %>
+          </div>
+        </th>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+  <div class="main_btn">
+    <%= link_to '戻る',root_path,class: "return_btn" %>
+  </div>
 </div>
+
+
+<%
+=begin
+%>
+    <!--<div class="like_title"><%#= @post.title %></div>-->
+    <!--    <table class="table table-bordered table-sm table-success ">-->
+    <!--      <tr>-->
+    <!--        <div class="row">-->
+    <!--          <th  class="text-center align-middle"><%#= @post.content %></th>-->
+    <!--          <td class="text-center align-middle"><%#= attachment_image_tag @post, :post_img, :size =>'300x300' %></td>-->
+    <!--        </div>-->
+    <!--      </tr>-->
+    <!--    </table>-->
+    <!--</div>-->
+
+<!--<div id="like_msg"></div>-->
+<!--<div class="main_btn">-->
+  <!--ログインしていなければ「戻る」ボタンのみ表示  -->
+<!--  <% if current_user.present? %>-->
+<!--  <div class="row justify-content-center">-->
+<!--    <div class="col-md-3">-->
+<!--      <%= link_to '戻る',root_path,class: "return_btn" %>-->
+<!--    </div>-->
+<!--    <div id="likes_buttons_<%= @post.id %>" class="col-md-3">-->
+<!--      <%= render "likes/toppage_like", locals: { post: @post} %>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--  <% else %>-->
+<!--    <div class="top_show_btn">-->
+<!--     <%= link_to '戻る',root_path,class: "return_btn" %>-->
+<!--    </div>-->
+<!--  <% end %>-->
+<!--</div>-->
+<%
+=end
+%>

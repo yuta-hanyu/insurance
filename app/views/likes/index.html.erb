@@ -10,14 +10,14 @@
   </div>
 <% if @posts.any? %>
   <% @posts.each do |post| %>
-    <div class="offset-2 col-8 offset-2 mt-3 mb-5 like_table">
+    <div class="offset-1 col-10 offset-1 mt-3 mb-5 like_table">
       <table class="table">
         <tr>
           <th colspan="2" class="text-center like_th" style="color: #000000;"><%= post.title %></th>
         </tr>
         <tr>
-          <td width=50% class="text-center align-middle like_td"><%= post.content %></td>
           <td width=50% class="text-center align-middle like_td"><%= attachment_image_tag post, :post_img, :size =>'300x300', class: "like_size" %></td>
+          <td width=50% class="text-center align-middle like_td"><%= post.content %></td>
         </tr>
         <tr>
           <th colspan="2" class="like_td">

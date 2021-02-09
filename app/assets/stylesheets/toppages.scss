@@ -364,12 +364,12 @@
     box-shadow: 8px 8px;
 }
 .table_toppage:hover {
-    background-color:#ffd6ad;
-    border-radius:10px;
+    background-color: #ffff5b;
+    border-radius: 10px;
     box-shadow: 8px 8px;
 }
 .top_show_main {
-    margin-top:40px;
+    margin-top: 40px;
 }
 // toppage_showのcss
 .like_title {
@@ -403,6 +403,7 @@
 }
 .likes ul {
     transition: transform 0.3s;
+    margin-top: 10px;
 }
 .likes ul:hover {
     transform: scale(1.1)  rotate(7deg);

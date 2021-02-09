@@ -22,6 +22,26 @@
     background-size: cover;
   }
 }
+// ログインしていない場合の機能ページの背景
+.ma_visual {
+    height: 220px;
+    background-image: image-url("tree-woods_00001.jpg");
+    background-size: cover;
+    top: 0;
+    position: relative;
+    background-color: rgba(255,255,255,0.3);
+    background-blend-mode: lighten;
+}
+@media (max-width: 670px) {
+    .ma_visual {
+    height: 100px;
+    width: 100%;
+    padding: 100px 0 ;
+    background-image: image-url('tree-woods_00001.jpg');
+    margin-bottom: 5px;
+    background-size: cover;
+  }
+}
 .us_container {
     top: 55%;
     left: 0;
