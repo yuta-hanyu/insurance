@@ -1,11 +1,44 @@
 <% if @posts.any? %>
   <% @posts.each do |post| %>
-    <div>
+    <div class="post_main" id="post-<%= post.id %>">
+    <!--概要-->
+    
+      <div class="card">
+        <div class="card-header">
+          <div class="header_item">
+            <div>
+              <%= post.title %>
+            </div>
+            <div class="icon_item">
+              <!--編集アイコン-->
+              <!--id="e_contract"でイベント発火-->
+              <span data-post-id=<%= post.id %> id="e_post" class="font_color e_icon"><i class="fas fa-edit"></i></span>
+              <!--削除アイコン-->
+              <%= link_to post, method: :delete, data: { confirm: "削除しますか？" }, remote: true do %>
+                <span id="e_icon" class="font_color_red" ><i class="fas fa-trash-alt"></i></span>
+              <% end %>
+            </div>
+          </div>
+          <div class="card-body">
+          
+          </div>
+          
+        </div>  
+      </div>
+          
+          <th colspan="2">
+          </th>
+        </tr>
+        <tr>
+          <td>投稿日時</td>
+          <td><%= post.created_at.strftime('%Y/%m/%d') %></td>
+        </tr>
+    
       <table class="table">
         <tr style="background-color: #cce5ff;">
-          <th class="text-center">タイトル</th>
-          <th class="text-center">投稿日時</th>
-          <th class="text-center">詳細へ</th>
+          <th class="text-center" style="color: #000000;">タイトル</th>
+          <th class="text-center" style="color: #000000;">投稿日時</th>
+          <th class="text-center" style="color: #000000;">詳細へ</th>
         </tr>
         <tr>
           <th class="text-center"><%= post.title%></th>
@@ -13,6 +46,27 @@
           <th class="text-center"><%= link_to "詳細・削除へ", post_path(post.id), class: "font_color" %></th>
         </tr>
       </table>
+      <!--詳細-->
+      <div>
+        <table class="table">
+          <tr>
+            <td width="20%" class="text-center align-middle table-secondary">投稿者</td>
+            <td class="text-center align-middle"><%= post.user.contractor_name %></td>
+          </tr>
+          <tr>
+            <td class="text-center align-middle table-secondary">投稿日時</td>
+            <td class="text-center align-middle"><%= post.created_at.to_s(:datetime_jp) %></td>
+          </tr>
+          <tr>
+            <td class="text-center align-middle table-secondary">投稿内容</td>
+            <td class="text-center align-middle"><%= post.content %></td>
+          </tr>
+          <tr>
+            <td class="text-center align-middle table-secondary">画像</td>
+            <td class="text-center align-middle"><%= attachment_image_tag post, :post_img, :size =>'300x300' %></td>
+          </tr>
+        </table>
+      </div>
     </div>
   <% end %>
   <div class="pagination  justify-content-center">
