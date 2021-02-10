@@ -11,17 +11,20 @@
     <%= render "users/edit" %>
   </div>
     <!--編集フォーム-->
-    <div id="e_us_form" class="e_us_form offset-3 col-6 mt-5">
+    <div id="e_us_form" class="e_us_form offset-2 col-8 offset-2">
+      <% if current_user.email == "guest@example.com" %>
+        <p style="color: red; font-size: 18px;">ゲストユーザーは契約者情報の編集・退会が出来ません</p>
+      <% elsif current_user.email == "admin@admin.com" %>
+        <p style="color: red; font-size: 18px;">管理者は契約者情報の編集・退会が出来ません</p>
+      <% elsif %>
       <p style="color: #000000;">契約内容の変更</p>
       <div id="errors_edit"></div>
       <div class="offset-1 col-10 offset-1">
         <%= form_with(model: @user) do |f| %>
-        
           <div class="form-group">
             <%= f.label :contractor_name, '-契約者名-' %>
             <%= f.text_field :contractor_name, class: 'form-control', value: @user.contractor_name %>
           </div>
-          
           <div class="form-group">
             <%= f.label :email, '-メール-' %>
             <%= f.email_field :email, class: 'form-control', value: @user.email %>
@@ -41,25 +44,21 @@
               <%= f.text_field :address, class: 'form-control place', value: @user.address %>
             </div>
           </div>
-    
           <div class="form-group">
             <%= f.label :password, '-パスワード-' %>
             <%= f.password_field :password, class: 'form-control', value: @user.password %>
           </div>
-          
           <div class="form-group">
             <%= f.label :password_confirmation, '-パスワード再確認-' %>
             <%= f.password_field :password_confirmation, class: 'form-control'%>
           </div>
-        
         <div class="main_btn">
           <%= f.submit '保存',class: 'next_btn close-e_form' %>
         <% end %>
         </div>
-        
       </div>
+      <% end %>
     </div>
-
   </div>
 </div>
 

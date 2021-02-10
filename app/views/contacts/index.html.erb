@@ -18,9 +18,9 @@
         <%= form_with(model: @contact, id: 'contact_form') do |f| %>
         <p id="error-message" class="error-message none"></p>
         <%= render 'layouts/error_messages', model: f.object %>
-          <table class="table offset-1 col-10 offset-1 #">
+          <table class="table offset-1 col-10 offset-1">
             <tr>
-              <th width="30%" class="text-left align-middle t_font_color">お問い合わせ種類</th>
+              <td style="width:30%;" class="text-left align-middle t_font_color">お問い合わせ種類</td>
               <td>
               <div class="form-check">
                 <label><%= f.radio_button :type, "資料請求について",checked: true %>&emsp;資料請求について</label>
@@ -34,19 +34,19 @@
               </td>
             </tr>
             <tr>
-              <th class="text-left align-middle t_font_color">件名</th>
+              <td class="text-left align-middle t_font_color">件名</td>
               <td>
                 <%= f.text_field :title, class: 'form-control ajax_text1' %>
               </td>
             </tr>
             <tr>
-              <th class="text-left align-middle t_font_color">電話番号</th>
-              <th>
+              <td class="text-left align-middle t_font_color">電話番号</td>
+              <td>
                 <%= f.number_field :tel, class: 'form-control ajax_num' %>
-              </th>
+              </td>
             </tr>
             <tr>
-              <th class="text-left align-middle t_font_color">お問い合わせ内容</th>
+              <td class="text-left align-middle t_font_color">お問い合わせ内容</td>
               <td>
                 <%= f.text_area :content,:size => "60x10", class: 'form-control ajax_text2' %>
               </td>

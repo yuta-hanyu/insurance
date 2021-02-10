@@ -1,8 +1,8 @@
 class UsersController < ApplicationController
   
-  before_action :require_user_logged_in, only: [:show,:edit,:edit_confirm,:update,:destroy]
-  before_action :guest_user,only: [:edit,:update,:destroy]
-  before_action :correct_user, only: [:show,:destroy,:edit, :edit_confirm, :update]
+  before_action :require_user_logged_in, only: [:show, :edit, :edit_confirm, :update, :destroy]
+  before_action :guest_user, :admin_user, only: [:edit, :update, :destroy]
+  before_action :correct_user, only: [:show, :destroy,:edit, :edit_confirm, :update]
   
   def show
     @user = User.find(params[:id])
@@ -35,9 +35,12 @@ class UsersController < ApplicationController
   
   def destroy
     @user = User.find(params[:id]) 
-    @user.destroy
-    flash[:success] = '退会が完了しました。'
-    redirect_to "/"
+    if @user.destroy
+      flash[:success] = '退会が完了しました'
+      redirect_to "/"
+    else 
+      render 
+    end
   end
   
   private

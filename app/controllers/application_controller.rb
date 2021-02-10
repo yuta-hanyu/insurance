@@ -22,7 +22,7 @@ class ApplicationController < ActionController::Base
     @admin = User.find_by(email: 'admin@admin.com')
     if @admin == current_user
         flash[:danger] = 'ポートフォリオ用に管理者情報の編集操作をとめています'
-        redirect_to admin_info_path
+        redirect_to user_path
     end
   end
   

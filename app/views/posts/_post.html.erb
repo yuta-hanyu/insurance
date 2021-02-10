@@ -25,7 +25,7 @@
       <div id="post_e-<%= post.id %>" style="display: none;">
         <table class="table">
           <tr>
-            <td class="text-center align-middle table-secondary" style="width:20%">投稿者</td>
+            <td class="text-center align-middle table-secondary" style="width:auto">投稿者</td>
             <td class="text-center align-middle td_color"><%= post.user.contractor_name %></td>
           </tr>
           <tr>
@@ -34,7 +34,7 @@
           </tr>
           <tr>
             <td class="text-center align-middle table-secondary">画像</td>
-            <td class="text-center align-middle td_color"><%= attachment_image_tag post, :post_img, :size =>'300x300' %></td>
+            <td class="text-center align-middle td_color"><%= attachment_image_tag post, :post_img, :size =>'350x300' %></td>
           </tr>
         </table>
       </div>
