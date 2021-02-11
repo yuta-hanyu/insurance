@@ -10,7 +10,7 @@ class PostsController < ApplicationController
   def create
     @post = current_user.posts.build(post_params)
     if @post.save(post_params)
-      @posts = current_user.posts.order(id: :desc).page(params[:page]).per(5)
+       @posts = current_user.posts.order(id: :desc).page(params[:page]).per(5)
     else
       exit
     end

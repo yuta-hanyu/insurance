@@ -1,0 +1,64 @@
+<% if @claims.any? %>
+  <% @claims.each do |claim| %>
+    <div id="claim-<%= claim.id %>">
+      <!--概要-->
+      <table class="table">
+        <tr>
+          <th style="background-color:#ffffe5; color: #000000;" colspan="2" class="text-center">
+            <div class="header_item">
+              <div>
+                <%= claim.illness %>
+              </div>
+              <div class="icon_item">
+                <!--編集アイコン--><!--id="e_claim"でイベント発火-->
+                <span data-claim-id=<%= claim.id %> id="e_claim" class="font_color e_icon" style="color: green;" ><i class="fas fa-info-circle"></i></span>
+              </div>
+            </div>
+          </th>
+        </tr>
+        <tr>
+          <th style="background-color:white;" class="text-center">請求日</th>
+          <th style="background-color:white;" class="text-center"><%= claim.created_at.strftime('%Y/%m/%d') %></th>
+        </tr>
+        <tr>
+          <th style="background-color:white;" class="text-center">入院日</th>
+          <th style="background-color:white;" class="text-center"><%= claim.hospital_stay.strftime('%Y/%m/%d') %></th>
+        </tr>
+      </table>
+    </div>
+    <!--詳細-->
+    <div id="claim_e-<%= claim.id %>" style="display: none;">
+      <table class="table">
+        <tr>
+          <td class="text-center align-middle table-secondary" style="width:auto">請求ID</td>
+          <td class="text-center align-middle td_color"><%= claim.id %></td>
+        </tr>
+        <tr>
+          <td class="text-center align-middle table-secondary">患者名</td>
+          <td class="text-center align-middle td_color"><%= claim.patient %></td>
+        </tr>
+        <tr>
+          <td class="text-center align-middle table-secondary">振込口座</td>
+          <td class="text-center align-middle td_color"><%= claim.account_number %></td>
+        </tr>
+        <tr>
+          <td class="text-center align-middle table-secondary">保険証書番号</td>
+          <td class="text-center align-middle td_color"><%= claim.policy_number %></td>
+        </tr>
+        <tr>
+          <td class="text-center align-middle table-secondary">支払通知書送付住所</td>
+          <td class="text-center align-middle td_color"><%= claim.destination %></td>
+        </tr>
+        <tr>
+          <td class="text-center align-middle table-secondary">領収書</td>
+          <td class="text-center align-middle td_color"><%= attachment_image_tag claim, :receipt_img, :size =>'300x300' %></td>
+        </tr>
+      </table>
+    </div>
+  <% end %>
+  <div class="pagination  justify-content-center">
+    <%= paginate @claims %>
+  </div>
+<% else %>
+  <p class="data_nill">ご請求はございません。</p>
+<% end %>

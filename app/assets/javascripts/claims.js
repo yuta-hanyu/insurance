@@ -28,30 +28,23 @@ $(function() {
     } else {
       $("#error-message").removeClass();
       $("#error-message").addClass("error-message");
-      $('#error-message').text('未入力があります');
+      $('#error-message').text('未入力があります。入力内容をご確認ください。');
     }
-    
   });
   // モーダル閉じる
   $('.close-modal').click(function(){
       $('.claim_modal_wrapper').hide('slow');
+      $('#j_claim').hide('slow');
+      $(".claim_form").show('slow');
   });
-})
-// バリデーション
-// $(function() {
-//   $('#modal_confir').click(function() {
-//     // フォーム入力値を代入
-//     var text1Value = $('.ajax_text1').val();
-//     var numValue = $('.ajax_num').val();
-//     var text2Value = $('.ajax_text2').val();
-//     // フォームのいずれが空の時はエラー表示
-//     if( text1Value == "" || numValue == "" || text2Value == "") {
-//       $("#error-message").removeClass();
-//       $("#error-message").addClass("error-message");
-//       $('#error-message').text('空欄があります');
-//     } else {
-//       // 正しく入力された場合はエラー削除
-//       $('.error-message').text('');
-//     }
-//   });
-// });
+});
+// 詳細表示切替 
+$(function() {
+    // フォームを開く
+    // リロードしないと表示されなくなるため、documentを付与
+  $(document).on("click", "#e_claim", function () {
+    const claimId = $(this).data('claim-id');
+    const claimArea = $('#claim_e-' + claimId);
+    claimArea.toggle('slow');
+  });
+});

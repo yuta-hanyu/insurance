@@ -7,33 +7,31 @@ class ClaimsController < ApplicationController
   def new
     @claim = current_user.claims.build
     @contracts = current_user.contracts.all
-    @claims =  current_user.claims.order(id: :desc).page(params[:page]).per(2)
+    @claims =  current_user.claims.order(id: :desc).page(params[:page]).per(5)
   end
   
-  def show
-    @claim = Claim.find(params[:id])
-  end
+  # def show
+  #   @claim = Claim.find(params[:id])
+  # end
   
-  def confirm
-    @claim = current_user.claims.build(claim_params)
-    if @claim.invalid?(:confirm)
-      render :new
-    end
-  end
+  # def confirm
+  #   @claim = current_user.claims.build(claim_params)
+  #   if @claim.invalid?(:confirm)
+  #     render :new
+  #   end
+  # end
   
   def create
     @claim = current_user.claims.build(claim_params)
     if @claim.save(claim_params)
-    elsif 
-      params[:back]
-      render :new
-    elsif
-      render :confirm
+       @claims =  current_user.claims.order(id: :desc).page(params[:page]).per(5)
+    else
+      exit
     end
   end
 
-  def complete
-  end
+  # def complete
+  # end
   
   def claims_list
     @claims = Claim.all.order(id: :desc).page(params[:page]).per(5)

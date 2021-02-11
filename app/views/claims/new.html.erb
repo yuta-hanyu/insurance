@@ -4,156 +4,125 @@
       <h1>請求内容入力</h1>
     </div>
   </div>
-    <p>患者様（被保険者様）情報等を以下へご入力ください。</p>
-  <div class="col-md-6 offset-md-3" >
-    <p style="color: #000000;" >保険金請求フォーム</p>
-    <div class="claim_form">
-      <%= form_with(model: @claim, local: true, url: {action: :confirm}) do |f| %>
-        <p id="error-message" class="error-message none"></p>
-        <div class="form-group">
-          <%= f.label :patient %>
-          <%= f.text_field :patient, class: 'form-control', id: "patient", :value => @claim.user.contractor_name %>
-        </div>
-        <div class="form-group">
-          <%= f.label :illness%>
-          <%= f.text_field :illness, class: 'form-control', id: "illness", :placeholder => "例）大腸ポリープ" %>
-        </div>
-        <div class="form-group" style="width:40%;">
-          <%= f.label :hospital_stay, '入院日' %>
-          <%= f.date_field :hospital_stay, class: 'form-control', id: "hospitalStay"%>
-        </div>
-        <p style="color: #000000; border-bottom: 1px solid;">ご契約について</p>
-        <div class="form-group">
-          <%= f.label :policy_number %>
-          <span style="color:red; font-size:13px;">※ご契約が未登録の場合は先に契約の登録をお願いします。</span>
-          <%= f.collection_select :policy_number,current_user.contracts.all, :policy_number, :policy_number,{include_blank: "選択してください。"}, class: 'form-control', id: "policyNumber" %>
-        </div>
-        <div class="form-group">
-          <%= f.label :account_number %>
-          <span style="color:red; font-size:13px;">※半角数字でご入力ください。</span>
-          <%= f.number_field :account_number, class: 'form-control', id: "accountNumber"%>
-        </div>
-        <div>
-          <%= f.label :destination %>
-          <span style="color:red; font-size:13px;">※半角数字、ハイフンなしでご入力ください。</span>
-          <div class="row">
-            <div class="form-group input-group col-sm-4">
-              <div class="input-group-prepend">
-                <span class="input-group-text">〒</span>
+   <p>「保険金請求フォーム」よりご請求ください。過去の請求履歴は「請求履歴」よりご確認頂けます。</p>
+  <div class="row justify-content-md-center ml-2 mr-2 mb-3">
+    <div class="col-md-6" >
+      <p style="color: #000000;" >保険金請求フォーム</p>
+      <!--完了画面-->
+      <div  style="display: none;" id="j_claim">
+        <%= render "claims/complete" %>
+      </div>
+      <!--請求フォーム-->
+      <div class="claim_form">
+        <%= form_with(model: @claim) do |f| %>
+          <p style="color: #000000; border-bottom: 1px solid;">ご契約について</p>
+          <div class="form-group">
+            <%= f.label :patient %>
+            <%= f.text_field :patient, class: 'form-control', id: "patient", :value => @claim.user.contractor_name %>
+          </div>
+          <div class="form-group">
+            <%= f.label :illness%>
+            <%= f.text_field :illness, class: 'form-control', id: "illness", :placeholder => "例）大腸ポリープ" %>
+          </div>
+          <div class="form-group" style="width:40%;">
+            <%= f.label :hospital_stay, '入院日' %>
+            <%= f.date_field :hospital_stay, class: 'form-control', id: "hospitalStay"%>
+          </div>
+          <p style="color: #000000; border-bottom: 1px solid;">ご契約について</p>
+          <div class="form-group">
+            <%= f.label :policy_number %>
+            <span style="color:red; font-size:13px;">※ご契約が未登録の場合は先に契約の登録をお願いします。</span>
+            <%= f.collection_select :policy_number,current_user.contracts.all, :policy_number, :policy_number,{include_blank: "選択してください。"}, class: 'form-control', id: "policyNumber" %>
+          </div>
+          <div class="form-group">
+            <%= f.label :account_number %>
+            <span style="color:red; font-size:13px;">※半角数字でご入力ください。</span>
+            <%= f.number_field :account_number, class: 'form-control', id: "accountNumber"%>
+          </div>
+          <div>
+            <%= f.label :destination %>
+            <span style="color:red; font-size:13px;">※半角数字、ハイフンなしでご入力ください。</span>
+            <div class="row">
+              <div class="form-group input-group col-sm-4">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">〒</span>
+                </div>
+                  <input id="zip-code" type="number" class="form-control" placeholder="住所検索">
               </div>
-                <input id="zip-code" type="number" class="form-control" placeholder="住所検索">
+              <div class="form-group col-sm-8">
+                <%= f.text_field :destination, class: 'form-control place', id: "destination" %>
+              </div>
+            </div>  
+          </div>
+          <div class="form-group">
+            <%= f.label :receipt_img, '領収書もしくは診療明細書' %>
+            <%= f.file_field :receipt_img, id: "myfile", class: "receiptImg" %>
+            <img id="pImg" />
+          </div>
+          <div class="main_btn">
+            <!--バリデーションエラーmsg-->
+            <div class="text-center mt-3 mb-3">
+              <h3 id="error-message" class="error-message none"></h3>
             </div>
-            <div class="form-group col-sm-8">
-              <%= f.text_field :destination, class: 'form-control place', id: "destination" %>
-            </div>
-          </div>  
-        </div>
-        <div class="form-group">
-          <%= f.label :receipt_img, '領収書もしくは診療明細書' %>
-          <%= f.file_field :receipt_img, id: "myfile", class: "receiptImg" %>
-          <img id="pImg" />
-        </div>
-        <div class="main_btn">
-          <buttun id="modal_confirm" class="next_btn mb-3">確認</buttun>
-        </div>
+            <buttun id="modal_confirm" class="next_btn mb-3">確認</buttun>
+          </div>
+      </div>
     </div>
-  </div>
   <!-- モーダルの設定 -->
-  <div class="claim_modal_wrapper" id='claim_modal'>
-    <div class="row justify-content-center">
-      <div class="claim_modal col-6">
-        <h3 class="mb-2" style="color: #000000; border-bottom: 1px solid;">確認画面</h3>
-        <p>入力内容にお間違いない場合は下記「請求」をクリックしてください。</p>
-        <table class="table">
-          <tr>
-            <th style="width:30%; background-color:#ffffe0;" class="text-left align-middle c_font_color">患者名</th>
-            <th style="background-color:white;" class="align-middle"><div id="modalPatient"></div></th>
-          </tr>
-          <tr>
-            <th style="background-color:#ffffe0;" class="text-left align-middle c_font_color">傷病名</th>
-            <th style="background-color:white;" class="align-middle"><div id="modalIllness"></div></t>
-          </tr>
-          <tr>
-            <th style="background-color:#ffffe0;" class="text-left align-middle c_font_color">入院日</th>
-            <th style="background-color:white;" class="align-middle"><div id="modalHospitalStay"></div></t>
-          </tr>
-          <tr>
-            <th style="background-color:#ffffe0;" class="text-left align-middle c_font_color">保険証書番号</th>
-            <th style="background-color:white;" class="align-middle"><div id="modalPolicyNumber"></div></th>
-          </tr>
-          <tr>
-            <th style="background-color:#ffffe0;" class="text-left align-middle c_font_color">振込口座</th>
-            <th style="background-color:white;" class="align-middle"><div id="modalAccountNumber"></div></th>
-          </tr>
-          <tr>
-            <th style="background-color:#ffffe0;" class="text-left align-middle c_font_color">支払通知書送付住所</th>
-            <th style="background-color:white;" class="align-middle"><div id="modalDestination"></div></th>
-          </tr>
-          <tr>
-            <th style="background-color:#ffffe0;" class="text-left align-middle c_font_color">領収書（診療明細書）</th>
-            <th style="background-color:white;" class="align-middle"><div id="modalReceiptImg"></div></th>
-          </tr>
-        </table>
-        <div class="main_btn">
-          <buttun class="return_btn close-modal mb-3">戻る</buttun> 
-          <%= f.submit '請求', class: 'next_btn mb-3' %>
+    <div class="claim_modal_wrapper" id='claim_modal'>
+      <div class="row justify-content-center">
+        <div class="claim_modal col-6">
+          <h3 class="mb-2" style="color: #000000;">確認画面</h3>
+          <p>入力内容にお間違いない場合は下記「請求」をクリックしてください。</p>
+          <table class="table">
+            <tr>
+              <th style="width:30%; background-color:#ffffe0;" class="text-left align-middle c_font_color">患者名</th>
+              <th style="background-color:white;" class="align-middle"><div id="modalPatient"></div></th>
+            </tr>
+            <tr>
+              <th style="background-color:#ffffe0;" class="text-left align-middle c_font_color">傷病名</th>
+              <th style="background-color:white;" class="align-middle"><div id="modalIllness"></div></t>
+            </tr>
+            <tr>
+              <th style="background-color:#ffffe0;" class="text-left align-middle c_font_color">入院日</th>
+              <th style="background-color:white;" class="align-middle"><div id="modalHospitalStay"></div></t>
+            </tr>
+            <tr>
+              <th style="background-color:#ffffe0;" class="text-left align-middle c_font_color">保険証書番号</th>
+              <th style="background-color:white;" class="align-middle"><div id="modalPolicyNumber"></div></th>
+            </tr>
+            <tr>
+              <th style="background-color:#ffffe0;" class="text-left align-middle c_font_color">振込口座</th>
+              <th style="background-color:white;" class="align-middle"><div id="modalAccountNumber"></div></th>
+            </tr>
+            <tr>
+              <th style="background-color:#ffffe0;" class="text-left align-middle c_font_color">支払通知書送付住所</th>
+              <th style="background-color:white;" class="align-middle"><div id="modalDestination"></div></th>
+            </tr>
+            <tr>
+              <th style="background-color:#ffffe0;" class="text-left align-middle c_font_color">領収書（診療明細書）</th>
+              <th style="background-color:white;" class="align-middle"><div id="modalReceiptImg"></div></th>
+            </tr>
+          </table>
+          <div class="main_btn">
+            <buttun class="return_btn close-modal mb-3">戻る</buttun> 
+            <%= f.submit '請求', class: 'next_btn mb-3' %>
+          </div>
+        <% end %>
         </div>
-      <% end %>
+      </div>
+    </div>
+    <!--請求履歴-->
+    <div class="col-lg-4">
+      <p style="color: #000000;" >請求履歴</p>
+      <!--ajax-->
+      <div id="ji_claim">
+        <%= render "claims/claim" %>
       </div>
     </div>
   </div>
-  
-  
   <div class="main_btn">
     <%= link_to '戻る',"/",class: "return_btn mt-3" %>     
   </div>
-    
 </div>
 
-
- <div class="header">
-    <h1>ご請求履歴</h1>
-  </div>
-  
-  <% if @claims.any? %>
-  <% @claims.each do |claim| %>
-  <div class="claim_sub col-xs-12 col-md-8 offset-md-2">
-    <div class="claim_table">
-      <div class="aaa">
-          <table class="table table-bordered">
-            <tr class="table-primary">
-              <th class="users_th text-center">項目</th>
-              <th class="users_th text-center">請求内容</th>
-            </tr>
-            <tr>
-              <th class="users_th text-center">請求No.</th>
-              <th class="users_th text-center"><%= claim.id %></th>
-            </tr>
-            <tr>
-              <th class="users_th text-center">傷病名</th>
-              <th class="users_th text-center"><%= claim.illness %></th>
-            </tr>
-            <tr>
-              <th class="users_th text-center">入院日</th>
-              <th class="users_th text-center"><%= claim.hospital_stay %></th>
-            </tr>
-          </table>
-          </div>
-    </div>
-  </div>
-  <div class="main_btn">
-    <%= link_to"詳細へ",claim_path(claim),class: "show_btn" %></span>
-  </div>
-  <% end %>
-  <% else %>
-    <p class="data_nill">ご請求はございません。</p>
-  <% end %>
-  <div class="pagination  justify-content-center">
-    <%= paginate @claims %>
-  </div>
-  <div class="main_btn">
-    <%= link_to "請求へ", new_claim_path,class: "next_btn" %>
-  </div>
-  <div class="main_btn">
-    <%= link_to '戻る',root_path ,class: "return_btn" %>
-  </div>
