@@ -52,7 +52,6 @@ $(function() {
       // モーダルのエラーmsg削除
       $('#errors_new').html('').removeClass();
       $('#errors_login').html('').removeClass();
-      
     });
   });
   

@@ -4,14 +4,14 @@ class ClaimsController < ApplicationController
   before_action :if_not_admin, only: [:claims_list, :claims_list_show ,:destroy]
   before_action :correct_user, only: [:show]
   
-  def show
-    @claim = Claim.find(params[:id])
-  end
-  
   def new
     @claim = current_user.claims.build
     @contracts = current_user.contracts.all
     @claims =  current_user.claims.order(id: :desc).page(params[:page]).per(2)
+  end
+  
+  def show
+    @claim = Claim.find(params[:id])
   end
   
   def confirm
@@ -24,7 +24,6 @@ class ClaimsController < ApplicationController
   def create
     @claim = current_user.claims.build(claim_params)
     if @claim.save(claim_params)
-      redirect_to claims_complete_path
     elsif 
       params[:back]
       render :new
