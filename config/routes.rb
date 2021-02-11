@@ -8,31 +8,26 @@ Rails.application.routes.draw do
      get :likes
    end
   end
-  post 'users/confirm', to: 'users#confirm'
-  patch 'users/edit/confirm/:id', to: 'users#edit_confirm'
+  # post 'users/confirm', to: 'users#confirm'
+  # patch 'users/edit/confirm/:id', to: 'users#edit_confirm'
   get 'users/delete/confirm/:id', to: 'users#destroy_confirm'
   
   post 'login', to: 'sessions#create'
   delete 'logout', to: 'sessions#destroy'
 
   resources :contracts
-  patch 'contracts/edit/confirm/:id', to: 'contracts#edit_confirm'
+  # patch 'contracts/edit/confirm/:id', to: 'contracts#edit_confirm'
   
   resources :claims, only: [:new, :create, :destroy]
-  post 'claims/confirm', to: 'claims#confirm'
-  get 'claims/complete', to: 'claims#complete'
   get 'claims_list', to: 'claims#claims_list'
-  get 'claims_list/:id', to: 'claims#claims_list_show'
-  get 'claims/:id', to: 'claims#show'
   
   namespace :admin do
     resources :info,only: [:show, :edit, :update]
-    patch 'info/edit/confirm/:id', to: 'info#edit_confirm'
+    # patch 'info/edit/confirm/:id', to: 'info#edit_confirm'
   end
   
-  resources :posts, only: [:new,:create,:index,:show,:destroy]
-  post 'posts/confirm', to: 'posts#confirm'
-  get 'posts/delete/confirm/:id', to: 'posts#destroy_confirm'
+  resources :posts, only: [:new, :create, :index, :show, :destroy]
+  # get 'posts/delete/confirm/:id', to: 'posts#destroy_confirm'
 
   resources :likes, only: [:create, :destroy, :index]
   

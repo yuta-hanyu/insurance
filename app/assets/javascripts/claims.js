@@ -38,7 +38,7 @@ $(function() {
       $(".claim_form").show('slow');
   });
 });
-// 詳細表示切替 
+// userの詳細表示切替 
 $(function() {
     // フォームを開く
     // リロードしないと表示されなくなるため、documentを付与
@@ -46,5 +46,15 @@ $(function() {
     const claimId = $(this).data('claim-id');
     const claimArea = $('#claim_e-' + claimId);
     claimArea.toggle('slow');
+  });
+});
+// adminの詳細表示切替 
+$(function() {
+    // フォームを開く
+    // リロードしないと表示されなくなるため、documentを付与
+  $(document).on("click", "#ad_claim", function () {
+    const adClaimId = $(this).data('claim-id');
+    const adClaimArea = $('#ad_claim_e-' + adClaimId);
+    adClaimArea.toggle('slow');
   });
 });

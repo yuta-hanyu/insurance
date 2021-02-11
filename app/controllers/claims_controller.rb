@@ -2,24 +2,13 @@ require 'csv'
 class ClaimsController < ApplicationController
   before_action :require_user_logged_in
   before_action :if_not_admin, only: [:claims_list, :claims_list_show ,:destroy]
-  before_action :correct_user, only: [:show]
+  before_action :correct_user, only: [:new]
   
   def new
     @claim = current_user.claims.build
     @contracts = current_user.contracts.all
     @claims =  current_user.claims.order(id: :desc).page(params[:page]).per(5)
   end
-  
-  # def show
-  #   @claim = Claim.find(params[:id])
-  # end
-  
-  # def confirm
-  #   @claim = current_user.claims.build(claim_params)
-  #   if @claim.invalid?(:confirm)
-  #     render :new
-  #   end
-  # end
   
   def create
     @claim = current_user.claims.build(claim_params)
@@ -29,13 +18,9 @@ class ClaimsController < ApplicationController
       exit
     end
   end
-
-  # def complete
-  # end
   
   def claims_list
     @claims = Claim.all.order(id: :desc).page(params[:page]).per(5)
-    
     respond_to do |format|
     format.html
     format.csv do |csv|
@@ -48,25 +33,18 @@ class ClaimsController < ApplicationController
     csv_data = CSV.generate do |csv|
       header = %w(ID 契約者 患者名 保険証書番号 傷病名 入院日 振込口座 通知書送付先 領収書)
       csv << header
-
       claims.each do |claim|
         values = [claim.id, claim.user.contractor_name, claim.patient, claim.policy_number, claim.illness, claim.hospital_stay, claim.account_number, claim.destination, claim.receipt_img]
         csv << values
       end
-
     end
     send_data(csv_data, filename: "claims.csv")
-  end
-  
-  def claims_list_show
-    @claim = Claim.find(params[:id])
   end
   
   def destroy
     @claim =  Claim.find(params[:id])
     @claim.destroy
-    flash[:success] = '請求は正常に削除されました。'
-    redirect_to claims_list_path
+    @msg = "削除しました"
   end
   
   private
