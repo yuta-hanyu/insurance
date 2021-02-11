@@ -2,7 +2,6 @@ require 'csv'
 class ClaimsController < ApplicationController
   before_action :require_user_logged_in
   before_action :if_not_admin, only: [:claims_list, :claims_list_show ,:destroy]
-  before_action :correct_user, only: [:new]
   
   def new
     @claim = current_user.claims.build
@@ -57,11 +56,11 @@ class ClaimsController < ApplicationController
     redirect_to root_path unless current_user.admin?
   end
   
-  def correct_user
-    @claim = current_user.claims.find_by(id: params[:id])
-    unless @claim
-      redirect_to root_url(current_user.id)
-    end
-  end
+  # def correct_user
+  #   @claim = current_user.claims.find_by(id: params[:id])
+  #   unless @claim
+  #     redirect_to root_url(current_user.id)
+  #   end
+  # end
   
 end
