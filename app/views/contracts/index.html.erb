@@ -7,29 +7,29 @@
     <p>ご加入契約を新規で登録する場合は「新規登録」より契約をご登録ください。</p>
   <div class="row justify-content-md-center ml-2 mr-2 mb-3">
     <!--新規登録フォーム-->
-    <div class="contract_form col-md-3">
-      <h2>ご契約の新規登録</h2>
-      <div class="offset-1 col-10 offset-1">
+    <div class="contract_form col-md-4">
+    <p style="color: #000000;" >ご契約の新規登録</p>
+      <div class="offset-1 col-10 offset-1 pt-3" style="background-color: #eeeeee; border: 1px solid;">
         <%= form_with(model: @contract, id: 'form') do |f| %>
         <!--JSバリデーションエラー-->
         <p id="error-message" class="error-message none"></p>
           <div class="form-group">
-            <%= f.label :contract_name, '-契約名-' %>
-            <%= f.text_field :contract_name, class: 'form-control ajax_text' %>
+            <%= f.label :contract_name, '契約名' %>
+            <%= f.select :contract_name, [['終身保険'], ['医療保険'], ['こども保険'], ['養老保険'], ['がん保険'], ['特定重度疾病保障保険']], { include_blank: '選択してください' }, {class: "form-control ajax_text" } %>
           </div>
           <div class="form-group">
-            <%= f.label :policy_number, '-保険証書番号-' %>
+            <%= f.label :policy_number, '保険証書番号' %>
             <%= f.number_field :policy_number, class: 'form-control ajax_num' %>
           </div>
           <div class="main_btn">
-            <%= f.submit '新規登録', class: 'next_btn' %>
+            <%= f.submit '新規登録', class: 'next_btn mb-3' %>
           </div>
         <% end %>
       </div>
     </div>
     <!--登録済み契約一覧-->
-    <div class="contract_index col-md-7">
-      <h2>ご登録契約一覧</h2>
+    <div class="contract_index col-md-8">
+      <p style="color: #000000;" >ご登録契約一覧</p>
       <!--ajax-->
       <div id="contract_msg"></div>
       <div id="j_contract">

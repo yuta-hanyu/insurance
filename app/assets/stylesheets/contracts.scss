@@ -1,26 +1,9 @@
 // Place all the styles related to the contracts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-
-// 新規登録フォーム
-.contract_form {
-    height: 70%;
-    background-color: #eeeeee;
-    border: 1px solid;
-    padding: 10px;
-    margin-bottom: 25px;
-}
-.contract_form h2 {
-    color: #000000;
-    text-align: center;
-    font-size: 22px;
-    margin: 10px;
-}
 // 編集フォーム
 // 既登録一覧
 .contract_index {
-    // background-color: #eeeeee;
-    // border: 1px solid;
     padding: 10px;
 }
 .contract_index h2 {

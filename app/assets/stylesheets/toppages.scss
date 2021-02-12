@@ -408,13 +408,6 @@
 .likes ul:hover {
     transform: scale(1.1)  rotate(7deg);
 }
-// @media (max-width:670px) {
-//     .table th:not(.users_th) {
-//         padding: 4px 12px;
-//         display: block;
-//         width: 100%;
-//     }
-// }
 @media (max-width:670px) {
     .table td {
         padding: 4px 12px;
@@ -453,7 +446,7 @@
     background-color: #ffffbc;
     padding: 30px 40px;
     border-radius: 10px;
-    margin: 15%;
+    margin: 5%;
     height: auto;
     text-align: center;
 }
@@ -465,6 +458,7 @@
     border-top: solid 3px #364e96;
     border-bottom: solid 3px #364e96;
     margin-bottom: 20px;
+    font-size: 25px;
 }
 .login_modal p {
     margin-bottom: 20px;
