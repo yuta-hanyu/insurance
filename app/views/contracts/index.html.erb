@@ -21,7 +21,7 @@
           <div class="form-group">
             <%= f.label :policy_number, '保険証書番号' %>
             <h6 style="color:red; font-size:13px;">※半角英数字かつ10桁以内でご登録ください。</h6>
-            <%= f.number_field :policy_number, class: 'form-control ajax_num' %>
+            <%= f.number_field :policy_number, class: 'form-control ajax_num', maxlength:10 %>
           </div>
           <div class="main_btn">
             <%= f.submit '新規登録', class: 'next_btn mb-3' %>

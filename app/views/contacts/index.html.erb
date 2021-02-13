@@ -16,8 +16,6 @@
       <!--送信後非表示-->
       <div id="ajax_contact_table">
         <%= form_with(model: @contact, id: 'contact_form') do |f| %>
-        <p id="error-message" class="error-message none"></p>
-        <%= render 'layouts/error_messages', model: f.object %>
           <table style="background-color: #eeeeee;" class="table offset-1 col-10 offset-1">
             <tr>
               <td style="width:30%;" class="text-left align-middle t_font_color">お問い合わせ種類</td>
@@ -40,19 +38,18 @@
               </td>
             </tr>
             <tr>
-              <td class="text-left align-middle t_font_color">電話番号</td>
-              <td>
-                <%= f.number_field :tel, class: 'form-control ajax_num' %>
+              <td class="text-left align-middle t_font_color">
+                お問い合わせ内容
+               <h6 style="color:red; font-size:13px;">※500字以内でご入力ください。</h6>
               </td>
-            </tr>
-            <tr>
-              <td class="text-left align-middle t_font_color">お問い合わせ内容</td>
+              
               <td>
                 <%= f.text_area :content,:size => "60x10", class: 'form-control ajax_text2' %>
               </td>
             </tr>
             <tr>
               <td colspan="2" class="main_btn">
+                <p id="error-message" class="error-message none"></p>
                 <%= f.submit '送信', class: 'next_btn' %>
                 <% end %>
               </td>

@@ -27,27 +27,23 @@
         
         </tr>
         <tr>
-          <th class="text-center align-middle c_font_color">お問い合わせ日</th>
+          <th class="text-left align-middle c_font_color">お問い合わせ日</th>
           <th class="text-center align-middle"><%= @contact.created_at.to_s(:datetime_jp) %></th>
         </tr>
         <tr>
-          <th class="text-center align-middle c_font_color">送信者</th>
+          <th class="text-left align-middle c_font_color">送信者</th>
           <th class="text-center align-middle"><%= @contact.user.contractor_name %></t>
         </tr>
         <tr>
-          <th class="text-center align-middle c_font_color">お問い合わせ種類</th>
+          <th class="text-left align-middle c_font_color">お問い合わせ種類</th>
           <th class="text-center align-middle"><%= @contact.type %></t>
         </tr>
         <tr>
-          <th class="text-center align-middle c_font_color">件名</th>
+          <th class="text-left align-middle c_font_color">件名</th>
           <th class="text-center align-middle"><%= @contact.title %></th>
         </tr>
         <tr>
-          <th class="text-center align-middle c_font_color">電話番号</th>
-          <th class="text-center align-middle"><%= @contact.tel %></th>
-        </tr>
-        <tr>
-          <th class="text-center align-middle c_font_color">お問い合わせ内容</th>
+          <th class="text-left align-middle c_font_color">お問い合わせ内容</th>
           <th class="text-left align-middle"><%= simple_format(@contact.content) %></th>
         </tr>
       </table>
