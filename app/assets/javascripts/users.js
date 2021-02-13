@@ -33,7 +33,7 @@ $(function() {
     if( selectValue == "" || textValue == ""){
       $("#error-message").removeClass();
       $("#error-message").addClass("error-message");
-      $('#error-message').text('空欄があります');
+      $('#error-message').text('空欄がある、もしくは保険証書番号が１０桁以上です。');
     } else {
       // 正しく入力された場合はエラー削除
       $('#error-message').text('');

@@ -4,7 +4,7 @@ class ContractsController < ApplicationController
   before_action :correct_user, only: [:destroy,:edit, :edit_confirm, :update]
   
   def index
-    @contracts = current_user.contracts.order(id: :desc).page(params[:page]).per(5)
+    @contracts = current_user.contracts.order(id: :desc).page(params[:page]).per(3)
     @contract = current_user.contracts.build
   end
 
