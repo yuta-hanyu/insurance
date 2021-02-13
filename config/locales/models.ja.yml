@@ -13,7 +13,8 @@ ja:
           contractor_name: 契約者名
           email: メールアドレス
           address: 住所
-          password_digest: パスワード
+          password: パスワード
+          password_confirmation: パスワード再確認
           admin: 管理者
           postcode: 住所自動登録
         contract:

@@ -1,6 +1,6 @@
 <div class="login_modal_wrapper" id='new_modal'>
   <div class="row justify-content-center">
-    <div class="login_modal col-md-6" style="height: 100% !important;">
+    <div class="login_modal col-md-6" style="height: 70% !important;">
       
       <!--閉じる-->
       <div class="close-modal">
@@ -24,6 +24,7 @@
         <!--住所検索API-->
         <div class="form-group text-left">
           <%= f.label :address%>
+          <h6 style="color:red; font-size:13px;">※住所検索は半角数字、ハイフンなしでご入力ください。</h6>
           <div class="row">
             <div class="form-group input-group col-sm-4">
               <div class="input-group-prepend">
@@ -45,7 +46,6 @@
           <%= f.password_field :password_confirmation, class: 'form-control' %>
         </div>
         <div class="main_btn">
-          <%= link_to '戻る',root_path ,class: "return_btn mb-2" %>
           <%= f.submit '登録', class: 'next_btn', data: { confirm: "登録しますか？" } %>
         </div>
       </div>

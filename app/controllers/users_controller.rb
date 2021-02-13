@@ -8,10 +8,6 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
-  def new
-    @user = User.new
-  end
-  
   def create
     @user = User.new(user_params)
     if @user.save
@@ -19,7 +15,7 @@ class UsersController < ApplicationController
       flash[:success] = 'ご契約者情報の登録が完了しました'
       render :js => "window.location = '/'"
     else
-      @msgs = @user.errors.full_messages.join(" , ")
+      @msgs = @user.errors.full_messages.join(" 、 ")
     end
   end
 
@@ -29,7 +25,7 @@ class UsersController < ApplicationController
       @msg = '変更が完了しました'
       @user = User.find(params[:id])
     else
-      exit
+      @msgs = @user.errors.full_messages.join(" 、 ")
     end
   end
   
@@ -46,7 +42,7 @@ class UsersController < ApplicationController
   private
   
   def user_params
-    params.require(:user).permit(:contractor_name, :email, :address, :password)
+    params.require(:user).permit(:contractor_name, :email, :address, :password, :password_confirmation)
   end
   
   def correct_user
