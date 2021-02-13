@@ -30,13 +30,13 @@
 ### 開発環境
 - OS：Linux
 - 言語：HTML5,SCSS,Ruby(2.6.3p62),SQL,JavaScript
-- フレームワーク：Ruby on Rails(5.2.4.4)
+- フレームワーク：Ruby on Rails(5.2.4.4),Vue(2.6.12)
 
 ### 技術一覧
 - インフラ：AWS
 - データベース：MYSQL
 - セッション管理：Cookie
-- 画像アップロード：refile使用
+- 画像アップロード：refile
 - 管理者：boolean型による判定
 - テスト：rspec
 - 多言語化 : i18n使用
