@@ -1,2 +1,2 @@
 $("#j_contract").html("<%= j(render partial: 'contracts/contract') %>");
-$("#contract_msg").html('<div class="alert alert-warning"><%= @msg %></div>');
+$("#edit_msg-<%= @contract.id %>").html('<div style="color:green; margin-bottom:10px;"><%= @msg %></div><div style="color:red; margin-bottom:10px;"><%= @msgs %></div>');

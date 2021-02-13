@@ -1,9 +1,9 @@
 <% if @contracts.any? %>
   <% @contracts.each do |contract| %>
     <div class="contract_main" id="contract-<%= contract.id %>">
-      <!--フラッシュmsg-->
-      <div id="contract_msg"></div>
       <!--契約一覧-->
+      <!--フラッシュ、バリデーションmsg-->
+      <div id="edit_msg-<%= contract.id %>" style="padding-top: 0px; margin-bottom: 0px;" class="text-center"></div>
       <table class="table table-bordered text-center offset-1 col-10 offset-1" id="contract_table">
         <tr>
           <th colspan="2">
@@ -35,8 +35,6 @@
       <!--編集フォーム-->
       <div id="contract_e-<%= contract.id %>" class="e_form offset-1 col-10 offset-1">
         <p>契約内容の変更</p>
-        <!--JSバリデーションエラー-->
-        <p style="color:red;" id="e_error-message" class="e_error-message none"></p>
         <div class="offset-2 col-8 offset-2">
           <%= form_with(model: contract, id: 'ctr_e_form') do |f| %>
           <div class="form-group">
