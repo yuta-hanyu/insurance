@@ -35,25 +35,24 @@
       <!--編集フォーム-->
       <div id="contract_e-<%= contract.id %>" class="e_form offset-1 col-10 offset-1">
         <p>契約内容の変更</p>
+        <!--JSバリデーションエラー-->
+        <p style="color:red;" id="e_error-message" class="e_error-message none"></p>
         <div class="offset-2 col-8 offset-2">
-          <%= form_with(model: contract) do |f| %>
+          <%= form_with(model: contract, id: 'ctr_e_form') do |f| %>
           <div class="form-group">
             <%= f.label :contract_name, '契約名' %>
-            <%= f.select :contract_name, [['終身保険'], ['医療保険'], ['こども保険'], ['養老保険'], ['がん保険'], ['特定重度疾病保障保険']], { include_blank: contract.contract_name }, {class: "form-control ajax_text" }  %>
+            <%= f.select :contract_name, [['終身保険'], ['医療保険'], ['こども保険'], ['養老保険'], ['がん保険'], ['特定重度疾病保障保険']], { include_blank: contract.contract_name }, {class: "form-control e_ajax_text" }  %>
           </div>
-          
           <div class="form-group">
             <%= f.label :policy_number, '保険証書番号' %>
-            <%= f.number_field :policy_number, class: 'form-control', value: contract.policy_number %>
+            <%= f.number_field :policy_number, class: 'form-control e_ajax_num', value: contract.policy_number %>
           </div>
-          
           <div class="main_btn">
             <%= f.submit '保存',class: 'next_btn close-e_form' %>
           <% end %>
           </div>
         </div>
       </div>
-      
     </div>
   <% end %>
 <% else %>

@@ -22,34 +22,6 @@ $(function() {
       });
   });
 });
-// contract関係
-// contract　新規登録バリデーション
-$(function() {
-  $('#form').submit(function() {
-    // フォーム入力値を代入
-    var selectValue = $('.ajax_text').val();
-    var textValue = $('.ajax_num').val();
-    // フォームのいずれが空の時はエラー表示
-    if( selectValue == "" || textValue == ""){
-      $("#error-message").removeClass();
-      $("#error-message").addClass("error-message");
-      $('#error-message').text('空欄がある、もしくは保険証書番号が１０桁以上です。');
-    } else {
-      // 正しく入力された場合はエラー削除
-      $('#error-message').text('');
-    }
-  });
-});
-// 編集フォーム表示切替 
-  $(function() {
-      // フォームを開く
-      // リロードしないと表示されなくなるため、documentを付与
-    $(document).on("click", "#e_contract", function () {
-      const contractId = $(this).data('contract-id');
-      const contractTextArea = $('#contract_e-' + contractId);
-      contractTextArea.toggle('slow');
-    });
-  });
 // contact関係
 // contact complete消す
 $(function() {
