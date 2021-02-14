@@ -3,17 +3,17 @@ class PostsController < ApplicationController
   before_action :require_user_logged_in
   
   def index
-    @posts = current_user.posts.order(id: :desc).page(params[:page]).per(4)
+    @posts = current_user.posts.order(id: :desc).page(params[:page]).per(3)
     @post = current_user.posts.build
   end
 
   def create
     @post = current_user.posts.build(post_params)
     if @post.save(post_params)
-       @posts = current_user.posts.order(id: :desc).page(params[:page]).per(5)
+       @posts = current_user.posts.order(id: :desc).page(params[:page]).per(3)
     else
        @msgs = @post.errors.full_messages.join("、")
-       @posts = current_user.posts.order(id: :desc).page(params[:page]).per(5)
+       @posts = current_user.posts.order(id: :desc).page(params[:page]).per(3)
     end
   end
 
