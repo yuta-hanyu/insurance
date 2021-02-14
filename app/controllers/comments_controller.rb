@@ -1,7 +1,7 @@
 class CommentsController < ApplicationController
   before_action :require_user_logged_in
   before_action :if_not_admin, only: [:index]
-  before_action :correct_user
+  before_action :correct_user, if: :if_not_admin
   
   def index
     @contacts = Contact.order(created_at: :desc).page(params[:page]).per(5)
@@ -43,8 +43,9 @@ class CommentsController < ApplicationController
   end
   
   def correct_user
-    @comment = current_user.comments.find(params[:id])
-    unless @comment
+    @contact = current_user.contacts.find_by(id: params[:id])
+    if @contact
+    else
     redirect_to "/"
     end
   end
