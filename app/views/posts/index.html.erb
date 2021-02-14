@@ -29,7 +29,9 @@
             </div>
             <div class="form-group">
               <%= f.label :content, '投稿内容' %>
-              <%= f.text_area :content, :size => "50x5", class: 'form-control p_ajax_text2' %>
+              <h6 style="color:red; font-size:13px;">※半角英数字、10桁以内でご登録ください。</h6>
+              <div class="count_area"><span class="now_count">0</span> / 255</div>
+              <%= f.text_area :content, :size => "50x5", class: 'form-control p_ajax_text2', id: 't_count' %>
             </div>
             <div class="form-group">
               <%= f.label :post_img, '画像' %>

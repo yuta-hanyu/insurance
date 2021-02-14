@@ -24,3 +24,14 @@
 .card-body, .td_color {
     background-color: white;
 }
+文字数制限用
+.count_danger {
+    color : red !important;
+}
+// はみ出ないよう
+.post_table {
+width: 100%;
+table-layout: fixed;
+word-break: break-all;
+word-wrap: break-all;
+}

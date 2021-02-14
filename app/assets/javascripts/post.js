@@ -34,3 +34,15 @@ $(function() {
     postArea.toggle('slow');
   });
 });
+// 文字数制限
+$(function() {
+    //入力時のイベント    
+    $(document).on("input", "#t_count", function () {
+        //文字数を取得
+        var count = $(this).val().length;
+        //現在の文字数を表示
+        $('.now_count').text(count);
+    });
+    // リロード時に初期文字列が入っていた時の対策
+    $('#t_count').trigger('input');
+});
