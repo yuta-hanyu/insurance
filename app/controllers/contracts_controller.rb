@@ -19,8 +19,8 @@ class ContractsController < ApplicationController
   end
 
   def update
-    @contract = current_user.contracts.find(params[:id]).page(params[:page]).per(3)
-    @contracts = current_user.contracts.order(id: :desc)
+    @contract = current_user.contracts.find(params[:id])
+    @contracts = current_user.contracts.order(id: :desc).page(params[:page]).per(3)
     if @contract.update(contract_params)
       @msg = '変更が完了しました'
     else
@@ -31,7 +31,8 @@ class ContractsController < ApplicationController
   def destroy
     @contract = current_user.contracts.find(params[:id])
     @contract.destroy
-    @msg = "削除しました"
+    @msg = "#{@contract.contract_name}を削除しました"
+    @contracts = current_user.contracts.order(id: :desc).page(params[:page]).per(3)
   end
   
   private

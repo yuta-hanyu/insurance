@@ -1,2 +1,6 @@
-$("#j_contract").html("<%= j(render partial: 'contracts/contract') %>");
-$("#edit_msg-<%= @contract.id %>").html('<div style="color:green; margin-bottom:10px;"><%= @msg %></div><div style="color:red; margin-bottom:10px;"><%= @msgs %></div>');
+<% if @contract.save %>
+  $("#j_contract").html("<%= j(render partial: 'contracts/contract') %>");
+  $("#edit_msg-<%= @contract.id %>").html('<div style="color:green; margin-bottom:10px;"><%= @msg %></div></div>');
+<% else %>
+  $("#edit_msg-<%= @contract.id %>").html('<div style="color:red; margin-bottom:10px;"><%= @msgs %></div>');
+<% end %>
