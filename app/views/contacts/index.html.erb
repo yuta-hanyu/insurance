@@ -42,14 +42,15 @@
                 お問い合わせ内容
                <h6 style="color:red; font-size:13px;">※500字以内でご入力ください。</h6>
               </td>
-              
               <td>
-                <%= f.text_area :content,:size => "60x10", class: 'form-control ajax_text2' %>
+                <div class="count_area"><span class="now_count">0</span> / 500</div>
+                <%= f.text_area :content,:size => "60x10", class: 'form-control ajax_text2', id: 't_count' %>
               </td>
             </tr>
             <tr>
               <td colspan="2" class="main_btn">
-                <p id="error-message" class="error-message none"></p>
+                <!--フラッシュ、バリデーションmsg-->
+                <p id="new_msg" style="padding-top: 0px; margin-bottom: 0px; font-size: 18px;"></p>
                 <%= f.submit '送信', class: 'next_btn' %>
                 <% end %>
               </td>

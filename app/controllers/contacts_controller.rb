@@ -3,15 +3,16 @@ class ContactsController < ApplicationController
   
   def index
     @contact = current_user.contacts.build
-    @contacts = current_user.contacts.order(id: :desc).page(params[:page]).per(3)
+    @contacts = current_user.contacts.order(id: :desc).page(params[:page]).per(4)
   end
 
   def create
     @contact = current_user.contacts.build(contact_params)
     if @contact.save
-      @contacts = current_user.contacts.order(id: :desc).page(params[:page]).per(3)
+      @contacts = current_user.contacts.order(id: :desc).page(params[:page]).per(4)
     else 
-      exit
+      @msgs = @contact.errors.full_messages.join("、")
+      @contacts = current_user.posts.order(id: :desc).page(params[:page]).per(4)
     end
   end
 
