@@ -9,7 +9,7 @@ class ContractsController < ApplicationController
   end
 
   def create
-    @contract = current_user.contracts.build(contract_params)
+    @contract = current_user.contracts.build(contract_params).page(params[:page]).per(3)
     @contracts = current_user.contracts.order(id: :desc)
     if @contract.save(contract_params)
       @msg = 'ご契約の新規登録が完了しました'
@@ -19,7 +19,7 @@ class ContractsController < ApplicationController
   end
 
   def update
-    @contract = current_user.contracts.find(params[:id])
+    @contract = current_user.contracts.find(params[:id]).page(params[:page]).per(3)
     @contracts = current_user.contracts.order(id: :desc)
     if @contract.update(contract_params)
       @msg = '変更が完了しました'
