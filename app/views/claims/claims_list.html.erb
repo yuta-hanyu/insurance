@@ -5,77 +5,81 @@
     </div>
   </div>
   <p>契約者からの請求データ一覧です。順次、支払審査を行ってください。</p>
-  <% @claims.each do |claim| %>
-    <!--destroy.jsで削除するID-->
-    <div id="ad_d_claim-<%= claim.id %>" >
-      <div class="offset-md-3 col-md-6 offset-md-3 mt-3 mb-3">
-        <!--フラッシュmsg-->
-        <p id="claim_msg"></p>
-          <table class="table">
-            <tr>
-              <th colspan="3" style="background-color:#ffffe5;">
-                <div class="header_item" style="color: #000000;">
-                  <div>
-                    請求ID:<%= claim.id %>
-                  </div>
-                  <div class="icon_item mr-2">
-                    <!--編集アイコン--><!--id="e_contract"でイベント発火-->
-                    <span data-claim-id=<%= claim.id %> id="ad_claim" class="font_color e_icon" style="color: green;" ><i class="fas fa-info-circle"></i></span>
-                    <!--削除アイコン-->
-                    <%= link_to claim, method: :delete, data: { confirm: "削除しますか？" }, remote: true do %>
-                      <span id="ad_d_icon" class="font_color_red" ><i class="fas fa-trash-alt"></i></span>
-                    <% end %>
-                  </div>
-                </div>
-              </th>
-            </tr>
-            <tr>
-              <th style="background-color:white;" class="text-center">請求日</th>
-              <th style="background-color:white;" class="text-center">入院日</th>
-              <th style="background-color:white;" class="text-center">契約者名</th>
-            </tr>
-            <tr>
-              <th style="background-color:white;" class="text-center"><%= claim.created_at.strftime('%Y/%m/%d') %></th>
-            　<th style="background-color:white;" class="text-center"><%= claim.hospital_stay %></th>
-            　<th style="background-color:white;" class="text-center"><%= claim.user.contractor_name %></th>
-            </tr>
-          </table>
-      <!--詳細-->
-          <div id="ad_claim_e-<%= claim.id %>" style="display: none;">
-            <table class="table">
-              <tr>
-                <td class="text-center align-middle table-secondary c_font_color" style="width:30%">請求ID</td>
-                <td class="text-center align-middle td_color"><%= claim.id %></td>
-              </tr>
-              <tr>
-                <td class="text-center align-middle table-secondary c_font_color">傷病名</td>
-                <td class="text-center align-middle td_color"><%= claim.illness %></td>
-              </tr>
-              <tr>
-                <td class="text-center align-middle table-secondary c_font_color">患者名</td>
-                <td class="text-center align-middle td_color"><%= claim.patient %></td>
-              </tr>
-              <tr>
-                <td class="text-center align-middle table-secondary c_font_color">振込口座</td>
-                <td class="text-center align-middle td_color"><%= claim.account_number %></td>
-              </tr>
-              <tr>
-                <td class="text-center align-middle table-secondary c_font_color">保険証書番号</td>
-                <td class="text-center align-middle td_color"><%= claim.policy_number %></td>
-              </tr>
-              <tr>
-                <td class="text-center align-middle table-secondary c_font_color">支払通知書送付住所</td>
-                <td class="text-center align-middle td_color"><%= claim.destination %></td>
-              </tr>
-              <tr>
-                <td class="text-center align-middle table-secondary c_font_color">領収書</td>
-                <td class="text-center align-middle td_color"><%= attachment_image_tag claim, :receipt_img, :size =>'300x300' %></td>
-              </tr>
-            </table>
+    <% if @claims.any? %>
+      <% @claims.each do |claim| %>
+        <!--destroy.jsで削除するID-->
+        <div id="ad_d_claim-<%= claim.id %>" >
+          <div class="offset-md-3 col-md-6 offset-md-3 mt-3 mb-3">
+            <!--フラッシュmsg-->
+            <p id="claim_msg"></p>
+              <table class="table">
+                <tr>
+                  <th colspan="3" style="background-color:#ffffe5;">
+                    <div class="header_item" style="color: #000000;">
+                      <div>
+                        請求ID:<%= claim.id %>
+                      </div>
+                      <div class="icon_item mr-2">
+                        <!--編集アイコン--><!--id="e_contract"でイベント発火-->
+                        <span data-claim-id=<%= claim.id %> id="ad_claim" class="font_color e_icon" style="color: green;" ><i class="fas fa-info-circle"></i></span>
+                        <!--削除アイコン-->
+                        <%= link_to claim, method: :delete, data: { confirm: "削除しますか？" }, remote: true do %>
+                          <span id="ad_d_icon" class="font_color_red" ><i class="fas fa-trash-alt"></i></span>
+                        <% end %>
+                      </div>
+                    </div>
+                  </th>
+                </tr>
+                <tr>
+                  <th style="background-color:white;" class="text-center">請求日</th>
+                  <th style="background-color:white;" class="text-center">入院日</th>
+                  <th style="background-color:white;" class="text-center">契約者名</th>
+                </tr>
+                <tr>
+                  <th style="background-color:white;" class="text-center"><%= claim.created_at.strftime('%Y/%m/%d') %></th>
+                　<th style="background-color:white;" class="text-center"><%= claim.hospital_stay %></th>
+                　<th style="background-color:white;" class="text-center"><%= claim.user.contractor_name %></th>
+                </tr>
+              </table>
+          <!--詳細-->
+              <div id="ad_claim_e-<%= claim.id %>" style="display: none;">
+                <table class="table">
+                  <tr>
+                    <td class="text-center align-middle table-secondary c_font_color" style="width:30%">請求ID</td>
+                    <td class="text-center align-middle td_color"><%= claim.id %></td>
+                  </tr>
+                  <tr>
+                    <td class="text-center align-middle table-secondary c_font_color">傷病名</td>
+                    <td class="text-center align-middle td_color"><%= claim.illness %></td>
+                  </tr>
+                  <tr>
+                    <td class="text-center align-middle table-secondary c_font_color">患者名</td>
+                    <td class="text-center align-middle td_color"><%= claim.patient %></td>
+                  </tr>
+                  <tr>
+                    <td class="text-center align-middle table-secondary c_font_color">振込口座</td>
+                    <td class="text-center align-middle td_color"><%= claim.account_number %></td>
+                  </tr>
+                  <tr>
+                    <td class="text-center align-middle table-secondary c_font_color">保険証書番号</td>
+                    <td class="text-center align-middle td_color"><%= claim.policy_number %></td>
+                  </tr>
+                  <tr>
+                    <td class="text-center align-middle table-secondary c_font_color">支払通知書送付住所</td>
+                    <td class="text-center align-middle td_color"><%= claim.destination %></td>
+                  </tr>
+                  <tr>
+                    <td class="text-center align-middle table-secondary c_font_color">領収書</td>
+                    <td class="text-center align-middle td_color"><%= attachment_image_tag claim, :receipt_img, :size =>'300x300' %></td>
+                  </tr>
+                </table>
+              </div>
           </div>
-      </div>
-    </div>
-  <% end %>
+        </div>
+      <% end %>
+    <% else %>
+      <p class="contract_nill">ご加入契約の登録がありません。<br>契約の新規登録を行ってください。</p>
+    <% end %>
   <div class="pagination  justify-content-center">
     <%= paginate @claims %>
   </div>
