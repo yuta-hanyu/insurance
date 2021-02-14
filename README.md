@@ -27,7 +27,7 @@
 
 ### 開発環境
 - OS：Linux
-- 言語：HTML5, SCSS, Ruby(2.6.3p62), SQL, JavaScript
+- 言語：HTML5, SCSS, Ruby(2.6.3), SQL, JavaScript
 - フレームワーク：Ruby on Rails(5.2.4.4), Vue(2.6.12)（APIにのみ使用。学習中。）
 
 ### 技術一覧
