@@ -21,6 +21,7 @@ $(function() {
       $('#modalReceiptImg').text(receiptImg)
     //   // モーダル 開く
       $(".claim_modal_wrapper").show('slow');
+      $("#new_msg").html('');
   });
   // モーダル閉じる
   $('.close-modal').click(function(){
