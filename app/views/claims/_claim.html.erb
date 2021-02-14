@@ -17,11 +17,11 @@
           </th>
         </tr>
         <tr>
-          <th style="background-color:white;" class="text-center">請求日</th>
+          <th style="background-color:white;" class="text-center c_font_color">請求日</th>
           <th style="background-color:white;" class="text-center"><%= claim.created_at.strftime('%Y/%m/%d') %></th>
         </tr>
         <tr>
-          <th style="background-color:white;" class="text-center">入院日</th>
+          <th style="background-color:white;" class="text-center c_font_color">入院日</th>
           <th style="background-color:white;" class="text-center"><%= claim.hospital_stay.strftime('%Y/%m/%d') %></th>
         </tr>
       </table>
@@ -30,27 +30,27 @@
     <div id="claim_e-<%= claim.id %>" style="display: none;">
       <table class="table">
         <tr>
-          <td class="text-center align-middle table-secondary">請求ID</td>
+          <td class="text-center align-middle table-secondary c_font_color">請求ID</td>
           <td class="text-center align-middle td_color"><%= claim.id %></td>
         </tr>
         <tr>
-          <td class="text-center align-middle table-secondary">患者名</td>
+          <td class="text-center align-middle table-secondary c_font_color">患者名</td>
           <td class="text-center align-middle td_color"><%= claim.patient %></td>
         </tr>
         <tr>
-          <td class="text-center align-middle table-secondary">振込口座</td>
+          <td class="text-center align-middle table-secondary c_font_color">振込口座</td>
           <td class="text-center align-middle td_color"><%= claim.account_number %></td>
         </tr>
         <tr>
-          <td class="text-center align-middle table-secondary">保険証書番号</td>
+          <td class="text-center align-middle table-secondary c_font_color">保険証書番号</td>
           <td class="text-center align-middle td_color"><%= claim.policy_number %></td>
         </tr>
         <tr>
-          <td class="text-center align-middle table-secondary">支払通知書送付住所</td>
+          <td class="text-center align-middle table-secondary c_font_color">支払通知書送付住所</td>
           <td class="text-center align-middle td_color"><%= claim.destination %></td>
         </tr>
         <tr>
-          <td class="text-center align-middle table-secondary">領収書</td>
+          <td class="text-center align-middle table-secondary c_font_color">領収書</td>
           <td class="text-center align-middle td_color"><%= attachment_image_tag claim, :receipt_img, :size =>'300x300' %></td>
         </tr>
       </table>

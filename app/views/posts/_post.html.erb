@@ -25,15 +25,15 @@
       <div id="post_e-<%= post.id %>" style="display: none;">
         <table class="table fix_table">
           <tr>
-            <td class="text-center align-middle table-secondary" style="width:20%">投稿者</td>
+            <td class="text-center align-middle table-secondary c_font_color" style="width:20%">投稿者</td>
             <td class="text-center align-middle td_color"><%= post.user.contractor_name %></td>
           </tr>
           <tr>
-            <td class="text-center align-middle table-secondary">投稿内容</td>
+            <td class="text-center align-middle table-secondary c_font_color">投稿内容</td>
             <td class="text-left align-middle td_color"><%= safe_join(post.content.split("\n"),tag(:br)) %></td>
           </tr>
           <tr>
-            <td class="text-center align-middle table-secondary">画像</td>
+            <td class="text-center align-middle table-secondary c_font_color">画像</td>
             <td class="text-center align-middle td_color"><%= attachment_image_tag post, :post_img, :size =>'350x300' %></td>
           </tr>
         </table>

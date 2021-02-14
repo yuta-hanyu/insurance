@@ -1,13 +1,8 @@
+// メイン画像
 $(function() {
-  
-  // メイン画像
-$(function() {
- 
   // 一旦hide()で隠してフェードインさせる
   $('.main_visual, .u_main_visual, .a_main_visual').hide().fadeIn(2000);
- 
 });
-  
   // 機能概要説明
   $(function(){
       setTimeout(function(){
@@ -23,38 +18,6 @@ $(function() {
       $('.output4').fadeIn('slow');
       }, 5000);
   });
-  });
-  
-// ログイン、ゲスト、アドミン、新規登録modal  
-  $(function() {
-      // ログインモーダル開く
-    $('.login_show').click(function(){
-      $('#login_modal').slideDown('slow');
-    });
-    // ゲストモーダル開く
-    $('.guest_show').click(function(){
-      $('#guest_modal').slideDown('slow');
-    });  
-    // adminモーダル開く
-    $('.admin_login_show').click(function(){
-      $('#admin_login_modal').slideDown('slow');
-    });  
-    // 新規登録モーダル開く
-    $('.new_show').click(function(){
-      $('#new_modal').slideDown('slow');
-    }); 
-    // モーダル閉じる
-    $('.close-modal').click(function(){
-      $('#login_modal').slideUp('slow');
-      $('#guest_modal').slideUp('slow');
-      $('#admin_login_modal').slideUp('slow');
-      $('#new_modal').slideUp('slow');
-      // モーダルのエラーmsg削除
-      $('#errors_new').html('').removeClass();
-      $('#errors_login').html('').removeClass();
-    });
-  });
-  
 // FAQ
   $(function() {
     $('.faq-list-item').click(function(){
@@ -72,7 +35,6 @@ $(function() {
       }
     });
   });
-  
 // ナビアイテム
   $(function(){
   $('.navbar-nav li ').hover(
@@ -87,7 +49,6 @@ $(function() {
       },300)
     })
   });
-  
 // トップへ戻るボタン（ロゴ）
   $(function(){
     $('.top_btn').click(function(){
@@ -128,7 +89,6 @@ $(function() {
     },
     offset: '100%',
   });
-  
 　// ローディング
   // 読み込んだらフェードアウト
   $(window).load(function () {
@@ -138,7 +98,6 @@ $(function() {
       $('.loading').delay(100).fadeOut(100);
   }
   setTimeout('stopload()',10000);
-  
   // 画像プレビュー
   $(function(){
   $('#myfile').on('change', (e) => {
@@ -146,13 +105,11 @@ $(function() {
     var file = e.target.files[0];
     var reader = new FileReader();
     $('#pImg').css('display', 'block');
- 
     //画像≠場合はストップ
     if(file.type.indexOf("image") < 0){
       alert("画像ファイルを指定してください。");
       return false;
     }
- 
     //アップロードした画像を表示する
     reader.onload = (function(file){
       return (e) => {
@@ -161,10 +118,8 @@ $(function() {
       };
     })(file);
     reader.readAsDataURL(file);
- 
   });
 });
-
 // スライドショー
 $('.likes').slick({
         arrows: true,
