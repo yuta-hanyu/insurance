@@ -13,7 +13,6 @@
       <h2 class="comment_h2">お問い合わせ内容</h2>
       <table class="table comment_table">
         <tr>
-          
           <th colspan="2" class="text-center align-middle c_font_color table-secondary">
             <div class="cm_header_item">
               お問い合わせID: <%= @contact.id %>
@@ -24,7 +23,6 @@
               </div>
             </div>
           </th>
-        
         </tr>
         <tr>
           <th class="text-left align-middle c_font_color">お問い合わせ日</th>
@@ -44,7 +42,7 @@
         </tr>
         <tr>
           <th class="text-left align-middle c_font_color">お問い合わせ内容</th>
-          <th class="text-left align-middle"><%= simple_format(@contact.content) %></th>
+          <th class="align-left align-middle"><%= safe_join(@contact.content.split("\n"),tag(:br)) %></th>
         </tr>
       </table>
       <!--返信フォーム-->
@@ -52,10 +50,15 @@
         <div class="form">
           <%= form_with(model: @comment, id: 'comment_form') do |f| %>
           <%= hidden_field_tag :contact_id, @contact.id  %>
-          <p id="error-message" class="error-message none"></p>
+          <!--フラッシュ、バリデーションmsg-->
+          <p id="new_msg" style="padding-top: 0px; margin-bottom: 0px; font-size: 18px;"></p>
           <table class="table table-bordered table-md mt-3 table-success">
             <tr>
-              <td><%= f.text_area :content,:size => "60x6", class: 'form-control ajax_text' %></td>
+              <td>
+                <h6 style="color:red; font-size:13px;">※300字以内でご入力ください。</h6>
+                <div class="count_area"><span class="now_count">0</span> / 300</div>
+                <%= f.text_area :content,:size => "60x6", class: 'form-control ajax_text', id: 't_count' %>
+              </td>
             </tr>
             <tr>
               <td colspan="2" class="text-center align-middle"><%= f.submit '返信', class: 'next_btn' %></td>

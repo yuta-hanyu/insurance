@@ -11,18 +11,18 @@ class CommentsController < ApplicationController
     @contact = Contact.find(params[:id])
     @comment = @contact.comments.build
     @comment.user_id = current_user.id
-    @comments = @contact.comments.order(id: :desc)
+    @comments = @contact.comments.order(id: :desc).page(params[:page]).per(3)
   end
 
   def create
     @contact = Contact.find(params[:contact_id])
     @comment = @contact.comments.build(comment_params)
     @comment.user_id = current_user.id
+    @comments = @contact.comments.order(id: :desc).page(params[:page]).per(3)
     if @comment.save
       @msg = "返信しました"
-      @comments = @contact.comments.order(id: :desc)
     else
-      exit
+      @msgs = @comment.errors.full_messages.join("、")
     end
   end
 

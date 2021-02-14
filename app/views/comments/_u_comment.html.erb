@@ -7,7 +7,7 @@
     <% unless comment.blank? %>
      <!--destroy.jsで削除するID-->
       <div id="comment-<%= comment.id %>" >
-        <table class="table comment_table" >
+        <table class="table comment_table fix_table" >
           <tr>
             <th colspan="2" class="text-center align-middle table-warning c_font_color <%= "a_color" if comment.user.contractor_name == "管理者" %>">
               <div class="cm_header_item">
@@ -29,13 +29,15 @@
           </tr>
           <tr>
             <th width="20%" class="users_th text-center align-middle c_font_color">内容</th>
-            <th class="align-middle"><%= simple_format(comment.content) %></th>
+            <th class="align-middle"><%= safe_join(comment.content.split("\n"),tag(:br)) %></th>
           </tr>
         </table>
       </div>
     <% end %>
 <% end %>
-    
+<div class="pagination  justify-content-center">
+  <%= paginate @comments %> 
+</div>
     
     
 

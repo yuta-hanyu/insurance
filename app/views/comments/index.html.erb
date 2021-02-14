@@ -4,7 +4,7 @@
       <h1>お問い合わせ一覧</h1>
     </div>
   </div>
-  <p>加入者からのお問い合わせを確認の上、ご返信ください。</p>
+  <p>加入者からのお問い合わせを確認の上、返信ください。</p>
   <% if @contacts.any? %>
     <% @contacts.each do |contact| %>
       <div class="col-md-8 offset-md-2 mt-5 mb-5">
@@ -16,9 +16,9 @@
             <th width="20%" class="text-center a_font_color">−</th>
           </tr>
           <tr>
-            <th class="text-center"><%= contact.created_at.to_s(:datetime_jp) %></th>
-          　<th class="text-center"><%= contact.type %></th>
-          　<th rowspan=”2 class="text-center"><%= link_to "返信する", comment_path(contact.id), class: "font_color" %></th>
+            <th style="background-color:white;" class="text-center"><%= contact.created_at.to_s(:datetime_jp) %></th>
+          　<th style="background-color:white;" class="text-center"><%= contact.type %></th>
+          　<th style="background-color:white;" rowspan=”2 class="text-center"><%= link_to "返信する", comment_path(contact.id), class: "font_color" %></th>
           </tr>
         </table>
       </div>

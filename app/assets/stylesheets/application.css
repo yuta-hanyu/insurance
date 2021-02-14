@@ -192,3 +192,10 @@ footer {
 #myfile {
     display: block;
 }
+/*// はみ出ないよう*/
+.fix_table {
+    /*width: 100%;*/
+    /*table-layout: fixed;*/
+    word-break: break-all;
+    word-wrap: break-all;
+}
