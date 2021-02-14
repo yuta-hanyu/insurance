@@ -1,5 +1,9 @@
-$("#ji_post").html("<%= j(render partial: 'posts/post') %>");
-$(".post_form").hide();
-$("#j_post").show("<%= j(render partial: 'contacts/complete') %>");
-$(".p_ajax_text1, .p_ajax_text2").val('');
-$("#post_msg").html("<%= @msg %>")
+<% if @post.save %>
+  $(".post_form").hide();
+  $("#j_post").show("<%= j(render partial: 'contacts/complete') %>");
+  $(".p_ajax_text1, .p_ajax_text2").val('');
+  $("#ji_post").html("<%= j(render partial: 'posts/post') %>");
+  $("#new_msg").html('');
+<% else %>
+  $("#new_msg").html('<div style="color:red; margin-bottom:10px;"><%= @msgs %></div>');
+<% end %>

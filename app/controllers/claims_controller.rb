@@ -12,9 +12,10 @@ class ClaimsController < ApplicationController
   def create
     @claim = current_user.claims.build(claim_params)
     if @claim.save(claim_params)
-       @claims =  current_user.claims.order(id: :desc).page(params[:page]).per(5)
+      @claims =  current_user.claims.order(id: :desc).page(params[:page]).per(5)
     else
-      exit
+      @msgs = @claim.errors.full_messages.join("、")
+      @claims =  current_user.claims.order(id: :desc).page(params[:page]).per(5)
     end
   end
   
@@ -55,12 +56,5 @@ class ClaimsController < ApplicationController
   def if_not_admin
     redirect_to root_path unless current_user.admin?
   end
-  
-  # def correct_user
-  #   @claim = current_user.claims.find_by(id: params[:id])
-  #   unless @claim
-  #     redirect_to root_url(current_user.id)
-  #   end
-  # end
   
 end

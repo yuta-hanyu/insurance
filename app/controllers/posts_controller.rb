@@ -12,7 +12,8 @@ class PostsController < ApplicationController
     if @post.save(post_params)
        @posts = current_user.posts.order(id: :desc).page(params[:page]).per(5)
     else
-      exit
+       @msgs = @post.errors.full_messages.join("、")
+       @posts = current_user.posts.order(id: :desc).page(params[:page]).per(5)
     end
   end
 
@@ -29,7 +30,7 @@ class PostsController < ApplicationController
   end
   
   def post_params
-    params.require(:post).permit(:title,:content,:post_img)
+    params.require(:post).permit(:title, :content, :post_img)
   end
   
   

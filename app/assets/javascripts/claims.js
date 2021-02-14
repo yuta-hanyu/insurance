@@ -19,17 +19,8 @@ $(function() {
       $('#modalAccountNumber').text(accountNumber)
       $('#modalDestination').text(destination)
       $('#modalReceiptImg').text(receiptImg)
-    　
-    if(patient != "" && illness != "" && hospitalStay != "" && policyNumber != "" && accountNumber != "" && destination != "" && receiptImg != "") {
-      // モーダル 開く
+    //   // モーダル 開く
       $(".claim_modal_wrapper").show('slow');
-      // 正しく入力された場合はエラー削除
-      $('.error-message').text('');
-    } else {
-      $("#error-message").removeClass();
-      $("#error-message").addClass("error-message");
-      $('#error-message').text('未入力があります。入力内容をご確認ください。');
-    }
   });
   // モーダル閉じる
   $('.close-modal').click(function(){

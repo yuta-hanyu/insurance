@@ -30,7 +30,7 @@
           </tr>
           <tr>
             <td class="text-center align-middle table-secondary">投稿内容</td>
-            <td class="text-center align-middle td_color"><%= post.content %></td>
+            <td class="text-center align-middle td_color"><%= safe_join(post.content.split("\n"),tag(:br)) %></td>
           </tr>
           <tr>
             <td class="text-center align-middle table-secondary">画像</td>
