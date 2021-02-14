@@ -1,6 +1,6 @@
 <% if @contract.save %>
   $("#j_contract").html("<%= j(render partial: 'contracts/contract') %>");
-  $("#new_msg").html('<div style="color:green; margin-bottom:10px;"><%= @msg %>');
+  $("#new_msg").html('<div style="color:green; margin-bottom:10px;"><%= @msg %></div>');
   $(".ajax_text, .ajax_num").val('');
 <% else %>
   $("#new_msg").html('<div style="color:red; margin-bottom:10px;"><%= @msgs %></div>');

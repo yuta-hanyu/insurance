@@ -19,7 +19,7 @@ class ContactsController < ApplicationController
   def destroy
     @contact = current_user.contacts.find(params[:id])
     @contact.destroy
-    flash[:success] = 'お問い合わせを削除しました。'
+    flash[:danger] = "お問い合わせID#{@contact.id}を削除しました。"
     redirect_to contacts_path
   end
   

@@ -18,7 +18,8 @@
         <p style="color: red; font-size: 18px;">管理者は契約者情報の編集・退会が出来ません</p>
       <% elsif %>
       <p style="color: #000000;">契約内容の変更</p>
-      <div id="errors_edit"></div>
+      <!--フラッシュ、バリデーションmsg-->
+      <p id="edit_msg" style="padding-top: 0px; margin-bottom: 0px;"></p>
       <div class="offset-1 col-10 offset-1">
         <%= form_with(model: @user) do |f| %>
           <div class="form-group">
@@ -53,8 +54,6 @@
             <%= f.label :password_confirmation, 'パスワード再確認' %>
             <%= f.password_field :password_confirmation, class: 'form-control'%>
           </div>
-        　<!--フラッシュ、バリデーションmsg-->
-          <p id="edit_msg" style="padding-top: 0px; margin-bottom: 0px;"></p>
         <div class="main_btn">
           <%= f.submit '保存',class: 'next_btn close-e_form' %>
         <% end %>

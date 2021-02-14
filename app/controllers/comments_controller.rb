@@ -1,7 +1,7 @@
 class CommentsController < ApplicationController
   before_action :require_user_logged_in
   before_action :if_not_admin, only: [:index]
-  before_action :correct_user, only: [:destroy]
+  before_action :correct_user
   
   def index
     @contacts = Contact.order(created_at: :desc).page(params[:page]).per(5)
@@ -29,7 +29,7 @@ class CommentsController < ApplicationController
   def destroy
     @comment = current_user.comments.find(params[:id])
     @comment.destroy
-    @msg = "削除しました"
+    @msg = "#{@comment.created_at.to_s(:datetime_jp)}に送信した返信を削除しました"
   end
   
   private
@@ -45,7 +45,7 @@ class CommentsController < ApplicationController
   def correct_user
     @comment = current_user.comments.find(params[:id])
     unless @comment
-    redirect_back(fallback_location: comment_path)
+    redirect_to "/"
     end
   end
   

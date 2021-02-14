@@ -1,2 +1,6 @@
-$("#j_user").html("<%= j(render partial: 'users/edit') %>");
-$("#edit_msg").html('<div style="color:green; margin-bottom:10px;"><%= @msg %></div><div style="color:red; margin-bottom:10px;"><%= @msgs %></div>');
+<% if @user.save %>
+  $("#j_user").html("<%= j(render partial: 'users/edit') %>");
+  $("#edit_msg").html('<div style="color:green; margin-bottom:10px;"><%= @msg %></div>');
+<% else %>
+  $("#edit_msg").html('<div style="color:red; margin-bottom:10px;"><%= @msgs %></div>');
+<% end %>

@@ -1,7 +1,7 @@
 class ContractsController < ApplicationController
   
   before_action :require_user_logged_in
-  before_action :correct_user, only: [:destroy,:edit, :edit_confirm, :update]
+  before_action :correct_user, only: [:destroy, :edit, :update]
   
   def index
     @contracts = current_user.contracts.order(id: :desc).page(params[:page]).per(3)

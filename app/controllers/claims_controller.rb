@@ -44,7 +44,7 @@ class ClaimsController < ApplicationController
   def destroy
     @claim =  Claim.find(params[:id])
     @claim.destroy
-    @msg = "削除しました"
+    @msg = "請求ID#{@claim.id}を削除しました"
   end
   
   private

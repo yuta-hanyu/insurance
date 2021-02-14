@@ -16,11 +16,14 @@
           <th colspan="2" class="text-center align-middle c_font_color table-secondary">
             <div class="cm_header_item">
               お問い合わせID: <%= @contact.id %>
+              <!--ログインユーザー名と返信者が一致する場合に削除を表示-->
+              <% unless current_user.admin? %>
               <div class="cm_icon_item">
                 <%= link_to @contact, method: :delete, data: { confirm: "返信内容も全て削除されますがよろしいですか？" } do %>
                   <span id="e_icon" class="font_color_red" ><i class="fas fa-trash-alt"></i></span>
                 <% end %>
               </div>
+              <% end %>
             </div>
           </th>
         </tr>

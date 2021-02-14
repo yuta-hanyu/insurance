@@ -20,7 +20,7 @@ class PostsController < ApplicationController
   def destroy
     @post = current_user.posts.find(params[:id])
     @post.destroy
-    @msg = "削除しました"
+    @msg = "#{@post.title}に関する投稿を削除しました"
   end
   
   private

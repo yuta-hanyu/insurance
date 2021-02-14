@@ -1,8 +1,8 @@
 class UsersController < ApplicationController
   
-  before_action :require_user_logged_in, only: [:show, :edit, :edit_confirm, :update, :destroy]
+  before_action :require_user_logged_in, only: [:show, :edit, :update, :destroy]
   before_action :guest_user, :admin_user, only: [:edit, :update, :destroy]
-  before_action :correct_user, only: [:show, :destroy,:edit, :edit_confirm, :update]
+  before_action :correct_user, only: [:show, :destroy,:edit, :update]
   
   def show
     @user = User.find(params[:id])
@@ -23,7 +23,6 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     if @user.update(user_params)
       @msg = '変更が完了しました'
-      @user = User.find(params[:id])
     else
       @msgs = @user.errors.full_messages.join("、")
     end
