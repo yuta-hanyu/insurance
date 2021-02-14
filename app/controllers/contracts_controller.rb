@@ -9,8 +9,8 @@ class ContractsController < ApplicationController
   end
 
   def create
-    @contract = current_user.contracts.build(contract_params).page(params[:page]).per(3)
-    @contracts = current_user.contracts.order(id: :desc)
+    @contract = current_user.contracts.build(contract_params)
+    @contracts = current_user.contracts.order(id: :desc).page(params[:page]).per(3)
     if @contract.save(contract_params)
       @msg = 'ご契約の新規登録が完了しました'
     else 
