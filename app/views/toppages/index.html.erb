@@ -31,7 +31,9 @@
 <!--hover message-->
 <% if logged_in? && current_user.admin? %>
   <%= render "admin_message" %>
-<% else %>
+<% elsif logged_in? %>
   <%= render "user_message" %>
+<% else %>
+  <%= render "no_message" %>
 <% end %>
 

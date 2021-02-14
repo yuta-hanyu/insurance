@@ -167,8 +167,14 @@
 .message {
     padding: 5px 10px;
 }
+.message_container h3 {
+    color: #000000;
+    text-align: center;
+    border-bottom: solid 1px;
+    letter-spacing: 5px;
+    padding: 10px;
+}
 // ご加入契約のご登録
-
 .message h2 {
     text-align: center;
     font-size: 22px;

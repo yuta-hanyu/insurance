@@ -1,0 +1,167 @@
+<!--機能説明-->
+<div class="message-wrapper animated">
+  <div class="message_container">
+    <div class="heading">
+      <h2>ご契約者専用サイトの利用について</h2>
+    </div>
+ <!--各機能説明-->
+    <!--user機能説明-->
+    <h3>ご利用者様</h3>
+    <div class="row offset-1 col-md-10 offset-1">
+      <div class="col-md-3">
+        <div class="message">
+          <div class="fas_text">
+            <i class="fas fa-address-card fa-4x       
+            <%= "fa_us_color" if logged_in?  %>
+            <%= "fa_no_color" unless logged_in?  %>"></i>
+          </div>
+          <h2>ご加入契約の登録</h2>
+          <div class="output1 txt-contents">
+            <p>ご加入契約のご登録ができ、ご加入契約での入院給付金のご請求やご加入契約の確認ができます。</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="message">
+          <div class="fas_text">
+            <i class="fas fa-calculator fa-4x       
+            <%= "fa_us_color" if logged_in?  %>
+            <%= "fa_no_color" unless logged_in?  %>"></i>
+          </div>
+          <h2>請求のお手続き</h2>
+          <div class="output2 txt-contents">
+            <p>窓口に起こし頂かなくとも、当サイトより入院給付金のご請求ができます。</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="message">
+          <div class="fas_text">
+            <i class="fas fa-envelope fa-4x       
+            <%= "fa_us_color" if logged_in?  %>
+            <%= "fa_no_color" unless logged_in?  %>"></i>
+          </div>
+          <h2>各種お問い合わせ</h2>
+          <div class="output3 txt-contents">
+            <p>当サイトより資料請求や給付金請求に関するお問い合わせができます。</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="message">
+          <div class="fas_text">
+            <i class="fas fa-thumbs-up fa-4x       
+            <%= "fa_us_color" if logged_in?  %>
+            <%= "fa_no_color" unless logged_in?  %>"></i>
+          </div>
+          <h2>お気に入り</h2>
+          <!--IDはページ内リンク用-->
+          <div class="output4 txt-contents" id="link2">
+            <p>気になる保険商品をお気に入り登録できます。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--admin機能説明-->
+    <h3>管理者様</h3>
+    <div class="row offset-1 col-md-10 offset-1">
+      <div class="col-md-4">
+        <div class="message">
+          <div class="fas_text">
+            <i class="fas fa-ad fa-4x fa_ad_color"></i>
+          </div>
+          <h2>保険商品PR記事の投稿</h2>
+          <div class="output1 txt-contents">
+            <p>保険商品のPR記事を投稿することができます。投稿した記事はトップページに表示されます。</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="message">
+          <div class="fas_text">
+           <i class="fas fa-file-csv fa-4x fa_ad_color"></i>
+          </div>
+          <h2>CSV出力</h2>
+          <div class="output2 txt-contents">
+            <p>ご契約者からの給付金請求を確認することでき、請求データのCSV出力を行うことができます。</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="message">
+          <div class="fas_text">
+            <i class="fas fa-check-circle fa-4x fa_ad_color"></i>
+          </div>
+          <h2>各種お問い合わせ対応</h2>
+          <div class="output3 txt-contents">
+            <p>ご契約者からの資料請求やお問い合わせに対して返信を繰り返し行うことができます。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--商品紹介-->
+<div class="<%= "likes-wrapper_no" unless logged_in?  %>
+            <%= "likes-wrapper_us" if logged_in?  %> animated">
+  <div class="heading">
+    <h2>生命保険をご検討の方</h2>
+  </div>
+  <div class="likes">
+    <% @posts.each do |post| %>
+      <%= link_to(toppage_path(post.id)) do %>
+        <ul>
+          <table class="table_toppage table-bordered">
+            <tr>
+               <th class="text-center"><%= post.title %></th>
+            </tr>
+            <tr>
+               <th class="text-center"><%= attachment_image_tag post, :post_img, :size =>'250x250', :style => "border-radius: 30%" %></th>
+            </tr>
+            <tr>
+               <% if current_user.present? %>
+               <th class="text-center"><%= link_to "詳細/お気に入り登録", toppage_path(post.id), class: "font_color" %></th>
+               <% else %>
+               <th class="text-center"><%= link_to "詳細", toppage_path(post.id), class: "font_color" %></th>
+               <% end %>
+            </tr>
+          </table>
+        </ul>
+        <% end %>
+    　<% end %>
+  </div>
+</div>
+<!--FQQ-->
+<!--IDはページ内リンク用-->
+<div class="faq-wrapper animated" id="link3">
+  <div class="faq-container">
+    <div class="heading">
+      <h2>よくある質問</h2>
+    </div>
+    <div class="faq">
+      <ul class="faq-list">
+        <li class="faq-list-item" >
+          <h3 class="question"><i class="fab fa-quora"></i>  加入済みの契約を登録する場合、何を参照すればよいですか。</h3>
+          <span>+</span>
+          <div class="answer">
+            <p>お手持ちの保険証書をご確認の上、契約の新規登録を行ってください。</p>
+          </div>
+        </li>
+        <li class="faq-list-item" >
+          <h3 class="question"><i class="fab fa-quora"></i>  給付金の請求を取消したいのですが、どうすればよいでしょうか。</h3>
+          <span>+</span>
+          <div class="answer">
+            <p>基本的に給付金の請求取消はできませんが、特別な事情がある場合はTelxxx-xxx-xxxまでご連絡ください。弊社にて取消いたします。</p>
+          </div>
+        </li>
+        <li class="faq-list-item" >
+          <h3 class="question"><i class="fab fa-quora"></i>  保険契約を解約したのでマイページも退会したいです。</h3>
+          <span>+</span>
+          <div class="answer">
+            <p>「ご契約者様情報」より退会手続きを行ってください。</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
