@@ -1,7 +1,8 @@
 class CommentsController < ApplicationController
   before_action :require_user_logged_in
   before_action :if_not_admin, only: [:index]
-  before_action :correct_user, if: :if_not_admin
+  # admin以外はユーザー認証必須とする
+  before_action :correct_user, if: proc{ current_user.email != "admin@admin.com" } 
   
   def index
     @contacts = Contact.order(created_at: :desc).page(params[:page]).per(5)
