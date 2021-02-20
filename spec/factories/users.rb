@@ -1,5 +1,9 @@
 FactoryBot.define do
   factory :user do
+    # has_manyの関係性
+    contracts {[
+     FactoryBot.build(:contract, user: nil)
+    ]}
     # パスワード再確認用に変数定義
     password = Faker::Internet.password(min_length: 6, max_length: 8)
     # user_id { Faker::Lorem.characters(number:5) }
