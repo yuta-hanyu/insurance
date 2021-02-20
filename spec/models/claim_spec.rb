@@ -8,7 +8,7 @@ RSpec.describe Claim, type: :model do
       @claim.policy_number = "ひろし"
       @claim.hospital_stay = "2020/02/02"
       @claim.account_number = 1212121
-      @claim.receipt_img = "121212"
+      @claim.receipt_img = "Refile::File:0x00007f9f740fa760"
       @claim.destination = "日吉"
       @claim.illness = "かぜ"
       @claim.save

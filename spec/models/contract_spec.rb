@@ -6,6 +6,7 @@ RSpec.describe Contract, type: :model do
       @contract = Contract.new
       @contract.contract_name = "終身保険"
       @contract.policy_number = "1234"
+      @contract = build(:contract, user_id: user.id, group_id: group.id)
       @contract.save
     end
     it "全て入力してあるので保存される" do
