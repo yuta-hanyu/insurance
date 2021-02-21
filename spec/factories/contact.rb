@@ -4,7 +4,7 @@ FactoryBot.define do
     user
     # has_manyの関係性
     # comments {[
-    # FactoryBot.build(:comment, user: nil)
+    # FactoryBot.build(:comment, contact: nil)
     # ]}
     type { Faker::Lorem.characters(number:30) }
     title { Faker::Lorem.characters(30) }
