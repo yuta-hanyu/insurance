@@ -4,6 +4,12 @@ FactoryBot.define do
     contracts {[
      FactoryBot.build(:contract, user: nil)
     ]}
+    posts {[
+    FactoryBot.build(:post, user: nil)
+    ]}
+    contacts {[
+    FactoryBot.build(:contact, user: nil)
+    ]}
     # パスワード再確認用に変数定義
     password = Faker::Internet.password(min_length: 6, max_length: 8)
     # user_id { Faker::Lorem.characters(number:5) }
