@@ -2,7 +2,7 @@ FactoryBot.define do
   factory :user do
     # has_manyの関係性
     contracts {[
-     FactoryBot.build(:contract, user: nil)
+    FactoryBot.build(:contract, user: nil)
     ]}
     posts {[
     FactoryBot.build(:post, user: nil)
