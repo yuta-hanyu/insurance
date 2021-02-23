@@ -22,12 +22,20 @@ RSpec.describe "ログインテスト", type: :system do
     click_on 'ユーザーログイン'
     expect(page).to have_content 'ログアウト'
   end
-  it 'ユーザーログインテスト失敗', js: true do
+  it 'ユーザーログインテスト失敗' do
     visit root_path
     expect(page).to have_content('ユーザーログイン')
     fill_in "user[email]", with: ""
-    fill_in 'user[password]', with: @user.password
+    fill_in 'user[password]', with: ""
     click_on 'ユーザーログイン'
-    expect(page).to have_content 'ログアウト'
+    expect(page).to have_content 'ログインに失敗しました'
+  end
+  it '管理者ログインテスト成功' do
+    visit root_path
+    expect(page).to have_content('管理者ログイン')
+    fill_in "user[email]", with: "admin@admin.com"
+    fill_in 'user[password]', with: "a"
+    click_on 'ユーザーログイン'
+    expect(page).to have_content '商品PR'
   end
 end
