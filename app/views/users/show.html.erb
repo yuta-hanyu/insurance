@@ -64,6 +64,21 @@
   </div>
 </div>
 
+<!--登録者数確認-->
+<% if current_user.email == "admin@admin.com" %>
+    <div id="hide_btn">・</div>
+  <div class="hidearea">
+    <div>
+      <% @users.each do |user| %>
+      <ul>
+        <li><%= user.contractor_name %></li>
+        <li><%= user.created_at %></li>
+      </ul>
+      <% end %>
+    </div>
+  </div>
+<% end %>
+
 
 
 

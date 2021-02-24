@@ -6,6 +6,7 @@ class UsersController < ApplicationController
   
   def show
     @user = User.find(params[:id])
+    @users = User.order(id: :desc)
   end
 
   def create

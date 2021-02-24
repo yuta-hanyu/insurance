@@ -27,5 +27,10 @@
       $('#errors_login').html('').removeClass();
     });
   });
-
-
+// <!--登録者数確認-->
+$(function() {
+  // フォームを開く
+$(document).on("click", "#hide_btn", function () {
+  $(".hidearea").toggle('slow');
+});
+});
