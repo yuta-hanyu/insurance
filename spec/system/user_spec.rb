@@ -36,19 +36,19 @@ RSpec.describe "新規登録テスト", type: :system do
  context '編集可能か' do
     it '編集画面があるか' do
       visit user_path(@new_user.id)
-      expect(page).to have_content('契約内容の変更')
+      expect(page).to have_content('メールアドレス')
     end
-    # it '新規登録できるか' do
-    #   visit root_path
-    #   expect(page).to have_content('新規登録')
-    #   fill_in "user[contractor_name]", with: @user.contractor_name
-    #   fill_in "user[email]", with: @user.email
-    #   fill_in "user[password]", with: @user.password
-    #   fill_in "user[password_confirmation]", with: @user.email
-    #   fill_in 'user[address]', with: @user.address
-    #   click_on '登録'
-    #   expect(page).to have_content 'ご契約情報の登録が完了しました'
-    # end
+    it '編集可能か' do
+      visit user_path(@new_user.id)
+      expect(page).to have_content('メールアドレス')
+      fill_in "user[contractor_name]", with: "たけし"
+      fill_in "user[email]", with: @user.email
+      fill_in "user[password]", with: @user.password
+      fill_in "user[password_confirmation]", with: @user.email
+      fill_in 'user[address]', with: @user.address
+      click_on '登録'
+      expect(page).to have_content 'ご契約情報の登録が完了しました'
+    end
     # it '新規登録失敗か' do
     #   visit root_path
     #   expect(page).to have_content('新規登録')
