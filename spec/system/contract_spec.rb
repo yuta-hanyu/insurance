@@ -9,11 +9,11 @@ RSpec.describe "契約登録テスト", type: :system do
     fill_in 'user[password]', with: @user.password
     click_on 'ユーザーログイン'
     expect(page).to have_content 'ログアウト'
+    visit contracts_path(@user.id)
   end
   
   context '新規契約登録' do
     it '新規登録画面があるか' do
-      visit contracts_path(@user.id)
       expect(page).to have_content('ご登録済みの契約一覧')
     end
     # it '新規登録できるか' do
